@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_new_gratitude_express_gratitude_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginTop="@dimen/dimen_8dp"
+    android:layout_marginBottom="@dimen/dimen_8dp"
+    android:layout_marginLeft="@dimen/dimen_16dp"
+    android:layout_marginRight="@dimen/dimen_16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Would you help us improve with your feedback?"
+        android:textColor="@color/text_view_black"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:textSize="20dp" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen_16dp"
+    android:layout_marginBottom="@dimen/dimen_8dp"
+    android:layout_marginRight="@dimen/dimen_16dp"
+    android:layout_marginLeft="@dimen/dimen_16dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/no_thanks"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_button_outer"
+        android:text="NO, THANKS"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:textColor="@color/app_orange"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="15dp"
+        android:layout_marginRight="@dimen/dimen_2dp"
+        android:layout_marginLeft="@dimen/dimen_2dp"
+        />
+
+    <Button
+        android:id="@+id/ok_sure"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:background="@drawable/button_button"
+        android:text="OK SURE"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="15dp"
+        android:layout_marginRight="@dimen/dimen_2dp"
+        android:layout_marginLeft="@dimen/dimen_2dp"
+        />
+</LinearLayout>
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+

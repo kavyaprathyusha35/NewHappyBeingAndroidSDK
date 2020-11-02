@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_new_gratitude_express_gratitude_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hb_background"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/express_love_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <View
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/express_love_toolbar"
+        android:background="@color/view_line"
+        android:visibility="invisible" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adViewLayer"
+        android:layout_below="@+id/myView"
+        android:scrollbars="vertical">
+
+
+        <LinearLayout
+            style="@style/CommonMarginStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+
+
+            <TextView
+                android:id="@+id/hint_text_all"
+                style="@style/CommonMarginStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:paddingBottom="@dimen/dimen_8dp"
+                android:paddingTop="@dimen/dimen_8dp"
+                android:text="@string/tv_SelfLove"
+                android:textColor="@color/gratitude_txt"
+                android:textColorHint="@color/gratitude_txt"
+                android:textSize="@dimen/dimen_16dp" />
+
+            <ImageView
+                android:id="@+id/gratitude_img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/emp_boy_eight" />
+
+
+            <EditText
+                android:id="@+id/express_your_gratitude"
+                style="@style/CommonMarginStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gratitude_edit_border"
+                android:gravity="start"
+                android:hint="@string/write_here"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:maxHeight="250dp"
+                android:minHeight="@dimen/edit_max"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gratitude_txt"
+                android:textColorHint="@color/gratitude_txt"
+                android:textSize="@dimen/dimen_16dp"
+                android:theme="@style/MyEditTextTheme" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="end"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_gratitude_style"
+                android:fontFamily="sans-serif-medium"
+                android:maxHeight="38dp"
+                android:maxWidth="88dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:text="SAVE"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/adViewLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</RelativeLayout>

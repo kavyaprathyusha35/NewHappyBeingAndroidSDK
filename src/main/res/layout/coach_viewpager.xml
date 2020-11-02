@@ -1,0 +1,135 @@
+<androidx.cardview.widget.CardView
+    android:id="@+id/coach_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/coach_background"
+    app:cardElevation="@dimen/dimen_0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+
+        <LinearLayout
+            android:id="@+id/coach_gratitude_linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/dimen_5dp"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.6"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_image_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="@dimen/dimen_0dp">
+
+
+                        <ImageView
+                            android:id="@+id/coach_gratitude_img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/imagery_icon" />
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4">
+
+
+                <ImageView
+                    android:id="@+id/play_button"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/coach_play_button" />
+
+                <TextView
+                    android:id="@+id/coach_duration_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/play_button"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="3dp"
+                    android:text="2:34"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/audio_desc_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:ellipsize="start"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp"
+                    android:maxLines="5"
+                    android:text="Relax from stress"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+
+                <Button
+                    android:id="@+id/coach_begin_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:background="@drawable/button_radius"
+                    android:fontFamily="sans-serif-regular"
+                    android:text="PLAY"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>

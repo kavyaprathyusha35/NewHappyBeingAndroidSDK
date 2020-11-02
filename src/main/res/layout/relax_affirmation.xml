@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.HomeScreenActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="vertical">
+
+        <ScrollView
+            style="@style/common_margin_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/relax_text"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="@dimen/dimen_2dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:fontFamily="@font/opensans_regular"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/audio_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_50dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_technique"
+                    android:textColor="@color/white"/>
+                <LinearLayout
+                    android:id="@+id/favouritesLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@drawable/coach_background"
+                    android:minHeight="70dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen_16dp"
+                    android:paddingRight="@dimen/dimen_16dp">
+                    <ImageView
+                        android:layout_width="@dimen/dimen_30dp"
+                        android:layout_height="@dimen/dimen_30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/fav_filled_icon"/>
+                    <TextView
+                        style="@style/EighthMarginStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:lineSpacingExtra="6dp"
+                        android:text="My Favourites"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_15dp" />
+
+                    <TextView
+                        android:id="@+id/favouritesTv"
+                        style="@style/EighthMarginStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight=".5"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="right"
+                        android:paddingRight="@dimen/dimen_8dp"
+                        android:lineSpacingExtra="6dp"
+                        android:text="(3)"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_15dp" />
+
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/relax_activity_recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/descriptionOfCoach"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:text="@string/mindspa"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:layout_marginBottom="@dimen/dimen_26dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</FrameLayout>

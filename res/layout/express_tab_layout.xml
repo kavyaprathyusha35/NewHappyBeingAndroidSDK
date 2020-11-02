@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            style="@style/common_margin_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_journal_text"
+                    android:textColor="@color/splash_text_color"
+                    android:fontFamily="@font/opensans_regular"
+                    android:lineSpacingExtra="@dimen/dimen_2dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32dp"
+                    android:layout_marginBottom="@dimen/dimen_16dp"
+                    android:background="@color/transparent"
+                    android:layout_gravity="center"/>
+<!--
+                <TextView
+                    android:layout_marginBottom="@dimen/dimen_15dp"
+                    android:id="@+id/descriptionOfJournal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/why_journal_text"
+                    android:textColor="#007AFF"
+                    android:textSize="@dimen/dimen_16sp" />
+-->
+
+        </LinearLayout>
+</ScrollView>

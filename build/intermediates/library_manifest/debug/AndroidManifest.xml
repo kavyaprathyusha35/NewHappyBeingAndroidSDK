@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nsmiles.happybeingsdklib"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.nsmiles.happybeingsdklib.dagger.application.BaseApplication"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.HomeScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.IntroSliderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeSelfLove"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeToday"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.gratitude.HappyMomentView"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.MindGym.VentOutJournal"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.MindGym.PlayRelaxAudioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.MindGym.RelaxAudiosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name="com.nsmiles.happybeingsdklib.MindGymFav.RelaxFavouritesActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.MindGym.RecommendFoodActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.NatureCalm.NatureCalmActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.MindGym.VentoutRecording" />
+        <activity android:name="com.nsmiles.happybeingsdklib.wellbeingassessment.activity.WellBeingAssessmentActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.Affimations.AffirmationScreen" />
+        <activity android:name="com.nsmiles.happybeingsdklib.playaudio.fragment.PlayAudioActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.wellbeingassessment.activity.AssessmentDetailsActivity" />
+
+        <service android:name="com.nsmiles.happybeingsdklib.Services.DownloadService" />
+        <service android:name="com.nsmiles.happybeingsdklib.Services.CoachDownloadService" />
+    </application>
+
+</manifest>

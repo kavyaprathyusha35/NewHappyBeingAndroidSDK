@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hb_background"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical">
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:background="@drawable/linear_radius"
+                android:orientation="vertical">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    style="@style/CommonMarginStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scrollbars="vertical"
+                    app:cardCornerRadius="0dp"
+                    android:minHeight="180dp"
+                    app:cardElevation="@dimen/dimen_0dp">
+
+                    <TextView
+                        android:id="@+id/food_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/dimen_8dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Hydrate yourself with some pure coconut water - lower your stress, tension and anxiety."
+                        android:textColor="@color/curated"
+                        android:textSize="@dimen/dimen_20dp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/done_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                style="@style/CommonMarginStyle"
+                android:background="@drawable/button_radius"
+                android:fontFamily="sans-serif-regular"
+                android:text="DONE"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_16dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+</RelativeLayout>

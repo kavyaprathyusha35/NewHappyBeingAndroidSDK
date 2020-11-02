@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/dimen_8dp"
+    android:layout_marginBottom="@dimen/dimen_8dp"
+    android:minHeight="70dp">
+
+
+
+        <TextView
+            android:id="@+id/category_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:maxLines="4"
+            android:maxWidth="230dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:textStyle="bold"
+            android:text="Creative"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_gravity="center|end">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+<!--            <com.happybeing.nsmiles.Utils.RoundedImageView-->
+<!--                android:id="@+id/result_img"-->
+<!--                android:layout_width="15dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                android:layout_marginStart="@dimen/dimen_16dp"-->
+<!--                android:layout_marginEnd="@dimen/dimen_8dp"-->
+<!--                android:background="@color/blue" />-->
+
+            <TextView
+                android:id="@+id/range_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-regular"
+                android:text="xxxx"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_14sp"
+                android:textStyle="bold"
+                android:breakStrategy="simple"
+                tools:targetApi="m" />
+        </LinearLayout>
+
+
+
+
+</LinearLayout>

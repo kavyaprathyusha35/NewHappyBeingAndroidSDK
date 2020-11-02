@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="@dimen/dimen_20dp"
+    android:background="@color/white"
+    android:maxHeight="300dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:maxHeight="300dp"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:id="@+id/dialog_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:minHeight="200dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Help"
+                    android:fontFamily="sans-serif-regular"
+                    android:textColor="@color/curated"
+                    android:textSize="@dimen/dimen_20sp" />
+
+                <TextView
+                    android:id="@+id/tvHintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:padding="1dp"
+                    android:textColor="@color/curated"
+                    android:textColorHint="@color/curated" />
+
+                <Button
+                    android:id="@+id/ib_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/button_radius"
+                    android:fontFamily="sans-serif-regular"
+                    android:text="GOT IT"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:textAllCaps="true"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log_in_text">Have an account? <b>Log in</b>></string>
+    <string name="get_started">Get started</string>
+    <string name="iam_here_to_help">I am here to help you</string>
+    <string name="hint1" />
+    <string name="my_coach_will_help">\"my Coach\" will help you</string>
+    <string name="hint2" >
+        Mind strengthening workouts personalised for you, everyday.
+    </string>
+    <string name="goals_will_help">\"my Goals\" will help you</string>
+    <string name="hint3" >
+        Personalised guidance to measure and achieve your goals, enhance happiness, health and relationships.
+    </string>
+    <string name="mindspa_will_help">\"MindSpa\" will help you</string>
+    <string name="hint4" >
+    Instant relaxation, manage stress and anxiety better. Sleep better. Feel better. Perform better.
+    </string>
+    <string name="journal_will_help">\"my Journal\" will help you</string>
+    <string name="hint5" >
+        Helps you practice gratitude. Shift focus from the negative to the positives.
+    </string>
+    <string name="image_view">Image view</string>
+    <string name="mindSpa">MindSpa</string>
+    <string name="navigation_drawer_open" />
+    <string name="splash_screen">app_icon</string>
+    <string name="relax_text" >
+                Here\'s a place to relax and rationalise your thoughts when you feel stressed or feeling low. You will find 40+  tools like breathing exercises, guided meditations, relaxing music, food to eat or activities to do, venting or express through writing. Choose a technique that best suits and start feeling better!
+    </string>
+    <string name="choose_technique">
+        Choose a technique that best works for you
+    </string>
+    <string name="mindspa" >
+                <u>How mindspa helps?</u>
+    </string>
+    <string name="network_header">Connectivity issue</string>
+    <string name="network_message">Please check your data network</string>
+    <string name="affirmations_intro_text">Positive affirmations help you overcome negative thoughts, feelings or beliefs by programming your mind into believing the stated concept.
+        \n\tA) You are presented with a set of affirmations on the screen with background subliminal music. Use earplugs and increase volume level if needed.
+        \n\tB) Read each affirmation loud. Say it as you believe it.
+        \n\tC) Think about what the words mean to you.
+        \n\tD) Visually experience a past or a future event or an imaginary one that supports the read affirmation.
+    </string>
+    <string name="no_network">Internet not available</string>
+    <string name="vent_record">1. Go to a quiet place or corner or just close the door of your room to make a private place for yourself. \n
+2. Vent out your anger, sadness, hurt or any other painful emotions.\n
+3. Talk out about the situation, people or matter that has caused you pain. \n
+4. Express your very deepest feelings, emotions and thoughts including the past pain. \n
+5. Vent out whatever comes to you. Don\'t worry about language, grammar or tone of your voice.\n
+6. Focus on venting out all that\'s bothering you, till you feel lighter in your heart.
+7. Reflect on if there is a better way to respond to this situation \n
+8. If possible, forgive the person.\n
+9. Click delete at the end, to destroy the file.\n
+10. After you click delete, go back to the person who have hurt you, express yourself in a cool and collected manner. </string>
+    <string name="gratitude_text">
+    Journaling - to build deeper relations with partner, family, friends or peers.
+    </string>
+    <string name="audio_text">
+    Today\'s mindfulness practice - to deepen being in present moment without judgement.
+    </string>
+    <string name="affirmation_text">
+    Affirmations - to transform negative beliefs to more positive ones
+    </string>
+    <string name="my_journal_text">This is the place to write and make journaling a habit. You can write down your biggest secrets, your dreams, desires, make a note of abundance, count your blessings, happy moments and express your pain - even the ones you cannot share with anyone else.</string>
+    <string name="about_work">Identify a thing you are grateful about your workplace. It could be expressing gratitude for your talents being utilised, colleagues, boss or anything you feel valued, contributed and respected.</string>
+
+
+    <string name="express_gratitude_radioOthers">Identify the person whom you want to send your gratitude message to.\n
+    Write a thank-you note expressing how much their contribution meant to you and how it helped or made you happy.\n
+    Express your true feelings in as many words as possible rather a short note.</string>
+
+
+    <string name="radio_radioOthers_subject">Hey, thanks for being there for me. It means a lot!</string>
+    <string name="personal_email">Email id</string>
+    <string name="write_here">Write here</string>
+    <string name="tv_SelfLove">Write few things you appreciate in your-self. Write about the quality and attitude that brought a positive outcome or made others happy. Appreciate yourself for that completely.</string>
+    <string name="abudance_hint_text">
+    Keep track of all the abundance in your life. It\'s like you wished for something to happen and magically it happened, without you putting much effort into it. Just note down such experiences.
+    \nExample can be, something you wish to buy - someone gifted you, gave money, was available for free or on sale and you brought it. Or you get good marks without you working hard for it etc.
+    </string>
+    <string name="manifest_hint_text">
+    Write your dreams, desires and wishes you wish to manifest in your life in as much detail as possible. Remember, to also put the needed effort to manifest your dream life.
+    </string>
+    <string name="how_journaling_helps"><u>How Journaling Helps?</u></string>
+    <string name="de_stress_1">Write your feelings and deepest thought what is hurting you.</string>
+    <string name="de_stress_2">In your writing,  really let go and explore your deepest emotions and thoughts.</string>
+    <string name="de_stress_3">Be it pain due to relationships with parents, spouse, friends or relatives; to your past, your present or your future; or to who you have been, who you would like to be or who you are now.</string>
+    <string name="de_stress_4">Do not worry about spelling, grammar or sentence structure. Write continuously for 15 to 20 minutes.</string>
+    <string name="de_stress_5">Start feeling better, healthier and uncover the sense of meaning in the experience.</string>
+    <string name="report_an_issue">Report an issue</string>
+    <string name="help_us">Help</string>
+    <string name="u_what_s_included_in_this_program_u"><u>What is Happy Being program?</u></string>
+    <string name="happy_message">Capture your happy moments in the happiness journal.</string>
+    <string name="my_happiness_amp_wellbeing_score"><![CDATA[My Happiness & wellbeing score :]]></string>
+    <string name="no_internet_connection">Internet not available</string>
+    <string name="_59" >59%</string>
+    <string name="intro_to_report">
+        Thank you for completing the wellbeing questionnaire. This report provides you with summary feedback about your current wellbeing in 8 relevant areas.
+    </string>
+    <string name="about_report">The report was produced by nSmiles. It has been derived from the results of a questionnaire completed by you, the respondent, and reflects the responses made by you.
+    \nThe report provides your best wellbeing practices, areas that need improvement and immediate attention. At the end of the report, you will find tips to maintain and achieve optimal wellbeing.
+    \nThis report has been generated electronically. nSmiles do guarantee that it has not been changed or edited. We can accept no liability for the consequences of the use of this report, howsoever arising.</string>
+    <string name="top_actions_you_may_want_to_take">TOP ACTIONS YOU MAY WANT TO TAKE IMMEDIATELY TO RESTORE WELLBEING QUICKLY</string>
+    <string name="detail_report">DETAILED REPORT</string>
+    <string name="detailed_report_text">
+    Here\'s the detailed explanation of each of the areas of well-being in the order of maximum to minimum percentages based on your responses. You will see details of explanation regarding the area of well-being, your score and the impact of it on wellbeing.
+    </string>
+    <string name="let_us_work">Let us work on your goal</string>
+    <string name="how_was_your_day">How was your day? Make a note of one good thing / appreciate a person today!</string>
+    <string name="evening_message">Evening workout - How was your day? Complete it happier.</string>
+    <string name="morning_message">Prepare for a positive and productive day.</string>
+    <string name="my_assess_text">Wellbeing, happiness &amp; success are all closely inter-related. Here is your personal wellbeing assessment, personalised improvement plan and your daily workout coach in an App. To know what\'s causing your current situation, take this holistic wellbeing assessment across these 8 areas - physical, mental, social, finances, purpose, environmental, family and career wellbeing. Get your wellbeing enhancement plan &amp; daily workouts personalised to you in my coach.</string>
+    <string name="generate_my_self_care_plan"><![CDATA[Generate my self-care plan & wellbeing enhancement daily workouts.]]></string>
+    <string name="view_plan">View Plan</string>
+    <string name="subscribe_to_get_detail_report">Subscribe to get detailed wellbeing improvement plan &amp; daily workouts</string>
+    <string name="your_score_amp_immediate_self_improvement_plan"><![CDATA[Your score & Immediate self-improvement plan will be available post completion of all the assessments]]></string>
+    <string name="please_retry">Some time internet connection is low.\nPlease retry</string>
+    <string name="view_report">View report</string>
+    <string name="how_feeling">What is your feeling?</string>
+    <string name="feeling_title">What made this moment happy for you.</string>
+    <string name="happy_title">You may want to follow these instructions\n1. Give the event a title (e.g Friend complimented my work on a project)\n2. Write down exactly what happened in as much detail as possible, including what you did or said and, if others were involved, what they did or said.\n3. Include how this event made you feel at the time and how this event made you feel later (including now, as you remember it).\n4. Explain what you think caused this event—why it happened.\n5. Use whatever writing style you please, and do not worry about perfect grammar and spelling. Use as much detail as you did like.\n6. If you find yourself focusing on negative feelings, refocus your mind on the good event and the positive feelings that came with it. This can take effort but gets easier with practice and can make a real difference in how you feel.</string>
+    <string name="question1_IHaveLearnt">Situation: Write about something that went well or something that didn\'t go right or as planned. At this stage write what actually happened – no feelings, thoughts, reflections, or assumptions – just facts. Be concise, but write as much as you feel you need to. Incidents will vary in complexity and depth.</string>
+    <string name="question2_HowAreYouFeelingAboutTodayAsWhole">Affect: Think about the event and how it affected you personally. This could be positive or negative. Think about Why did you feel the way you did?</string>
+    <string name="question3_OneThingThatICouldHaveDoneBetter">Interpretation: Think about, and then explain in what ways the new learning either confirms or contradicts your prior knowledge, theories, or understanding, in particular the knowledge you might have gained.</string>
+    <string name="question4_HowAreYouFeelingAboutTodayAsWhole">Decision: There is no point learning something if you don\’t store it away for future use. So what decision did you make to help you in future? What will you do better in future?
+                  \nReflection journal: There is no point in learning something if you don’t store it away for future use. What are 3 things you have learned today? Is there anything you could have done better.</string>
+    <string name="question5_SadBetterCalm">Sad better calm confident motivated energised?</string>
+    <string name="went_wrong_try_again">Something went wrong! Please try again.</string>
+    <string name="express_gratitude_radioThreeThinks">Identify 3 things you are grateful for today. These 3 things can be events that occurred today, problems which could have happened but didn\’t happen, or simply things which have always been in your life but which you suddenly came to feel grateful for today.</string>
+
+    <string name="recommond_button_text">Think of 3 reasons, you are thankful about the topic recommended. Appreciate what you have in life which otherwise you may be taking granted for. Express your thanks, however small or big it may seem.</string>
+
+
+</resources>

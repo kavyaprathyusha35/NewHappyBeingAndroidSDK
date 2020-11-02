@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.q42.android.scrollingimageview.ScrollingImageView
+        android:id="@+id/scrolling_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:speed="0.1dp"
+        app:src="@drawable/assessment_background" />
+
+    <ProgressBar
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:scaleY="3"
+        android:layout_height="4dp"
+        android:layout_alignParentTop="true"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressTint="@color/flower_outer_color"/>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/bottom_linear"
+        android:layout_below="@+id/progress"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view"
+            style="@style/Eight_Margin_Dimension"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent">
+
+
+
+
+        <LinearLayout
+            android:id="@+id/footer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/transparent">
+
+
+            <com.nsmiles.happybeingsdklib.swipebutton.SwipeButton
+                android:id="@+id/generate_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                app:button_trail_enabled="false"
+                app:button_image_disabled="@drawable/swipe_right"
+                app:button_image_enabled="@drawable/swipe_right"
+                app:button_background="@drawable/shape_button"
+                app:button_image_height="60dp"
+                app:button_image_width="100dp"
+                app:button_bottom_padding="18dp"
+                app:button_left_padding="38dp"
+                app:button_right_padding="38dp"
+                app:button_top_padding="18dp"
+                app:initial_state="disabled"
+                app:inner_text="Swipe to submit"
+                app:inner_text_background="@drawable/shape_rounded"
+                app:inner_text_color="@color/app_orange"
+                app:inner_text_size="16sp"
+                app:inner_text_top_padding="18dp"
+                app:inner_text_bottom_padding="18dp"/>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/previous_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Previous"
+                    android:minHeight="60dp"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:paddingLeft="@dimen/dimen_8dp"
+                    android:fontFamily="sans-serif-regular"
+                    android:textColor="@color/blue"
+                    android:gravity="left|center"
+                    android:background="@color/transparent"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/next_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:text="Next"
+                    android:minHeight="60dp"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:fontFamily="sans-serif-regular"
+                    android:textColor="@color/blue"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        layout="@layout/progress_layout"/>
+
+</RelativeLayout>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/hb_background"
+    android:layout_marginTop="10dp"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/dd_mm_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <TextView
+            android:id="@+id/coach_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:fontFamily="sans-serif-regular"
+            android:text="22"
+            android:textColor="@color/date_month"
+            android:textSize="35dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/coach_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="NOV"
+            android:textColor="@color/date_month"
+            android:textSize="15dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dimen_32dp"
+                android:layout_height="@dimen/dimen_32dp"
+                android:layout_marginRight="@dimen/dimen_8dp"
+                android:src="@drawable/hb_db_tr" />
+
+            <LinearLayout
+                android:layout_marginEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bot_text_background"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/dimen_32dp"
+                    android:id="@+id/icon_morn"
+                    android:layout_height="@dimen/dimen_32dp"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:src="@drawable/any_times" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_good_mrng"
+                    android:fontFamily="sans-serif-regular"
+                    android:lineSpacingExtra="@dimen/dimen_4dp"
+                    android:padding="@dimen/dimen_16dp"
+                    android:text="Today Workout"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_16sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/coach_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:layout_gravity="center"
+        android:scrollbars="vertical"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/audio_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginLeft="@dimen/dimen_18dp"
+                android:text="Today's mindfulness practice"
+                android:textColor="@color/button_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:clickable="true"
+                android:id="@+id/coach_gratitude_linear"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_image_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/dimen_0dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/coach_gratitude_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="115dp"
+                                android:background="@color/white"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/imagery_icon" />
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:visibility="gone"
+                                android:layout_alignBottom="@+id/coach_gratitude_img"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/dimen_8dp"
+                                android:id="@+id/play_button"
+                                android:layout_marginRight="@dimen/dimen_8dp"
+                                android:layout_marginBottom="@dimen/dimen_8dp"
+                                android:src="@drawable/play_c_orange" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/days_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/day_txt_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dimen_8dp"
+                            android:fontFamily="sans-serif-regular"
+                            android:gravity="center"
+                            android:text="DAY"
+                            android:textAllCaps="true"
+                            android:textColor="@color/day31dark"
+                            android:textSize="@dimen/dimen_20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/coach_today_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="-5dp"
+                            android:layout_marginBottom="-5dp"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="top"
+                            android:text="2"
+                            android:textColor="@color/day31dark"
+                            android:textSize="85dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/completed_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center"
+                            android:layout_marginBottom="@dimen/dimen_8dp"
+                            android:fontFamily="sans-serif-regular"
+                            android:gravity="bottom"
+                            android:text="Completed"
+                            android:textAllCaps="false"
+                            android:textColor="@color/hb_circle_black_light"
+                            android:textSize="@dimen/dimen_16dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/description_text"
+                        style="@style/EighthMarginStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="5 Min"
+                        android:textAllCaps="false"
+                        android:textColor="@color/min_3"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/audio_desc_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="115dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="start"
+                        android:lineSpacingExtra="2dp"
+                        android:maxLines="6"
+                        android:text="Relax from stress"
+                        android:textAllCaps="false"
+                        android:textColor="@color/curated"
+                        android:textSize="14sp" />
+
+
+                    <Button
+                        android:id="@+id/coach_begin_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:layout_marginBottom="@dimen/dimen_4dp"
+                        android:background="@drawable/button_radius"
+                        android:fontFamily="sans-serif-regular"
+                        android:text="PLAY"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/coach_duration_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:textColor="@color/bot_gray"
+                android:textSize="@dimen/dimen_14sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

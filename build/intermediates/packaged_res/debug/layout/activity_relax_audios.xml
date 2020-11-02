@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MindGymFav.RelaxFavouritesActivity">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/hb_background"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/choose_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparent"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@color/hb_orange_header"
+            android:theme="@style/DrawerArrowStyle"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/audio_recycle_view"
+            android:layout_below="@+id/choose_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"/>
+
+
+    </RelativeLayout>
+</FrameLayout>

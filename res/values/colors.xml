@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorAccent">#95989A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    Search Results
+    <color name="black_premium">#444444</color>
+    <color name="app_orange">#F26722</color>
+    <color name="red">#C05448</color>
+    <color name="blue_web">#435c75</color>
+    <color name="app_blue">#2962ff</color>
+    <!-- Screens background color-->
+    <color name="yellow">#faf609</color>
+    <color name="gray">#808080</color>
+    <color name="bot_gray">#aaaaaa</color>
+    <color name="bot_blue">#8CA2F8</color>
+    <color name="light_gray">#808080</color>
+    <color name="color_error">#ef6c00</color>
+    <color name="button_color">#D22F57</color>
+
+    <!-- dots inactive colors -->
+
+    <!-- dots active colors -->
+
+    <color name="edit_text">#99000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="label_text">#54000000</color>
+    <color name="hint_text">#54000000</color>
+    <color name="edit_background">#14000000</color>
+    <color name="edit_back_color">#12000000</color>
+    <color name="text_view_black">#54000000</color>
+    <color name="toast">#323232</color>
+
+
+    <color name="a1">#78909c</color>
+
+    <color name="task_completed">#259b24</color>
+    <color name="task_not_completed">#F26722</color>
+
+    <!-- dots inactive colors -->
+
+    <!-- dots active colors -->
+
+    <color name="weeks">#f3795e</color>
+
+    <color name="blue">#007FFC</color>
+    <color name="bottom_blue">#171c38 </color>
+    <color name="hb_background">#F7F7F9</color>
+    <color name="hb_circle_black_light">#DDDDDD</color>
+    <color name="hb_orange_header">#F16623</color>
+    <color name="h_b_color">#f59d1d</color>
+    <color name="relax_name">#D9534F</color>
+    <color name="primary_txt">#444444</color>
+    <color name="welcome555">#555555</color>
+    <color name="welcome_header">#F26928</color>
+    <color name="home_content">#969696</color>
+    <color name="color30">#EEEEEE</color>
+    <color name="day31dark">#777777</color>
+    <color name="view_line">#95EEEEEE</color>
+    <color name="days">#9B9B9B</color>
+    <color name="date_month">#8C8C8C</color>
+    <color name="min_3">#CCCCCC</color>
+    <color name="curated">#777777</color>
+    <color name="begin_button">#F5A623</color>
+    <color name="flower_outer_color">#F49C1E</color>
+    <color name="app_second_color">#FAD052</color>
+    <color name="forgot">#007AFF</color>
+    <color name="audio_background">#FDEFE9</color>
+    <color name="media">#EA6D78</color>
+    <color name="gratitude_txt">#666666</color>
+    <color name="cal">#DB5A56</color>
+
+    <color name="def_wheel_color">#FFFFFF</color>
+    <color name="def_reached_color">#FFFFFF</color>
+    <color name="def_pointer_color">#FFFFFF</color>
+
+
+    <color name="good">#008000</color>
+    <color name="ok">#ffa500</color>
+    <color name="bad">#ff0000</color>
+    <color name="low">#ffeb3b</color>
+    <color name="high">#00c853</color>
+
+    <color name="textViewStroveBg">#d9d9d9</color>
+    <color name="bot_text_background">#ECF3F9</color>
+    <color name="textViewStrove">#CCCCCC</color>
+    <color name="textViewBackground">#fafafa</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+
+    <color name="four_start">#80ff00</color>
+    <color name="green">#009933</color>
+    <color name="app_color">#ea8e09</color>
+    <color name="splash_text_color">#3a3a3a</color>
+    <color name="being_color">#b34c26</color>
+    <color name="coach_background">#A3224b91</color>
+    <color name="blue_color">#224b91</color>
+    <color name="date_background">#4Dd5f3fb</color>
+</resources>

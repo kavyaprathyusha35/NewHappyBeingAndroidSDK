@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rsv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/alert_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/alert_toolbar"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/my_coach_notifications_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_marginRight="@dimen/dimen_8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:text="My coach reminders"
+                        android:textColor="@color/hb_orange_header"
+                        android:textSize="@dimen/dimen_16dp" />
+
+                    <ImageView
+                        android:id="@+id/coach_toggle_on"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_marginRight="@dimen/dimen_8dp"
+                        android:gravity="center"
+                        android:src="@drawable/toggle_on"
+                        android:visibility="gone" />
+
+
+                    <ImageView
+                        android:id="@+id/coach_toggle_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_marginRight="@dimen/dimen_8dp"
+                        android:gravity="center"
+                        android:rotation="180"
+                        android:src="@drawable/toggle_off"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/coach_mor_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CommonMarginStyle"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="@dimen/dimen_5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="Morning reminder"
+                        android:textColor="@color/hb_orange_header"
+                        android:textSize="@dimen/dimen_16dp" />
+
+                    <LinearLayout
+                        android:id="@+id/daily_gym_start_layout"
+                        style="@style/CommonMarginStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/daily_gym_start_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="08"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text=":"
+                            android:textColor="@color/curated" />
+
+                        <TextView
+                            android:id="@+id/daily_gym_start_time_min"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="00"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/daily_gym_start_format"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="AM"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/coach_eve_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CommonMarginStyle"
+                        android:paddingTop="@dimen/dimen_5dp"
+                        android:paddingBottom="@dimen/dimen_5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:text="Evening reminder"
+                        android:textColor="@color/hb_orange_header"
+                        android:textSize="@dimen/dimen_16dp" />
+
+                    <LinearLayout
+                        android:id="@+id/daily_gym_end_layout"
+                        style="@style/CommonMarginStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/daily_gym_end_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="09"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-light"
+                            android:text=":"
+                            android:textColor="@color/curated" />
+
+                        <TextView
+                            android:id="@+id/daily_gym_end_min"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="30"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:id="@+id/daily_gym_end_format"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="60dp"
+                            android:text="PM"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/mindspa_notifications_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/CommonMarginStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/dimen_10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:text="Relax reminders"
+                        android:textColor="@color/hb_orange_header"
+                        android:textSize="@dimen/dimen_16dp" />
+
+                    <ImageView
+                        android:id="@+id/relax_toggle_on"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_marginRight="@dimen/dimen_8dp"
+                        android:gravity="center"
+                        android:src="@drawable/toggle_on"
+                        android:visibility="gone" />
+
+
+                    <ImageView
+                        android:id="@+id/relax_toggle_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:layout_marginRight="@dimen/dimen_8dp"
+                        android:gravity="center"
+                        android:rotation="180"
+                        android:src="@drawable/toggle_off"
+                        android:visibility="gone" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/relax_layout"
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        style="@style/CommonMarginStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="@dimen/dimen_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="right"
+                            android:text="Alert me"
+                            android:textColor="@color/curated"
+                            android:textSize="@dimen/dimen_16dp" />
+
+                        <Spinner
+                            android:id="@+id/repeat_spinner"
+                            android:layout_width="@dimen/dimen_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:backgroundTint="@color/black"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="@dimen/dimen_30dp"
+                            android:popupBackground="@color/white" />
+
+                        <TextView
+                            android:layout_width="@dimen/dimen_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="left"
+                            android:text="times a day"
+                            android:textColor="@color/curated"
+                            android:textSize="@dimen/dimen_16dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/CommonMarginStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+                        android:text="between"
+                        android:textColor="@color/curated"
+                        android:textSize="@dimen/dimen_16dp" />
+
+
+                    <LinearLayout
+                        android:id="@+id/relax_start_time_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/relax_start_time_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="120dp"
+                            android:text="09:00 AM"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:text="to"
+                            android:textColor="@color/curated"
+                            android:textSize="@dimen/dimen_16dp" />
+
+                        <TextView
+                            android:id="@+id/relax_end_time_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="@dimen/dimen_8dp"
+                            android:background="@drawable/settings_radius"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:minWidth="120dp"
+                            android:text="07:00 PM"
+                            android:textColor="@color/curated"
+                            android:textSize="18dp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <com.github.channguyen.rsv.RangeSliderView
+                android:id="@+id/setting_slider"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:visibility="gone"
+                rsv:filledColor="@color/app_orange"
+                rsv:rangeCount="9" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scrollbars="vertical"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/coach_background"
+        app:cardElevation="@dimen/dimen_0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/CommonMarginStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fav_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:src="@drawable/ic_fav_filled"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/audio_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="1"
+                    android:text="Audio Name"
+                    android:textAllCaps="false"
+                    android:textColor="@color/relax_name"
+                    android:textSize="@dimen/dimen_16dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:layout_marginRight="@dimen/dimen_8dp"
+                android:minHeight="90dp"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:orientation="vertical">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        app:cardElevation="@dimen/dimen_0dp"
+                        android:elevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="105dp">
+
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:id="@+id/roundedImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="105dp"
+                                android:src="@drawable/cloud_audio"
+                                android:background="@color/white"
+                                android:scaleType="centerCrop"/>
+
+                            <ImageView
+                                android:visibility="gone"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/play_c_orange"
+                                android:layout_alignBottom="@+id/roundedImageView"
+                                android:layout_marginLeft="@dimen/dimen_8dp"
+                                android:layout_marginRight="@dimen/dimen_8dp"
+                                android:layout_marginBottom="@dimen/dimen_8dp"
+                                android:layout_alignParentRight="true"/>
+
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4">
+
+
+                    <ImageView
+                        android:id="@+id/play_button"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/coach_play_button" />
+
+                    <TextView
+                        android:id="@+id/duration_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/play_button"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="3dp"
+                        android:text="2:34"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_14sp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/audio_desc_tv"
+                        style="@style/EighthMarginStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dimen_10dp"
+                        android:layout_marginRight="@dimen/dimen_16dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="start"
+                        android:lineSpacingExtra="3dp"
+                        android:maxLines="6"
+                        android:text="When you want to relax. This heartful melody will help you to calm down and bring back your focus."
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_14dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

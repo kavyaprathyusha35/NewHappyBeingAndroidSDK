@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_new_gratitude_express_gratitude_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hb_background"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/express_love_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <View
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="invisible"
+        android:layout_below="@+id/express_love_toolbar"
+        android:background="@color/view_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:scrollbars="vertical"
+        android:layout_below="@+id/myView"
+        android:layout_above="@+id/adViewLayer">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/CommonMarginStyle"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/about_today_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone"
+                style="@style/CommonMarginStyle"
+                android:text="ABOUT\nTODAY"
+                android:textColor="@color/gratitude_txt" />
+
+
+
+            <LinearLayout
+                android:id="@+id/option_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/recommendButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_gratitude_style"
+                    android:gravity="center"
+                    android:text="Recommend a topic for me to express gratitude"
+                    android:textColor="@color/white"
+                    style="@style/CommonMarginStyle"
+                    android:paddingLeft="@dimen/dimen_16dp"
+                    android:paddingRight="@dimen/dimen_16dp"
+                    android:paddingTop="@dimen/dimen_8dp"
+                    android:paddingBottom="@dimen/dimen_8dp"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/recommend_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    style="@style/CommonMarginStyle"
+                    android:fontFamily="sans-serif-light"
+                    android:text="CHANGE"
+                    android:textColor="#3F51B5"
+                    android:textSize="@dimen/dimen_16dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/gratitude_img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/emp_boy_eight"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/hint_text_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CommonMarginStyle"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:fontFamily="sans-serif-light"
+                android:text=""
+                android:textColor="@color/gratitude_txt"
+                android:textColorHint="@color/gratitude_txt"
+                android:textSize="@dimen/dimen_16dp" />
+
+
+            <EditText
+                android:id="@+id/express_your_gratitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gratitude_edit_border"
+                android:gravity="start"
+                android:hint="@string/write_here"
+                android:fontFamily="sans-serif-light"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:maxHeight="250dp"
+                style="@style/CommonMarginStyle"
+                android:minHeight="@dimen/edit_max"
+                android:padding="@dimen/dimen_8dp"
+                android:textColor="@color/gratitude_txt"
+                android:textColorHint="@color/gratitude_txt"
+                android:textSize="@dimen/dimen_16dp"
+                android:theme="@style/MyEditTextTheme" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="end"
+                android:background="@drawable/button_gratitude_style"
+                android:fontFamily="sans-serif-medium"
+                android:maxHeight="38dp"
+                android:maxWidth="88dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                style="@style/CommonMarginStyle"
+                android:text="SAVE"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/adViewLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</RelativeLayout>

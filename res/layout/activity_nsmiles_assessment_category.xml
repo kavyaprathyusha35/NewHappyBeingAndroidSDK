@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/parent_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".wellbeingassessment.activity.WellBeingAssessmentActivity">
+
+    <ScrollView
+        style="@style/common_margin_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/screen_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/my_assess_text"
+            android:fontFamily="@font/opensans_regular"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="@dimen/dimen_2dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_0dp"
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:nestedScrollingEnabled="false"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:textColor="@color/gray"
+            android:text="@string/generate_my_self_care_plan"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/combined_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_gray_border"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/dimen_32dp"
+            android:layout_marginRight="@dimen/dimen_32dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/view_plan"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/detail_report_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/detail_report_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subscribe_to_get_detail_report"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:id="@+id/summary_report_not_completed_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:text="@string/your_score_amp_immediate_self_improvement_plan"/>
+
+
+    </LinearLayout>
+    </ScrollView>
+    <include
+        layout="@layout/progress_layout"/>
+
+    <include
+        layout="@layout/retry_layout"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

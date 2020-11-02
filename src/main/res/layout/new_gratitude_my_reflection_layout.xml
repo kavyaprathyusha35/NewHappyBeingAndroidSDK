@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_new_gratitude_my_reflection_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/reflection_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <View
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/reflection_toolbar"
+        android:background="@color/label_text" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adViewLayer"
+        android:layout_below="@id/myView"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_16dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:layout_marginLeft="@dimen/dimen_16sp"
+            android:layout_marginRight="@dimen/dimen_16sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Record your ideas, personal thoughts and experiences, as well as reflections and insights"
+                android:textColor="@color/text_view_black"
+                android:textSize="@dimen/dimen_16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:textColor="@color/label_text"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="@string/question1_IHaveLearnt"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_16sp" />
+
+                <EditText
+                    android:id="@+id/question1_IHaveLearnt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@drawable/light_black_inside"
+                    android:padding="@dimen/dimen_8dp"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:maxHeight="250dp"
+                    android:minHeight="100dp"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/edit_text"
+                    android:textColorHint="@color/hint_text"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:theme="@style/MyEditTextTheme"
+                    android:hint="@string/write_here" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/label_text"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="@string/question2_HowAreYouFeelingAboutTodayAsWhole"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_16sp" />
+
+                <EditText
+                    android:id="@+id/question2_HowAreYouFeelingAboutTodayAsWhole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@drawable/light_black_inside"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:padding="@dimen/dimen_8dp"
+                    android:maxHeight="250dp"
+                    android:minHeight="@dimen/edit_max"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/edit_text"
+                    android:textColorHint="@color/hint_text"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:theme="@style/MyEditTextTheme"
+                    android:hint="@string/write_here"
+                    android:translationY="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_view_black"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="@string/question3_OneThingThatICouldHaveDoneBetter"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_16sp" />
+
+
+                <EditText
+                    android:id="@+id/question3_OneThingThatICouldHaveDoneBetter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@drawable/light_black_inside"
+                    android:padding="@dimen/dimen_8dp"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:maxHeight="250dp"
+                    android:minHeight="@dimen/edit_max"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/edit_text"
+                    android:textColorHint="@color/hint_text"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:hint="@string/write_here"
+                    android:theme="@style/MyEditTextTheme" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/label_text"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="@string/question4_HowAreYouFeelingAboutTodayAsWhole"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_16sp" />
+
+                <EditText
+                    android:id="@+id/question4_HowAreYouFeelingAboutTodayAsWhole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@drawable/light_black_inside"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:maxHeight="250dp"
+                    android:padding="@dimen/dimen_8dp"
+                    android:minHeight="@dimen/edit_max"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/edit_text"
+                    android:textColorHint="@color/hint_text"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:theme="@style/MyEditTextTheme"
+                    android:hint="@string/write_here"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/label_text"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:text="@string/question5_SadBetterCalm"
+                android:visibility="gone"
+                android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:textSize="@dimen/dimen_16sp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:background="@drawable/light_black_inside"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/question5_SadBetterCalm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginLeft="@dimen/dimen_16sp"
+                    android:layout_marginRight="@dimen/dimen_16sp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:backgroundTint="@color/app_orange"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:maxHeight="250dp"
+                    android:minHeight="@dimen/edit_max"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/edit_text"
+                    android:textColorHint="@color/hint_text"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:theme="@style/MyEditTextTheme"
+                    android:hint="@string/write_here"
+                    android:translationY="8dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:background="@drawable/button_button"
+                android:maxHeight="38dp"
+                android:maxWidth="88dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:text="SAVE"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/adViewLayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+
+
+
+    </LinearLayout>
+</RelativeLayout>

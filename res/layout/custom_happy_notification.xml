@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/ivNotificationImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dimen_8dp"
+            android:src="@drawable/notification_logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvNotificationTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-regular"
+                        android:gravity="start"
+                        android:padding="@dimen/dimen_4dp"
+                        android:text="Happy Being"
+                        android:textColor="@color/hb_orange_header"
+                        android:textSize="16dp" />
+
+
+                    <TextView
+                        android:id="@+id/tvNotificationMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="start"
+                        android:padding="@dimen/dimen_4dp"
+                        android:text="We now have for you more"
+                        android:textColor="@color/primary_txt"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/happy_moment_image"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_weight=".3"
+                    android:src="@drawable/cloud_audio"
+                    android:scaleType="fitXY"
+                    android:padding="@dimen/dimen_8dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_height="60dp" />
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/first_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/primary_txt"
+                    android:textSize="@dimen/dimen_12dp"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/second_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="Start"
+                    android:textColor="@color/primary_txt"
+                    android:textSize="@dimen/dimen_12dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

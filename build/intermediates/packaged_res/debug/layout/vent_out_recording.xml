@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/hb_orange_header"
+        android:theme="@style/DrawerArrowStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <View
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/label_text"
+        android:visibility="invisible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/myView">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/vent_record_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                android:visibility="visible"
+                android:fontFamily="sans-serif-light"
+                android:lineSpacingExtra="@dimen/dimen_10dp"
+                android:text="@string/vent_record"
+                android:textColor="@color/curated"
+                android:textSize="@dimen/dimen_16dp" />
+
+            <Button
+                android:id="@+id/start_button_vent_record"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="right"
+                android:fontFamily="sans-serif-regular"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:background="@drawable/coach_background"
+                android:maxHeight="38dp"
+                android:maxWidth="88dp"
+                android:visibility="visible"
+                android:text="START"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/record_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/CommonMarginStyle"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/play_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/record_play_pause_button"
+                    android:textOff=""
+                    android:textOn=""
+                    android:visibility="visible" />
+
+                <ToggleButton
+                    android:id="@+id/start_button"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/recorder_record_button"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <Button
+                    android:id="@+id/done_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/delete_stress"
+                    android:textAllCaps="false"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CommonMarginStyle"
+                android:max="100"
+                android:progress="0" />
+
+
+            <TextView
+                android:id="@+id/txttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CommonMarginStyle"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/gratitude_txt"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/deletion_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/delete_stress"
+        android:visibility="gone" />
+
+</RelativeLayout>

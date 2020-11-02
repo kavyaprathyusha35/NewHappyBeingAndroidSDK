@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="@dimen/dimen_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/dimen_10dp">
+
+        <LinearLayout
+            android:padding="@dimen/dimen_10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title of Assessment"
+                android:id="@+id/title_of_assessment"
+                android:textColor="@color/button_color"
+                android:textSize="@dimen/dimen_22sp"/>
+            <TextView
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:id="@+id/instructions_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instructions of assessment"
+                android:textSize="18sp"/>
+
+
+            <Button
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:id="@+id/start_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Start"
+                android:paddingBottom="@dimen/dimen_5dp"
+                android:paddingLeft="@dimen/dimen_5dp"
+                android:paddingRight="@dimen/dimen_5dp"
+                android:paddingTop="@dimen/dimen_5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_gratitude_style"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+</LinearLayout>

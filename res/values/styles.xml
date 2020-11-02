@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
+    <style name="common_margin_style">
+        <item name="android:layout_marginLeft">@dimen/dimen_25dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_25dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_10dp</item>
+    </style>
+
+    <style name="EighthMarginStyle">
+        <item name="android:layout_marginTop">@dimen/dimen_3dp</item>
+    </style>
+
+    <style name="MyAlertDialogMaterialStyle">
+        <item name="colorAccent">@color/text_view_black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="CommonMarginStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_marginRight">@dimen/dimen_30dp</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_30dp</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+        <item name="colorControlNormal">@color/hb_orange_header</item>
+        <item name="android:textColor">@color/hb_orange_header</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="full_screen_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="LinearProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#9E1A5E</item>
+        <item name="android:progressBackgroundTint" tools:ignore="NewApi">@color/white</item>
+    </style>
+
+    <style name="MyEditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/app_orange</item>
+        <item name="colorControlActivated">@color/app_orange</item>
+        <item name="colorControlHighlight">@color/app_orange</item>
+    </style>
+
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="Eight_Margin_Dimension"></style>
+
+    <style name="Sixteen_Margin_Dimension" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_16dp</item>
+    </style>
+
+    <dimen name="dimen_25dp">25dp</dimen>
+    <dimen name="dimen_3dp">3dp</dimen>
+</resources>

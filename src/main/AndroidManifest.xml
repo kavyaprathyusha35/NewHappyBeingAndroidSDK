@@ -1,0 +1,56 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nsmiles.happybeingsdklib">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".dagger.application.BaseApplication"
+        android:theme="@style/AppTheme">
+        <activity android:name=".UI.HomeScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.IntroSliderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.HappyBeingLaunchScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.gratitude.ExpressGratitudeOthers"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.gratitude.ExpressGratitudeSelfLove"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.gratitude.ExpressGratitudeToday"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.gratitude.HappyMomentView"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MindGym.VentOutJournal"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MindGym.PlayRelaxAudioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MindGym.RelaxAudiosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MindGymFav.RelaxFavouritesActivity" />
+        <activity android:name=".MindGym.RecommendFoodActivity" />
+        <activity android:name=".NatureCalm.NatureCalmActivity" />
+        <activity android:name=".MindGym.VentoutRecording" />
+        <activity android:name=".wellbeingassessment.activity.WellBeingAssessmentActivity" />
+        <activity android:name=".Affimations.AffirmationScreen" />
+        <activity android:name=".playaudio.fragment.PlayAudioActivity" />
+        <activity android:name=".wellbeingassessment.activity.AssessmentDetailsActivity" />
+
+        <service android:name=".Services.DownloadService" />
+        <service android:name=".Services.CoachDownloadService" />
+    </application>
+</manifest>

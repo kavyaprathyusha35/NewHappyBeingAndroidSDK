@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_dot_active">
+        <item>@color/app_color</item>
+        <item>@color/app_color</item>
+        <item>@color/app_color</item>
+        <item>@color/app_color</item>
+        <item>@color/app_color</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+    </array>
+
+    <array name="coach_array_dot_active">
+        <item>@color/white</item>
+        <item>@color/white</item>
+        <item>@color/white</item>
+        <item>@color/white</item>
+
+    </array>
+
+    <array name="coach_array_dot_inactive">
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+        <item>@color/bot_gray</item>
+
+    </array>
+
+</resources>

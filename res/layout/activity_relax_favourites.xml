@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/hb_background"
+    tools:context=".MindGymFav.RelaxFavouritesActivity">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/choose_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparent"
+            android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@color/hb_orange_header"
+            android:theme="@style/DrawerArrowStyle"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/audio_recycle_view"
+            android:layout_below="@+id/choose_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"/>
+
+
+        <LinearLayout
+            android:id="@+id/empty_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/dimen_24dp"
+            android:layout_marginRight="@dimen/dimen_24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Identify your favourites"
+                android:layout_gravity="center"
+                android:gravity="center"
+                style="@style/CommonMarginStyle"
+                android:textSize="@dimen/dimen_16dp"
+                android:textColor="@color/curated"
+                android:fontFamily="sans-serif-light"/>
+
+            <Button
+                android:id="@+id/add_fav_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                style="@style/CommonMarginStyle"
+                android:background="@drawable/coach_background"
+                android:fontFamily="sans-serif-light"
+                android:maxHeight="38dp"
+                android:maxWidth="120dp"
+                android:text="ADD"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</FrameLayout>
+

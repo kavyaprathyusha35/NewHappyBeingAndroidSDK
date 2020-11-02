@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/title_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Tips"
+            android:textSize="@dimen/dimen_20dp"
+            android:textColor="@color/hb_orange_header"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/CommonMarginStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CommonMarginStyle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1."
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:textColor="@color/curated"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:fontFamily="sans-serif-light"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For best results, write consecutively for next 4 days."
+                    android:textColor="@color/curated"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:fontFamily="sans-serif-light"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/CommonMarginStyle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2."
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:textColor="@color/curated"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:fontFamily="sans-serif-light"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You may write about the same general issues or about different topics each day."
+                    android:textColor="@color/curated"
+                    android:textSize="@dimen/dimen_16dp"
+                    android:lineSpacingExtra="@dimen/dimen_8dp"
+                    android:fontFamily="sans-serif-light"/>
+
+            </LinearLayout>
+
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="OK"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:minWidth="120dp"
+            android:fontFamily="sans-serif-regular"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16dp"
+            style="@style/CommonMarginStyle"
+            android:background="@drawable/button_radius"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

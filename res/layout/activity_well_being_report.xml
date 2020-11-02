@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <LinearLayout
+            android:layout_margin="@dimen/dimen_10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            android:layout_marginRight="@dimen/dimen_5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_happiness_amp_wellbeing_score"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/happiness_index_text"
+                android:textSize="20sp"
+                android:text="@string/_59"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dimen_5dp" />
+        </LinearLayout>
+
+<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
+<!--            android:id="@+id/collapsing_toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:contentScrim="@color/curated"-->
+<!--            app:expandedTitleMarginEnd="0dp"-->
+<!--            app:expandedTitleMarginStart="0dp"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            app:expandedTitleTextAppearance="@android:color/transparent"-->
+<!--            app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/radar_chart"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
+                android:layout_height="match_parent"/>
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin"-->
+dp<!--                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
+
+<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:id="@+id/report_title_text"
+                android:padding="@dimen/dimen_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REPORT"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@color/ok"/>
+
+            <LinearLayout
+                android:id="@+id/introduction_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Introduction to your well-being report:"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intro_to_report"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About the report:"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:visibility="gone"/>
+                <TextView
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_report"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:visibility="gone"/>
+
+
+                <TextView
+                    android:id="@+id/immediate_actions_layout_heading"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top_actions_you_may_want_to_take"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginRight="@dimen/dimen_30dp"
+                    android:id="@+id/immediate_actions_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/detail_report_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detail_report"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/detail_report_textview_explanation"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailed_report_text"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+
+
+            </LinearLayout>
+            <ExpandableListView
+                android:id="@+id/wellbeing_expandableListView"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+               />
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

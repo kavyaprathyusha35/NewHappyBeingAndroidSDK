@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/retry_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_32dp"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dimen_8dp"
+        android:text="@string/please_retry"
+        android:textColor="@color/curated"
+        android:textSize="16dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:src="@drawable/retry_icon" />
+
+    <TextView
+        android:id="@+id/retry_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_32dp"
+        android:background="@drawable/retry_btn"
+        android:gravity="center"
+        android:minHeight="30dp"
+        android:minWidth="90dp"
+        android:text="Retry"
+        android:textColor="@color/white"
+        android:textSize="14dp"/>
+
+
+</LinearLayout>
+

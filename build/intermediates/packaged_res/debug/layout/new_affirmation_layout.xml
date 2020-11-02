@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:background="@color/hb_background"
+        android:id="@+id/introduction_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_margin="@dimen/dimen_20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Affirmations"
+                android:textSize="@dimen/dimen_22dp"
+                android:textColor="@color/app_color"/>
+            <TextView
+                android:id="@+id/vent_record_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:layout_marginTop="8dp"
+                android:visibility="visible"
+                android:fontFamily="@font/opensans_regular"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/affirmations_intro_text"
+                android:textColor="@color/curated"
+                android:textSize="@dimen/dimen_16dp" />
+
+            <Button
+                android:id="@+id/start_affirmations"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="right"
+                android:fontFamily="sans-serif-regular"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:background="@drawable/coach_background"
+                android:maxHeight="38dp"
+                android:maxWidth="88dp"
+                android:visibility="visible"
+                android:text="START"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/affirmation_parent"
+        android:visibility="visible"
+        android:background="@drawable/assessment_background">
+
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/transparent">
+
+            <TextView
+                android:id="@+id/tv_mind_gym_affirmation_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:minHeight="300dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/flower_outer_color"
+                android:textSize="26dp"
+                android:ellipsize="none"
+                android:breakStrategy="balanced"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/title_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="How do you feel?"
+            android:textSize="@dimen/dimen_20dp"
+            android:textColor="@color/hb_orange_header"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_header"
+        android:layout_alignParentLeft="true"
+        style="@style/EighthMarginStyle"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/sad_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sad_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sad_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Sad"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/better_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/better_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/better_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Better"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/calm_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/calm_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/calm_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:layout_gravity="center"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Calm"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/confident_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/confident_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/confident_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:layout_gravity="center"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Confident"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/motivated_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/motivated_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/motivated_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:layout_gravity="center"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Motivated"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thankful_layout"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/dimen_4dp"
+                android:paddingLeft="@dimen/dimen_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/thankful_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/thankful_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    style="@style/EighthMarginStyle"
+                    android:layout_gravity="center"
+                    android:textSize="9dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="Thankful"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Save"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:minWidth="120dp"
+            android:fontFamily="sans-serif-regular"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:background="@drawable/coach_background"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
