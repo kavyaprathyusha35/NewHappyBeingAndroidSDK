@@ -10,6 +10,7 @@ import com.nsmiles.happybeingsdklib.ServerApiConnectors.MyJsonObject;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentJsonModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.questionmodel.CorporateAssessModel;
 
 import java.util.List;
@@ -34,6 +35,58 @@ public class Service {
     public Service(NetworkService networkService) {
         this.networkService = networkService;
     }
+
+
+    public Subscription getWellBeingAllCompletedStatus(String token, String URL, final WellBeingAllCompeltedCallBack callBack) {
+
+        return networkService.getWellBeingAllCompletedStatus(token, URL)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends AssessmentCompletedStatus>>() {
+                    @Override
+                    public Observable<? extends AssessmentCompletedStatus> call(Throwable throwable) {
+                        return Observable.error(throwable);
+                    }
+                })
+                .subscribe(new Subscriber<AssessmentCompletedStatus>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (e instanceof retrofit2.adapter.rxjava.HttpException) {
+                            ResponseBody responseBody = ((retrofit2.adapter.rxjava.HttpException) e).response().errorBody();
+                            try {
+                                if (responseBody != null) {
+                                    callBack.onError(new NetworkError(e));
+                                }
+                            } catch (IllegalStateException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onNext(AssessmentCompletedStatus assessmentCompletedStatus) {
+                        if (assessmentCompletedStatus != null && assessmentCompletedStatus.getSuccess() != null) {
+                            callBack.onSuccess(assessmentCompletedStatus);
+                        }
+                    }
+                });
+    }
+
+
+    public interface WellBeingAllCompeltedCallBack {
+
+        void onSuccess(AssessmentCompletedStatus assessmentCompletedStatus);
+
+        void onError(NetworkError networkError);
+    }
+
 
     public Subscription getNSmilesAssessmentQuestion(String API_URL, final GetNSmilesAssessmentQuestionCallBack callBack) {
 
@@ -551,12 +604,7 @@ public class Service {
 */
 
 
-    public interface WellBeingAllCompeltedCallBack {
 
-        void onSuccess(AssessmentCompletedStatus assessmentCompletedStatus);
-
-        void onError(NetworkError networkError);
-    }
 
     public interface OverComeExamPaymentStatusCallBack {
         void onSuccess(boolean overComeExamPaymentModel);
@@ -631,6 +679,58 @@ public class Service {
         void onSuccess(SendEmailModel sendEmailModel);
         void onError(String error);
         void onCatch();
+
+    }
+
+    public Subscription getWellBeingCategoryStatus(String token, String URL, final WellBeingCategoryStatusCheckCallBack callBack) {
+
+        return networkService.getWellBeingCategoryStatus(token, URL)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends WellBeingCategoryStatusModel>>() {
+                    @Override
+                    public Observable<? extends WellBeingCategoryStatusModel> call(Throwable throwable) {
+                        return Observable.error(throwable);
+                    }
+                })
+                .subscribe(new Subscriber<WellBeingCategoryStatusModel>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (e instanceof retrofit2.adapter.rxjava.HttpException) {
+                            ResponseBody responseBody = ((retrofit2.adapter.rxjava.HttpException) e).response().errorBody();
+                            try {
+                                if (responseBody != null) {
+                                    callBack.onError(new NetworkError(e));
+                                }
+                            } catch (IllegalStateException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onNext(WellBeingCategoryStatusModel wellBeingCategoryStatusModel) {
+                        if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getSuccess() != null) {
+                            callBack.onSuccess(wellBeingCategoryStatusModel);
+
+                        }
+                    }
+                });
+
+    }
+
+    public interface WellBeingCategoryStatusCheckCallBack {
+
+        void onSuccess(WellBeingCategoryStatusModel wellBeingCategoryStatusModel);
+
+        void onError(NetworkError networkError);
 
     }
 

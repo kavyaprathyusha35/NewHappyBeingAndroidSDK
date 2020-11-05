@@ -24,6 +24,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,6 +53,7 @@ public class GratitudeJournalListFragment extends Fragment implements GratitudeL
         //TextView descriptionOfJournal = view.findViewById(R.id.descriptionOfJournal);
         //descriptionOfJournal.setOnClickListener(this);
         loadGratitudeJournalList();
+
         return view;
     }
 
@@ -135,4 +137,7 @@ public class GratitudeJournalListFragment extends Fragment implements GratitudeL
 */
 
     }
+
+
+
 }

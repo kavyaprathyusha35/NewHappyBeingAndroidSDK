@@ -27,7 +27,7 @@
                 android:layout_marginLeft="@dimen/dimen_16dp"
                 android:layout_marginRight="@dimen/dimen_16dp"
                 android:visibility="visible"
-                android:src="@drawable/calender_gray"/>
+                android:src="@drawable/whitecalendar"/>
 
             <ImageView
                 android:id="@+id/editDelete"
@@ -37,7 +37,7 @@
                 android:layout_marginLeft="@dimen/dimen_16dp"
                 android:layout_marginRight="@dimen/dimen_16dp"
                 android:visibility="visible"
-                android:src="@drawable/ic_more_gray"/>
+                android:src="@drawable/whitemenu"/>
 
         </LinearLayout>
 

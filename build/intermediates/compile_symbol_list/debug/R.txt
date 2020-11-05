@@ -1759,6 +1759,7 @@ int drawable calm_filled 0x0
 int drawable calm_gray 0x0
 int drawable circle_progress 0x0
 int drawable cloud_audio 0x0
+int drawable coach_back_new 0x0
 int drawable coach_background 0x0
 int drawable coach_play_button 0x0
 int drawable confident_ 0x0
@@ -1955,6 +1956,8 @@ int drawable toggle_on 0x0
 int drawable tooltip_frame_dark 0x0
 int drawable tooltip_frame_light 0x0
 int drawable wave_audio 0x0
+int drawable whitecalendar 0x0
+int drawable whitemenu 0x0
 int drawable work_c 0x0
 int font montserrat 0x0
 int font montserrat_regular 0x0

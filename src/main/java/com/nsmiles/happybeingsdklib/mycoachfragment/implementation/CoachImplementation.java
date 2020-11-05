@@ -30,6 +30,8 @@ import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.GridSpacingItemDecoration;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
+import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 import com.nsmiles.happybeingsdklib.mycoachfragment.CoachAudioDetails;
 import com.nsmiles.happybeingsdklib.mycoachfragment.ForceUpdateChecker;
 import com.nsmiles.happybeingsdklib.mycoachfragment.adapter.CoachAudioAdapter;
@@ -37,13 +39,18 @@ import com.nsmiles.happybeingsdklib.mycoachfragment.adapter.CoachViewPagerAdapte
 import com.nsmiles.happybeingsdklib.mycoachfragment.presenter.CoachPresenter;
 import com.nsmiles.happybeingsdklib.mycoachfragment.presenter.CommonPresenter;
 import com.nsmiles.happybeingsdklib.mycoachfragment.view.CoachView;
+import com.nsmiles.happybeingsdklib.network.NetworkError;
+import com.nsmiles.happybeingsdklib.network.NetworkService;
+import com.nsmiles.happybeingsdklib.network.Service;
 import com.nsmiles.happybeingsdklib.playaudio.MindGymModel;
 import com.nsmiles.happybeingsdklib.settings.activity.MySettingActivity;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.activity.AssessmentDetailsActivity;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.adapter.WellBeingAdapter;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.implementation.WellBeingCategoryImplementation;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateModel;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryCategory;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
@@ -63,6 +70,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -125,8 +135,13 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     ViewPager viewPager;
     LinearLayout layoutdots;
     boolean includeEdges = true;
+    private CompositeSubscription compositeSubscription;
+    private Service service;
+    private DataManager dataManager;
 
-    public CoachImplementation(boolean islogin, TextView tv_day_workout, CoachView coachView, Activity activity, RecyclerView past_audio_recycle_view,  ViewPager viewPager, LinearLayout layoutdots) {
+    public CoachImplementation(Service service,DataManager dataManager,boolean islogin, TextView tv_day_workout, CoachView coachView, Activity activity, RecyclerView past_audio_recycle_view,  ViewPager viewPager, LinearLayout layoutdots) {
+        this.service=service;
+        this.dataManager=dataManager;
         this.is_Login=islogin;
         this.coachView = coachView;
         this.tv_day_workout=tv_day_workout;
@@ -134,6 +149,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
         this.past_audio_recycle_view = past_audio_recycle_view;
         this.viewPager=viewPager;
         this.layoutdots=layoutdots;
+        compositeSubscription = new CompositeSubscription();
         commonUtils = new CommonUtils();
         coach_today_date = new Date();
         gratitude_today_date = new Date();
@@ -150,6 +166,11 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
         titleName = "Corporate wellbeing";
         id = new SdkPreferenceManager(activity).get(AppConstants.SDK_EMAIL,"");
         Log.i("WellbeingCategory", "In set the category id is "+id);
+        API_URL = NetworkService.corporateWellBeing.trim();
+        CATEGORY_API_URL = NetworkService.corporateWellBeingCategoryStatus+"?id="+id.trim();
+        COMPLETED_STATUS_API = NetworkService.corporateAllCompletedStatus.trim();
+        PAYMENT_CATEGORY = AppConstants.CORPORATE_WELLBEING;
+        report_API_URL = "CORPORATEWELLBEINGV4";
     }
 
     private void trimSingleName() {
@@ -1218,30 +1239,27 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     @Override
     public void categoryReportStatuss() {
 
-/*
         coachView.showProgressBar();
-      //  Log.i("WellBeingChanges", "Category  API"+CATEGORY_API_URL);
+        //  Log.i("WellBeingChanges", "Category  API"+CATEGORY_API_URL);
 
-        final Subscription subscription = service.getWellBeingCategoryStatus(AppConstants.BEARER + new PreferenceManager(activity).get(AppConstants.HB_USER_TOKEN,""),
+        final Subscription subscription = service.getWellBeingCategoryStatus(commonUtils.getTokenId(activity),
                 CATEGORY_API_URL, new Service.WellBeingCategoryStatusCheckCallBack() {
                     @Override
                     public void onSuccess(WellBeingCategoryStatusModel wellBeingCategoryStatusModel) {
                         if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getSuccess() != null) {
-                        //    Log.i("WellBeingChanges", "In On success of status api");
+                            //    Log.i("WellBeingChanges", "In On success of status api");
                             coachView.hideProgressBar();
                             // reportStatusMap
-*/
 /*
                             for (int i = 0; i < wellBeingCategoryStatusModel.getSuccess().getCategory().size(); i++) {
                                 //Log.i("WellBeingChanges", "name is "+wellBeingCategoryStatusModel.getSuccess().getCategory().get(i).getName());
                                 Log.i("WellBeingChanges", "value is "+wellBeingCategoryStatusModel.getSuccess().getCategory().get(i).getStatus());
                             }
-*//*
-
+*/
 
                             wellBeingCategory = wellBeingCategoryStatusModel.getSuccess().getCategory();
                             for (int i = 0; i < wellBeingCategory.size(); i++) {
-                              //  Log.i("WellBeingChanges", "In first for loop "+wellBeingCategory.size());
+                                //  Log.i("WellBeingChanges", "In first for loop "+wellBeingCategory.size());
                                 for (int j = 0; j < status_title.length; j++) {
 //                                    Log.i("WellBeingChanges", "category name is "+wellBeingCategory.get(i).getName());
 //                                    Log.i("WellBeingChanges", "title is "+title[j]);
@@ -1249,7 +1267,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
 //                                    Log.i("WellBeingChanges", "****In Wellbeing category Title  is **** "+title[j]);
 //                                    Log.i("WellBeingChanges", "****In Wellbeing category status is **** "+wellBeingCategory.get(i).getStatus());
                                     if (wellBeingCategory.get(i).getName().equals(status_title[j])) {
-                                     //   Log.i("WellBeingChanges", "****In condition success**** "+wellBeingCategory.get(i).getStatus());
+                                        //   Log.i("WellBeingChanges", "****In condition success**** "+wellBeingCategory.get(i).getStatus());
                                         finalModelList.get(j).setAssessmentStatus(wellBeingCategory.get(i).getStatus());
                                         wellBeingAdapter.notifyItemChanged(j);
                                         break;
@@ -1269,7 +1287,8 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                         coachView.hideProgressBar();
                     }
                 });
-*/
+
+        compositeSubscription.add(subscription);
 
     }
 
@@ -1281,43 +1300,45 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     @Override
     public void checkAAssessmentCompletedStatus() {
 
-       /* coachView.showProgressBar();
-        Log.i("WellBeingChanges", "Completed status API"+COMPLETED_STATUS_API);
-            new ApiProvider.getWellBeingAllCompletedStatus(AppConstants.BEARER +  new PreferenceManager(activity).get(AppConstants.HB_USER_TOKEN,""),
-                COMPLETED_STATUS_API, new Service.WellBeingAllCompeltedCallBack() {
-                    @Override
-                    public void onSuccess(AssessmentCompletedStatus assessmentCompletedStatus) {
+//        coachView.showProgressBar();
+//        Log.i("WellBeingChanges", "Completed status API"+COMPLETED_STATUS_API);
+//        Subscription subscription = service.getWellBeingAllCompletedStatus(AppConstants.BEARER +  new PreferenceManager(activity).get(AppConstants.HB_USER_TOKEN,""),
+//                COMPLETED_STATUS_API, new Service.WellBeingAllCompeltedCallBack() {
+//                    @Override
+//                    public void onSuccess(AssessmentCompletedStatus assessmentCompletedStatus) {
+//
+//                        if (assessmentCompletedStatus.getSuccess().getPregnancywellbeingExists() != null
+//                                && assessmentCompletedStatus.getSuccess().getPregnancywellbeingExists() == 1) {
+//                            IS_ALL_ASSESSMENTS_COMPLETED = true;
+//
+//                        } else if (assessmentCompletedStatus.getSuccess().getWellbeingExists() != null
+//                                && assessmentCompletedStatus.getSuccess().getWellbeingExists() == 1) {
+//                            IS_ALL_ASSESSMENTS_COMPLETED = true;
+//                        }
+//                        else if(assessmentCompletedStatus.getSuccess().getCorporatewellbeingExists() != null
+//                                && assessmentCompletedStatus.getSuccess().getCorporatewellbeingExists() == 1){
+//                            IS_ALL_ASSESSMENTS_COMPLETED = true;
+//                        }
+//                        else {
+//                            //disable touch on Summary report Button
+//                            //  view.disableCombainedReportButton();
+//                        }
+//                        Log.i("Wellbeing", "Is all completed is "+IS_ALL_ASSESSMENTS_COMPLETED);
+//                        if (IS_ALL_ASSESSMENTS_COMPLETED) {
+//                            //  view.showCombinedReportButton();
+//                        }
+//                        coachView.hideProgressBar();
+//                    }
+//
+//                    @Override
+//                    public void onError(NetworkError networkError) {
+//
+//                        coachView.hideProgressBar();
+//                    }
+//                });
+//
+//        compositeSubscription.add(subscription);
 
-                        if (assessmentCompletedStatus.getSuccess().getPregnancywellbeingExists() != null
-                                && assessmentCompletedStatus.getSuccess().getPregnancywellbeingExists() == 1) {
-                            IS_ALL_ASSESSMENTS_COMPLETED = true;
-
-                        } else if (assessmentCompletedStatus.getSuccess().getWellbeingExists() != null
-                                && assessmentCompletedStatus.getSuccess().getWellbeingExists() == 1) {
-                            IS_ALL_ASSESSMENTS_COMPLETED = true;
-                        }
-                        else if(assessmentCompletedStatus.getSuccess().getCorporatewellbeingExists() != null
-                                && assessmentCompletedStatus.getSuccess().getCorporatewellbeingExists() == 1){
-                            IS_ALL_ASSESSMENTS_COMPLETED = true;
-                        }
-                        else {
-                            //disable touch on Summary report Button
-                          //  view.disableCombainedReportButton();
-                        }
-                        Log.i("Wellbeing", "Is all completed is "+IS_ALL_ASSESSMENTS_COMPLETED);
-                        if (IS_ALL_ASSESSMENTS_COMPLETED) {
-                          //  view.showCombinedReportButton();
-                        }
-                        coachView.hideProgressBar();
-                    }
-
-                    @Override
-                    public void onError(NetworkError networkError) {
-
-                        coachView.hideProgressBar();
-                    }
-                });
-*/
     }
 
     @Override

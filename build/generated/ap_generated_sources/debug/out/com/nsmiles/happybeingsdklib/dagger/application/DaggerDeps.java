@@ -16,6 +16,8 @@ import com.nsmiles.happybeingsdklib.broadcastnotifications.ShowRelaxBigNotificat
 import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
 import com.nsmiles.happybeingsdklib.dagger.data.HappyUtils;
 import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
+import com.nsmiles.happybeingsdklib.mycoachfragment.fragment.CoachGratitudeFragment;
+import com.nsmiles.happybeingsdklib.mycoachfragment.fragment.CoachGratitudeFragment_MembersInjector;
 import com.nsmiles.happybeingsdklib.network.NetworkModule;
 import com.nsmiles.happybeingsdklib.network.NetworkModule_ProvideCallFactory;
 import com.nsmiles.happybeingsdklib.network.NetworkModule_ProvidesNetworkServiceFactory;
@@ -131,6 +133,11 @@ public final class DaggerDeps implements Deps {
     injectHomeScreenActivity(showRelaxBigNotification);
   }
 
+  @Override
+  public void inject(CoachGratitudeFragment coachGratitudeFragment) {
+    injectCoachGratitudeFragment(coachGratitudeFragment);
+  }
+
   private WellBeingAssessmentActivity injectWellBeingAssessmentActivity(
       WellBeingAssessmentActivity instance) {
     WellBeingAssessmentActivity_MembersInjector.injectDataManager(instance, getDataManager());
@@ -177,6 +184,12 @@ public final class DaggerDeps implements Deps {
 
   private HomeScreenActivity injectHomeScreenActivity(HomeScreenActivity instance) {
     HomeScreenActivity_MembersInjector.injectService(instance, providesServiceProvider.get());
+    return instance;
+  }
+
+  private CoachGratitudeFragment injectCoachGratitudeFragment(CoachGratitudeFragment instance) {
+    CoachGratitudeFragment_MembersInjector.injectService(instance, providesServiceProvider.get());
+    CoachGratitudeFragment_MembersInjector.injectDataManager(instance, getDataManager());
     return instance;
   }
 

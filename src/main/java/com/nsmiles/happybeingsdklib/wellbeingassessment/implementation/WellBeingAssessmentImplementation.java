@@ -13,6 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import com.nsmiles.happybeingsdklib.Models.WellBeingAssessmentView;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
+import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
 import com.nsmiles.happybeingsdklib.mycoachfragment.presenter.CommonPresenter;
 import com.nsmiles.happybeingsdklib.network.NetworkError;
@@ -76,6 +77,7 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
     String ASSESSMENT_CATEGORY;
     String ASSESSMENT_TYPE, ASSESSMENT_VERSION;
     ArrayList<String> assess_category;
+    SdkPreferenceManager preferenceManager;
 
     public WellBeingAssessmentImplementation(Activity activity, RecyclerView recyclerView, Intent myIntent, DataManager dataManager, Service service, WellBeingAssessmentView view) {
 
@@ -89,6 +91,7 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
         compositeSubscription = new CompositeSubscription();
         view.hidePreviousButton();
         view.hideFooterLayout();
+        preferenceManager = new SdkPreferenceManager(activity);
 
 
     /*Getting User Primary Profile and Secondary Profile
@@ -597,12 +600,11 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
                             completedAnswerList.add(answer);
 
                         }
-                        assessmentData.setName(dataManager.get(AppConstants.SDK_NAME, ""));
-                        assessmentData.setEmail(dataManager.get(AppConstants.SDK_EMAIL, ""));
+                        assessmentData.setName(preferenceManager.get(AppConstants.SDK_NAME, ""));
+                        assessmentData.setEmail(preferenceManager.get(AppConstants.SDK_EMAIL, ""));
                         assessmentData.setOrgname("WELLBEING");
                         assessmentData.setUserId(dataManager.get(AppConstants.SDK_PROFILE_ID, ""));
                         assessmentData.setMobile(0L);
-
                         assessmentData.setPrimaryProfile(userRole);
                         assessmentData.setSecondaryProfile(dataManager.get(AppConstants.ROLE, ""));
                         assessmentData.setAssessmentType(ASSESSMENT_TYPE);

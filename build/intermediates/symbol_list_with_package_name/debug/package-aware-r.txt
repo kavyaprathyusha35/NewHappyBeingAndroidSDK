@@ -1760,6 +1760,7 @@ drawable calm_filled
 drawable calm_gray
 drawable circle_progress
 drawable cloud_audio
+drawable coach_back_new
 drawable coach_background
 drawable coach_play_button
 drawable confident_
@@ -1956,6 +1957,8 @@ drawable toggle_on
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable wave_audio
+drawable whitecalendar
+drawable whitemenu
 drawable work_c
 font montserrat
 font montserrat_regular

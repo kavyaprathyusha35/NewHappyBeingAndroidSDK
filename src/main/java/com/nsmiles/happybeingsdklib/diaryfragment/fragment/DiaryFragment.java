@@ -303,6 +303,8 @@ public class DiaryFragment extends Fragment implements DiaryView, ExpressView, V
             Log.e(getClass().getSimpleName(), e.toString());
         }
     }
+
+
     private void selectImage() {
         final CharSequence[] items = {"Take Photo", "Choose from Library"};
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);

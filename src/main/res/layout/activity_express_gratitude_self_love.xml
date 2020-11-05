@@ -67,6 +67,7 @@
             <ImageView
                 android:id="@+id/gratitude_img"
                 android:layout_width="200dp"
+                android:layout_marginTop="15dp"
                 android:layout_height="200dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/emp_boy_eight" />
@@ -75,8 +76,9 @@
             <EditText
                 android:id="@+id/express_your_gratitude"
                 style="@style/CommonMarginStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="275dp"
+                android:layout_height="163dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/gratitude_edit_border"
                 android:gravity="start"
                 android:hint="@string/write_here"
@@ -95,7 +97,7 @@
                 android:layout_height="38dp"
                 android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/dimen_16dp"
-                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_gratitude_style"
                 android:fontFamily="sans-serif-medium"

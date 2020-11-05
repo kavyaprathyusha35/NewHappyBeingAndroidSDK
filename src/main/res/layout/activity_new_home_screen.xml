@@ -47,7 +47,7 @@
 
             <LinearLayout
                 android:layout_marginLeft="@dimen/dimen_5dp"
-                android:layout_margin="@dimen/dimen_5dp"
+                android:layout_margin="7dp"
                 android:layout_marginTop="@dimen/dimen_20dp"
                 android:layout_below="@id/toolbar"
                 android:paddingBottom="@dimen/dimen_5dp"
@@ -68,17 +68,19 @@
                     android:layout_width="0dp"
                     android:background="@drawable/coach_background"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
                     <ImageView
                         android:layout_gravity="center"
                         android:id="@+id/mind_spa_image"
-                        android:layout_width="@dimen/dimen_30dp"
-                        android:layout_height="@dimen/dimen_30dp"
+                        android:layout_width="@dimen/dimen_25dp"
+                        android:layout_height="@dimen/dimen_25dp"
                         android:background="@drawable/mind_spa_icon"
                         android:contentDescription="@string/mindSpa" />
                     <TextView
                         android:id="@+id/mindspa_textview"
                         android:layout_gravity="center"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -94,7 +96,7 @@
                     android:background="@drawable/coach_background"
                     android:layout_margin="@dimen/dimen_5dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_gravity="center"
@@ -107,6 +109,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:layout_gravity="center"
+                        android:textSize="13dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="my Coach"/>
@@ -119,7 +122,7 @@
                     android:id="@+id/my_journal_layout"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
                     <ImageView
                         android:layout_gravity="center"
                         android:id="@+id/journal_image"
@@ -129,6 +132,7 @@
                     <TextView
                         android:id="@+id/journal_textview"
                         android:layout_gravity="center"
+                        android:textSize="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"

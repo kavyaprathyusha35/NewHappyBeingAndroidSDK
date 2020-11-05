@@ -3,8 +3,11 @@ package com.nsmiles.happybeingsdklib.UI;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -16,15 +19,20 @@ import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.MindGym.RelaxAffirmationFragment;
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.UI.gratitude.HappyMomentView;
+import com.nsmiles.happybeingsdklib.Utils.ImageFilePath;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.diaryfragment.fragment.DiaryFragment;
+import com.nsmiles.happybeingsdklib.diaryfragment.gratitudefragment.fragment.GratitudeJournalListFragment;
 import com.nsmiles.happybeingsdklib.mycoachfragment.fragment.CoachGratitudeFragment;
 import com.nsmiles.happybeingsdklib.network.Service;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Random;
 
 import javax.inject.Inject;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -52,6 +60,9 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
     private int randomIntValue;
     private FragmentTransaction fragmentTransaction;
     private Bundle bundle;
+    private String value;
+    private static final int REQUEST_CAMERA = 1001;
+    int IMAGE_CODE = 2002;
 
     @Inject
     Service service;
@@ -62,6 +73,17 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_new_home_screen);
+
+
+
+        value= null;
+        if (getIntent().hasExtra("key")) {
+            value = getIntent().getStringExtra("key");
+        }
+        if (value != null) {
+            Log.i("gogo",value);
+        }
+
         setStatusBarColor(this);
         bundle = new Bundle();
         toolbar = findViewById(R.id.toolbar);
@@ -83,22 +105,33 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             String fromFragment = intent.getStringExtra("FROM_SCREEN");
             assert fromFragment != null;
             loadBeforeFragment(fromFragment);
+        } else{
+
+
+            coachSelected = true;
+            journalSelected = false;
+            mindSpaSelected = false;
+            fragmentManager.beginTransaction().replace(R.id.new_screen_fragment_layout, new CoachGratitudeFragment()).commit();
+            fragmentManager.popBackStack("CoachFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+
         }
 
         int min = 1, max = 5;
         randomIntValue = new Random().nextInt((max - min) + 1) + min;
-        coachSelected = true;
-        journalSelected = false;
-        mindSpaSelected = false;
-        fragmentManager.beginTransaction().replace(R.id.new_screen_fragment_layout, new CoachGratitudeFragment()).commit();
-        fragmentManager.popBackStack("CoachFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
         updateBottomMenuSelected();
 
 
         my_coach_layout.setOnClickListener(this);
         mindsapa_layout.setOnClickListener(this);
         journal_layout.setOnClickListener(this);
+
+
+        if (value != null && "value".contains(value)) {
+            Log.i("gogo1", "testingVisible");
+            goToGratitudeJournalListFragment();
+        }
+
         SdkPreferenceManager sdkPreferenceManager = new SdkPreferenceManager(this);
     }
 
@@ -146,7 +179,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             home_image.setBackground(getDrawable(R.drawable.home_icon));
             journal_image.setBackground(getDrawable(R.drawable.journal_icon));
             mindSpa_image.setBackground(getDrawable(R.drawable.mind_spa_selected));
-            mindsapa_layout.setBackgroundColor(getResources().getColor(R.color.coach_background));
+            mindsapa_layout.setBackground(getDrawable(R.drawable.coach_back_new));
             my_coach_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
             journal_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
         }
@@ -156,7 +189,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             journal_image.setBackground(getDrawable(R.drawable.journal_icon));
             mindSpa_image.setBackground(getDrawable(R.drawable.mind_spa_icon));
             mindsapa_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
-            my_coach_layout.setBackgroundColor(getResources().getColor(R.color.coach_background));
+            my_coach_layout.setBackground(getDrawable(R.drawable.coach_back_new));
             journal_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
         }
         else if (journalSelected) {
@@ -166,7 +199,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             mindSpa_image.setBackground(getDrawable(R.drawable.mind_spa_icon));
             mindsapa_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
             my_coach_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
-            journal_layout.setBackgroundColor(getResources().getColor(R.color.coach_background));
+            journal_layout.setBackground(getDrawable(R.drawable.coach_back_new));
         }
         setBackgroundImageBasedOnRandom();
     }
@@ -284,5 +317,66 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
 
         }
     }
+
+    public void goToGratitudeJournalListFragment() {
+        try {
+            HomeScreenActivity.viewJournalClicked = true;
+            Fragment fragment = new GratitudeJournalListFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.new_screen_fragment_layout, fragment, fragment.getClass().getSimpleName());
+            //fragmentTransaction.addToBackStack("FLAG_JOURNAL");
+            fragmentTransaction.commit();
+
+            coachSelected = false;
+            mindSpaSelected = false;
+            journalSelected = true;
+            updateBottomMenuSelected();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CAMERA && resultCode == RESULT_OK && data != null) {
+            try {
+                if (data.getExtras() != null) {
+                    Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                    assert imageBitmap != null;
+                    Uri uri = getImageUri(imageBitmap);
+                    String realPath = ImageFilePath.getPath(this, uri);
+                    startActivity(new Intent(this, HappyMomentView.class).putExtra("IMAGE_PATH", realPath));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e("HomeScreen","Camera Error "+e.toString());
+                Log.e(getClass().getSimpleName(), e.toString());
+            }
+        }
+        if (requestCode == IMAGE_CODE && resultCode == RESULT_OK && null != data) {
+            Log.i("GratitudeFragment", "In image result ok ");
+            try {
+                Uri uri = data.getData();
+                String realPath = ImageFilePath.getPath(HomeScreenActivity.this, uri);
+                startActivity(new Intent(HomeScreenActivity.this, HappyMomentView.class)
+                        .putExtra("IMAGE_PATH", realPath));
+            } catch (Exception e) {
+                Log.i("GratitudeFragment", "@@@@@@@@ Exception occured @@@@@@@@@@@@@@@@@@@@@@");
+                e.printStackTrace();
+                Log.e(getClass().getSimpleName(), e.toString());
+            }
+        }
+
+    }
+    public Uri getImageUri( Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
 
 }

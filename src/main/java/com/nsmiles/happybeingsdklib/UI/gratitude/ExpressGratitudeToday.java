@@ -112,7 +112,7 @@ public class ExpressGratitudeToday extends AppCompatActivity implements View.OnC
         intent = getIntent();
        adViewLayer.setVisibility(View.GONE);
         express_love_toolbar.setTitle("Express gratitude");
-       // setSupportActionBar(express_love_toolbar);
+        setSupportActionBar(express_love_toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -331,8 +331,11 @@ public class ExpressGratitudeToday extends AppCompatActivity implements View.OnC
                 db.update("New_Gratitude_Table", cv, "date_time=?", new String[]{diary_date_time});
                 CommonUtils.CloseCursor(cursor);
                 activityCall();
-                setResult(RESULT_OK,new Intent().putExtra(AppConstants.MOVE_POSITION, move_position));
-                finish();
+
+                activity.startActivity(new Intent(activity, HomeScreenActivity.class)
+                        .putExtra("FROM_SCREEN", "JOURNAL").putExtra(AppConstants.MOVE_POSITION, move_position));
+                activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                activity.finish();
 
             }
 
@@ -366,7 +369,11 @@ public class ExpressGratitudeToday extends AppCompatActivity implements View.OnC
         long insert = db.insert("New_Gratitude_Table", null, cv);
         if (insert > 0) {
             activityCall();
-            setResult(RESULT_OK);
+
+
+            activity.startActivity(new Intent(activity, HomeScreenActivity.class)
+                    .putExtra("FROM_SCREEN", "JOURNAL"));
+            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             activity.finish();
         }
         db.close();

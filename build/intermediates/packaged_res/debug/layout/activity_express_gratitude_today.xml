@@ -57,6 +57,7 @@
 
             <LinearLayout
                 android:id="@+id/option_layout"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -93,6 +94,7 @@
             <ImageView
                 android:id="@+id/gratitude_img"
                 android:layout_width="200dp"
+
                 android:layout_height="200dp"
                 android:src="@drawable/emp_boy_eight"
                 android:scaleType="fitXY" />
@@ -103,6 +105,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CommonMarginStyle"
                 android:lineSpacingExtra="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
                 android:fontFamily="sans-serif-light"
                 android:text=""
                 android:textColor="@color/gratitude_txt"

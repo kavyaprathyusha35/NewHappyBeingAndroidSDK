@@ -179,6 +179,7 @@ drawable calm_filled
 drawable calm_gray
 drawable circle_progress
 drawable cloud_audio
+drawable coach_back_new
 drawable coach_background
 drawable coach_play_button
 drawable confident_
@@ -333,6 +334,8 @@ drawable to_self
 drawable toggle_off
 drawable toggle_on
 drawable wave_audio
+drawable whitecalendar
+drawable whitemenu
 drawable work_c
 font montserrat
 font montserrat_regular

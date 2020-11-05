@@ -126,7 +126,7 @@ public class HappyMomentView extends AppCompatActivity implements View.OnClickLi
         adViewLayer = (LinearLayout) findViewById(R.id.adViewLayer);
         adViewLayer.setVisibility(View.GONE);
         login_status = prefs.getString("user_login", "");
-        user_email = prefs.getString("user_email", "");
+        user_email = commonUtils.getUserEmail(this);
         user_id = prefs.getString("user_id", "");
 
         feelingText.setOnTouchListener(new View.OnTouchListener() {

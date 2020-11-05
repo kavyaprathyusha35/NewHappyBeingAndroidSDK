@@ -82,6 +82,7 @@ public class ExpressGratitudeSelfLove extends AppCompatActivity implements View.
         gratitude_img = (ImageView) findViewById(R.id.gratitude_img);
         adViewLayer = (LinearLayout) findViewById(R.id.adViewLayer);
         express_love_toolbar.setTitle("Self love");
+        setSupportActionBar(express_love_toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -235,8 +236,10 @@ public class ExpressGratitudeSelfLove extends AppCompatActivity implements View.
             db.update("New_Gratitude_Table", cv, "date_time=?",
                     new String[]{diary_date_time});
             activityCall();
-            setResult(RESULT_OK,new Intent().putExtra(AppConstants.MOVE_POSITION, move_position));
-            finish();
+            activity.startActivity(new Intent(activity, HomeScreenActivity.class)
+                    .putExtra("FROM_SCREEN", "JOURNAL").putExtra(AppConstants.MOVE_POSITION, move_position));
+            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            activity.finish();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -322,8 +325,10 @@ public class ExpressGratitudeSelfLove extends AppCompatActivity implements View.
         long insert = db.insert("New_Gratitude_Table", null, cv);
         if (insert > 0) {
             activityCall();
-            setResult(RESULT_OK);
-            finish();
+            activity.startActivity(new Intent(activity, HomeScreenActivity.class)
+                    .putExtra("FROM_SCREEN", "JOURNAL"));
+            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            activity.finish();
         }
         db.close();
     }

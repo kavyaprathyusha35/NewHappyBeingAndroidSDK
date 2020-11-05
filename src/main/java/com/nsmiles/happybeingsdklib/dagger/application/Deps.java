@@ -6,6 +6,7 @@ import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
 import com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers;
 import com.nsmiles.happybeingsdklib.broadcast.NetworkChangeReceiver;
 import com.nsmiles.happybeingsdklib.broadcastnotifications.ShowRelaxBigNotification;
+import com.nsmiles.happybeingsdklib.mycoachfragment.fragment.CoachGratitudeFragment;
 import com.nsmiles.happybeingsdklib.network.NetworkModule;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.activity.WellBeingAssessmentActivity;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.activity.WellBeingCategoryActivity;
@@ -32,4 +33,5 @@ public interface Deps {
     void inject(ShowRelaxBigNotification showRelaxBigNotification);
     void inject(ExpressGratitudeOthers showRelaxBigNotification);
     void inject(HomeScreenActivity showRelaxBigNotification);
+    void inject(CoachGratitudeFragment coachGratitudeFragment);
 }

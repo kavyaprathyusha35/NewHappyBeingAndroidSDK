@@ -8,6 +8,8 @@ import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbein
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingmodel.GeneralWellBeingModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentJsonModel;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.questionmodel.CorporateAssessModel;
 
 import retrofit2.http.Body;
@@ -116,5 +118,14 @@ https://api.nsmiles.com/questionnaires/report/WELLBEING?reportname=WELLBEING&rep
     @POST("/gratitude/others")
     Observable<SendEmailModel> gratitudeToOthers
             (@Body SendGratitudeModel sendGratitudeModel);
+
+
+
+    @GET
+    Observable<WellBeingCategoryStatusModel> getWellBeingCategoryStatus(@Header("Authorization") String authorization, @Url String url);
+
+
+    @GET
+    Observable<AssessmentCompletedStatus> getWellBeingAllCompletedStatus(@Header("Authorization") String authorization, @Url String url);
 
 }

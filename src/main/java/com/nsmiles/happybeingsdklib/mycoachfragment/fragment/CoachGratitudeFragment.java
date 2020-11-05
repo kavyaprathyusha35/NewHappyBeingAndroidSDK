@@ -22,8 +22,11 @@ import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
+import com.nsmiles.happybeingsdklib.dagger.application.BaseApplication;
+import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
 import com.nsmiles.happybeingsdklib.mycoachfragment.implementation.CoachImplementation;
 import com.nsmiles.happybeingsdklib.mycoachfragment.view.CoachView;
+import com.nsmiles.happybeingsdklib.network.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +37,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
+import javax.inject.Inject;
 
 
 public class CoachGratitudeFragment extends Fragment implements CoachView, View.OnClickListener {
@@ -75,6 +80,10 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
     SharedPreferences settings;
     ViewPager view_pager;
     private String PAYMENT_CATEGORY;
+    @Inject
+    Service service;
+    @Inject
+    DataManager dataManager;
 
     @Nullable
     @Override
@@ -82,7 +91,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         View view = inflater.inflate(R.layout.fragment_coach_gratitude, container, false);
         activity = getActivity();
 
-     //   ((BaseApplication)getActivity().getApplication()).getmApplicationApiComponent().inject(this);
+        ((BaseApplication)getActivity().getApplication()).getmApplicationApiComponent().inject(this);
         animationFadeIn = AnimationUtils.loadAnimation(activity, R.anim.goal_fade_in);
         tv_user_message=view.findViewById(R.id.tv_user_message);
         scroll_view = (ScrollView) view.findViewById(R.id.scroll_view);
@@ -111,7 +120,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         commonUtils = new CommonUtils();
         assert activity != null;
         coachView = CoachGratitudeFragment.this;
-        coachImplementation = new CoachImplementation(is_Login,tv_day_workout,coachView, activity, past_audio_recycle_view,view_pager,layoutDots);
+        coachImplementation = new CoachImplementation(service,dataManager,is_Login,tv_day_workout,coachView, activity, past_audio_recycle_view,view_pager,layoutDots);
         sharedPreferences = new SdkPreferenceManager(getActivity());
         Calendar rightNow = Calendar.getInstance();
         int currentHourIn24Format = rightNow.get(Calendar.HOUR_OF_DAY);
@@ -365,5 +374,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         return df.format(c);
     }
+
+
+
 
 }
