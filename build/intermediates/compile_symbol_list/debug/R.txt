@@ -1191,6 +1191,7 @@ int color notification_action_color_filter 0x0
 int color notification_icon_bg_color 0x0
 int color notification_material_background_media_default_color 0x0
 int color ok 0x0
+int color only_for_you 0x0
 int color primary_dark_material_dark 0x0
 int color primary_dark_material_light 0x0
 int color primary_material_dark 0x0
@@ -1621,6 +1622,10 @@ int dimen tooltip_precise_anchor_threshold 0x0
 int dimen tooltip_vertical_padding 0x0
 int dimen tooltip_y_offset_non_touch 0x0
 int dimen tooltip_y_offset_touch 0x0
+int drawable a1 0x0
+int drawable a2 0x0
+int drawable a3 0x0
+int drawable a4 0x0
 int drawable abc_ab_share_pack_mtrl_alpha 0x0
 int drawable abc_action_bar_item_background_material 0x0
 int drawable abc_btn_borderless_material 0x0
@@ -1737,6 +1742,7 @@ int drawable better_filled 0x0
 int drawable better_gray 0x0
 int drawable boosters 0x0
 int drawable bot_button_un_select_border 0x0
+int drawable bot_rect_button 0x0
 int drawable bot_text_background 0x0
 int drawable btn_checkbox_checked_mtrl 0x0
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x0
@@ -1751,12 +1757,14 @@ int drawable button_button_outer 0x0
 int drawable button_gratitude_style 0x0
 int drawable button_gray 0x0
 int drawable button_gray_border 0x0
+int drawable button_orange_border 0x0
 int drawable button_radius 0x0
 int drawable button_red 0x0
 int drawable calender_gray 0x0
 int drawable calm 0x0
 int drawable calm_filled 0x0
 int drawable calm_gray 0x0
+int drawable career_top 0x0
 int drawable circle_progress 0x0
 int drawable cloud_audio 0x0
 int drawable coach_back_new 0x0
@@ -1778,8 +1786,11 @@ int drawable design_password_eye 0x0
 int drawable design_snackbar_background 0x0
 int drawable done_button 0x0
 int drawable emotation_c 0x0
+int drawable emotion_top 0x0
 int drawable emp_boy_eight 0x0
+int drawable env_top 0x0
 int drawable express_yourself 0x0
+int drawable fam_top 0x0
 int drawable family_c 0x0
 int drawable fav_filled_icon 0x0
 int drawable feed_back 0x0
@@ -1787,6 +1798,7 @@ int drawable feeling_angry_or_upset 0x0
 int drawable feeling_overwelmed 0x0
 int drawable feeling_sad_or_low 0x0
 int drawable feelings 0x0
+int drawable finace_top 0x0
 int drawable get_start_button 0x0
 int drawable good_afternoon 0x0
 int drawable good_afternoon_background 0x0
@@ -1902,7 +1914,9 @@ int drawable notification_template_icon_bg 0x0
 int drawable notification_template_icon_low_bg 0x0
 int drawable notification_tile_bg 0x0
 int drawable notify_panel_notification_icon_bg 0x0
+int drawable payment_back 0x0
 int drawable payment_gray 0x0
+int drawable phy_tops 0x0
 int drawable play_c_orange 0x0
 int drawable plus_icon 0x0
 int drawable progress 0x0
@@ -1942,7 +1956,9 @@ int drawable seekbar_progress 0x0
 int drawable settings_radius 0x0
 int drawable shape_button 0x0
 int drawable shape_rounded 0x0
+int drawable social_top 0x0
 int drawable spinner_popup 0x0
+int drawable spirtul_top 0x0
 int drawable spitual_c 0x0
 int drawable streach_background 0x0
 int drawable swipe_right 0x0
@@ -2231,6 +2247,7 @@ int id forever 0x0
 int id format_tv 0x0
 int id generate_report 0x0
 int id get_started 0x0
+int id getpremium 0x0
 int id ghost_view 0x0
 int id ghost_view_holder 0x0
 int id goals_layout 0x0
@@ -2610,6 +2627,7 @@ int id upoadImageview 0x0
 int id useLogo 0x0
 int id user_desc_tv 0x0
 int id user_title_tv 0x0
+int id validtill 0x0
 int id vent_layout_five 0x0
 int id vent_layout_four 0x0
 int id vent_layout_one 0x0
@@ -2843,6 +2861,7 @@ int menu text_item_menu 0x0
 int plurals mtrl_badge_content_description 0x0
 int raw affirmations_background 0x0
 int raw trash 0x0
+int string Get_my_complete 0x0
 int string _59 0x0
 int string abc_action_bar_home_description 0x0
 int string abc_action_bar_home_description_format 0x0
@@ -2916,7 +2935,9 @@ int string fab_transformation_scrim_behavior 0x0
 int string fab_transformation_sheet_behavior 0x0
 int string feeling_title 0x0
 int string generate_my_self_care_plan 0x0
+int string get_now 0x0
 int string get_started 0x0
+int string getpremiumaccess 0x0
 int string goals_will_help 0x0
 int string gratitude_text 0x0
 int string happy_message 0x0

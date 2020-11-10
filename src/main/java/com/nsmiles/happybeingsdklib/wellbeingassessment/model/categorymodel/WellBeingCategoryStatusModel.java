@@ -8,17 +8,16 @@ import java.io.Serializable;
 public class WellBeingCategoryStatusModel implements Serializable
 {
 
-    @SerializedName("success")
+    @SerializedName("result")
     @Expose
-    private WellBeingCategorySuccess success;
+    private WellBeingResultModel result;
     private final static long serialVersionUID = -4044962267434878092L;
 
-    public WellBeingCategorySuccess getSuccess() {
-        return success;
+    public WellBeingResultModel getResult() {
+        return result;
     }
 
-    public void setSuccess(WellBeingCategorySuccess success) {
-        this.success = success;
+    public void setResult(WellBeingResultModel result) {
+        this.result = result;
     }
-
 }

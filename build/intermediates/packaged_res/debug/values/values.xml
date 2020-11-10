@@ -84,6 +84,7 @@
     <color name="media">#EA6D78</color>
     <color name="min_3">#CCCCCC</color>
     <color name="ok">#ffa500</color>
+    <color name="only_for_you">#4BAF4F</color>
     <color name="primary_txt">#444444</color>
     <color name="red">#C05448</color>
     <color name="relax_name">#D9534F</color>
@@ -138,6 +139,7 @@
     <dimen name="dimen_8dp">8dp</dimen>
     <dimen name="dots_height">50dp</dimen>
     <dimen name="edit_max">150dp</dimen>
+    <string name="Get_my_complete"><![CDATA[Get MY Complete Well Being Improvement Plan & Daily WorkOuts]]></string>
     <string name="_59">59%</string>
     <string name="about_report">The report was produced by nSmiles. It has been derived from the results of a questionnaire completed by you, the respondent, and reflects the responses made by you.
     \nThe report provides your best wellbeing practices, areas that need improvement and immediate attention. At the end of the report, you will find tips to maintain and achieve optimal wellbeing.
@@ -178,8 +180,10 @@
     <string name="express_gratitude_radioThreeThinks">Identify 3 things you are grateful for today. These 3 things can be events that occurred today, problems which could have happened but didn\’t happen, or simply things which have always been in your life but which you suddenly came to feel grateful for today.</string>
     <string name="feeling_title">What made this moment happy for you.</string>
     <string name="generate_my_self_care_plan"><![CDATA[Generate my self-care plan & wellbeing enhancement daily workouts.]]></string>
+    <string name="get_now">Get Now</string>
     <string name="get_started">Get started</string>
-    <string name="goals_will_help">\"my Goals\" will help you</string>
+    <string name="getpremiumaccess"><u>Get Premium Access</u></string>
+    <string name="goals_will_help">Boost stress resilience</string>
     <string name="gratitude_text">
     Journaling - to build deeper relations with partner, family, friends or peers.
     </string>
@@ -188,16 +192,16 @@
     <string name="help_us">Help</string>
     <string name="hint1"/>
     <string name="hint2">
-        Mind strengthening workouts personalised for you, everyday.
+        Personalised guidance to\nmeasure 8 areas of wellbeing,\nenhance health, relationships, and\nachieve your every wellbeing goals.
     </string>
     <string name="hint3">
-        Personalised guidance to measure and achieve your goals, enhance happiness, health and relationships.
+         Personalised workouts that build\nskills and habits to boost\nmental strength and wellbeing,\nwith just 10 minutes, every day.
     </string>
     <string name="hint4">
-    Instant relaxation, manage stress and anxiety better. Sleep better. Feel better. Perform better.
+    Instant help to manage\nstress and anxiety better.\nSleep better. Feel better.
     </string>
     <string name="hint5">
-        Helps you practice gratitude. Shift focus from the negative to the positives.
+       Guided gratitude journalling.\nImproves focus on positives.
     </string>
     <string name="how_feeling">What is your feeling?</string>
     <string name="how_journaling_helps"><u>How Journaling Helps?</u></string>
@@ -207,7 +211,7 @@
     <string name="intro_to_report">
         Thank you for completing the wellbeing questionnaire. This report provides you with summary feedback about your current wellbeing in 8 relevant areas.
     </string>
-    <string name="journal_will_help">\"my Journal\" will help you</string>
+    <string name="journal_will_help">Journaling for happiness</string>
     <string name="let_us_work">Let us work on your goal</string>
     <string name="log_in_text">Have an account? <b>Log in</b>></string>
     <string name="manifest_hint_text">
@@ -217,10 +221,10 @@
     <string name="mindspa">
                 <u>How mindspa helps?</u>
     </string>
-    <string name="mindspa_will_help">\"MindSpa\" will help you</string>
+    <string name="mindspa_will_help">MindSpa anywhere, anytime</string>
     <string name="morning_message">Prepare for a positive and productive day.</string>
     <string name="my_assess_text">Wellbeing, happiness &amp; success are all closely inter-related. Here is your personal wellbeing assessment, personalised improvement plan and your daily workout coach in an App. To know what\'s causing your current situation, take this holistic wellbeing assessment across these 8 areas - physical, mental, social, finances, purpose, environmental, family and career wellbeing. Get your wellbeing enhancement plan &amp; daily workouts personalised to you in my coach.</string>
-    <string name="my_coach_will_help">\"my Coach\" will help you</string>
+    <string name="my_coach_will_help">Achieve wellbeing goals</string>
     <string name="my_happiness_amp_wellbeing_score"><![CDATA[My Happiness & wellbeing score :]]></string>
     <string name="my_journal_text">This is the place to write and make journaling a habit. You can write down your biggest secrets, your dreams, desires, make a note of abundance, count your blessings, happy moments and express your pain - even the ones you cannot share with anyone else.</string>
     <string name="navigation_drawer_open"/>

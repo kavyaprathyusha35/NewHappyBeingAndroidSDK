@@ -42,6 +42,12 @@
         <activity android:name=".MindGym.RelaxAudiosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Reports.pregnancywellbeing.SingleWellBeingReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UI.payment.SubscriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity android:name=".MindGymFav.RelaxFavouritesActivity" />
         <activity android:name=".MindGym.RecommendFoodActivity" />
         <activity android:name=".NatureCalm.NatureCalmActivity" />

@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationModel;
 import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
+import com.nsmiles.happybeingsdklib.Models.PackageInfo;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
 import com.nsmiles.happybeingsdklib.UI.gratitude.SelfLoveData;
+import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.playaudio.MindGymModel;
 
 import org.json.JSONArray;
@@ -524,6 +526,73 @@ public class JSONParser {
             Log.e("offer catch error", e.getMessage());
         }
         return mindGymList;
+    }
+
+
+    static JSONObject getJsonForPaymentPackageStatus(PackageInfo data) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", data.getEmail());
+            jsonObject.put("packagename", data.getPackageName());
+            jsonObject.put("assessment_name", data.getAssessment_name());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+
+    static UserInformation getUserInfoFromJson(String response) {
+        UserInformation userInformation = new UserInformation();
+        try {
+            MyJsonObject jsonObject = new MyJsonObject(response);
+            String successString = jsonObject.getString("success");
+            if (successString != null && !successString.equals("")) {
+                userInformation.setIsPaid(true);
+            } else {
+                userInformation.setIsPaid(false);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return userInformation;
+    }
+    static Integer getPackageDaysLeftFromJson(String response) {
+        int daysLeft = 0;
+        try {
+            Log.e("response", response);
+
+            MyJsonObject jsonObject = new MyJsonObject(response);
+            String success = jsonObject.getString("success");
+
+            if(success != null && success.equalsIgnoreCase("no payment information available for the package and assessment given")){
+                daysLeft = -1;
+            }
+            else {
+                MyJsonObject jsonObject1 = new MyJsonObject(success);
+                if (jsonObject1.has("daysleft")) {
+
+                    long daysLeftlong = jsonObject1.getLong("daysleft");
+                    Log.e("daysLeftlong", String.valueOf(daysLeftlong));
+                    daysLeft = (int) (daysLeftlong / (1000 * 60 * 60 * 24));
+                }
+                else if (jsonObject1.has("paymentstatus")) {
+                    String paymentString = jsonObject1.getString("paymentstatus");
+                    MyJsonObject paymentStatusJson = new MyJsonObject(paymentString);
+                    if (paymentStatusJson.has("paymentStatus")) {
+                        String paymentStatus = paymentStatusJson.getString("paymentStatus");
+                        if (paymentStatus.equals("PAID")) {
+                            daysLeft = 100000;
+                        }
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return daysLeft;
     }
 
 }

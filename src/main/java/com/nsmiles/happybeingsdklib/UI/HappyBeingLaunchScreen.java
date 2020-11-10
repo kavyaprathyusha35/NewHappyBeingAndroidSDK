@@ -19,6 +19,7 @@ import com.nsmiles.happybeingsdklib.MindGym.RelaxUtils;
 import com.nsmiles.happybeingsdklib.Models.RelaxCoachAudioUtils;
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.dagger.application.BaseApplication;
@@ -50,6 +51,7 @@ import rx.Subscription;
 
 public class HappyBeingLaunchScreen extends AppCompatActivity {
     private static MySql dbHelper;
+    CommonUtils commonUtils;
     private static SQLiteDatabase db;
 
     @Inject
@@ -60,6 +62,7 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.splash_activity);
+        commonUtils=new CommonUtils();
 
         RelativeLayout splash_screen_layout = findViewById(R.id.splash_activity_layout);
         ImageView splash_img = findViewById(R.id.splash_img);
@@ -87,7 +90,7 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         if (!isDownloaded) {
             ((BaseApplication) getApplication()).getmApplicationApiComponent().inject(this);
             sdkPreferenceManager.save(AppConstants.ASSESSMENT_DOWNLOADED, true);
-            assesmentDownload(NetworkService.corporateWellBeing.trim(), service, this, AppConstants.PROFILE_EMPLOYED);
+            assesmentDownload(AppConstants.ASSESS_TOKEN,NetworkService.corporateWellBeing.trim(), service, this, AppConstants.PROFILE_EMPLOYED);
         }
 
         loadHandler();
@@ -114,10 +117,10 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
 
     }
 
-    public static void assesmentDownload(String API_URL, Service service, final Activity activity, final String profile) {
+    public static void assesmentDownload(String token,String API_URL, Service service, final Activity activity, final String profile) {
         Log.i("ForUpdatingCode", "In assessment Download api url is " + API_URL);
 
-        Subscription subscription = service.getNSmilesAssessmentQuestion(API_URL, new Service.GetNSmilesAssessmentQuestionCallBack() {
+        Subscription subscription = service.getNSmilesAssessmentQuestion(token,API_URL, new Service.GetNSmilesAssessmentQuestionCallBack() {
             @Override
             public void onSuccess(CorporateAssessModel corporateAssessmentModel) {
 

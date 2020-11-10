@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.SingleWellBeingReportActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.CustomToast;
@@ -93,14 +94,13 @@ public class AssessmentDetailsActivity extends AppCompatActivity {
                 } else {
                     if (CommonUtils.isNetworkAvailable(AssessmentDetailsActivity.this)) {
                         //   if (!(corporateModelList.size()-1 == pos))
-/*
+
                                 AssessmentDetailsActivity.this.startActivity(new Intent(AssessmentDetailsActivity.this, SingleWellBeingReportActivity.class)
                                         .putExtra(AppConstants.REPORT_SUB_TYPE, report_API_URL)
                                         .putExtra(AppConstants.ASSESSMENT_VERSION, report_VERSION)
                                         .putExtra(AppConstants.HIDE_RADAR, true)
                                         .putStringArrayListExtra(AppConstants.SHOW_ALL_PREGNANCY_REPORT, corporateModelList.get(pos).getCategory().get(corporateModelList.get(pos).getArea())));
                                          AssessmentDetailsActivity.this.finish();
-*/
 
 //                            if(corporateModelList.size()-1 == pos)
 //                            {

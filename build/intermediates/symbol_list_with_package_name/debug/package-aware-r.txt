@@ -1192,6 +1192,7 @@ color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
 color ok
+color only_for_you
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1622,6 +1623,10 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+drawable a1
+drawable a2
+drawable a3
+drawable a4
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -1738,6 +1743,7 @@ drawable better_filled
 drawable better_gray
 drawable boosters
 drawable bot_button_un_select_border
+drawable bot_rect_button
 drawable bot_text_background
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1752,12 +1758,14 @@ drawable button_button_outer
 drawable button_gratitude_style
 drawable button_gray
 drawable button_gray_border
+drawable button_orange_border
 drawable button_radius
 drawable button_red
 drawable calender_gray
 drawable calm
 drawable calm_filled
 drawable calm_gray
+drawable career_top
 drawable circle_progress
 drawable cloud_audio
 drawable coach_back_new
@@ -1779,8 +1787,11 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable done_button
 drawable emotation_c
+drawable emotion_top
 drawable emp_boy_eight
+drawable env_top
 drawable express_yourself
+drawable fam_top
 drawable family_c
 drawable fav_filled_icon
 drawable feed_back
@@ -1788,6 +1799,7 @@ drawable feeling_angry_or_upset
 drawable feeling_overwelmed
 drawable feeling_sad_or_low
 drawable feelings
+drawable finace_top
 drawable get_start_button
 drawable good_afternoon
 drawable good_afternoon_background
@@ -1903,7 +1915,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable payment_back
 drawable payment_gray
+drawable phy_tops
 drawable play_c_orange
 drawable plus_icon
 drawable progress
@@ -1943,7 +1957,9 @@ drawable seekbar_progress
 drawable settings_radius
 drawable shape_button
 drawable shape_rounded
+drawable social_top
 drawable spinner_popup
+drawable spirtul_top
 drawable spitual_c
 drawable streach_background
 drawable swipe_right
@@ -2232,6 +2248,7 @@ id forever
 id format_tv
 id generate_report
 id get_started
+id getpremium
 id ghost_view
 id ghost_view_holder
 id goals_layout
@@ -2611,6 +2628,7 @@ id upoadImageview
 id useLogo
 id user_desc_tv
 id user_title_tv
+id validtill
 id vent_layout_five
 id vent_layout_four
 id vent_layout_one
@@ -2844,6 +2862,7 @@ menu text_item_menu
 plurals mtrl_badge_content_description
 raw affirmations_background
 raw trash
+string Get_my_complete
 string _59
 string abc_action_bar_home_description
 string abc_action_bar_home_description_format
@@ -2917,7 +2936,9 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string feeling_title
 string generate_my_self_care_plan
+string get_now
 string get_started
+string getpremiumaccess
 string goals_will_help
 string gratitude_text
 string happy_message

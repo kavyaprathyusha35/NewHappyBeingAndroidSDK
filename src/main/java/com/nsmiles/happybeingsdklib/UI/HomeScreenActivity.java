@@ -184,7 +184,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             journal_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
         }
         else if (coachSelected) {
-            toolbar_tv.setText("my Coach");
+            toolbar_tv.setText("My Coach");
             home_image.setBackground(getDrawable(R.drawable.home_selected));
             journal_image.setBackground(getDrawable(R.drawable.journal_icon));
             mindSpa_image.setBackground(getDrawable(R.drawable.mind_spa_icon));
@@ -193,7 +193,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             journal_layout.setBackgroundColor(getResources().getColor(R.color.transparent));
         }
         else if (journalSelected) {
-            toolbar_tv.setText("my Journal");
+            toolbar_tv.setText("My Journal");
             home_image.setBackground(getDrawable(R.drawable.home_icon));
             journal_image.setBackground(getDrawable(R.drawable.journal_selected));
             mindSpa_image.setBackground(getDrawable(R.drawable.mind_spa_icon));

@@ -8,7 +8,7 @@ public interface PregnancyWellBeingPresenter {
 
     void initilizeRadarChartComponent();
     void wellBeingRadarChart();
-    void getGeneralWellBeingReport();
+//    void getGeneralWellBeingReport();
     void getCorporateWellbeingReport();
-    void getGeneralWellBeingCategoryReport();
+ //   void getGeneralWellBeingCategoryReport();
 }

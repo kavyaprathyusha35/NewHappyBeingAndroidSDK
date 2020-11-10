@@ -23,7 +23,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class NetworkModule {
 
     File cacheFile;
-    private String BASE = "https://api.nsmiles.com/";
+    private String BASE = "https://partner.nsmiles.com/";
     //private String BASE = "https://testapi.nsmiles.com/";
     //private String BASE = "https://api.myjson.com/";
      //private String BASE = "https://api.widget.nsmiles.com/";

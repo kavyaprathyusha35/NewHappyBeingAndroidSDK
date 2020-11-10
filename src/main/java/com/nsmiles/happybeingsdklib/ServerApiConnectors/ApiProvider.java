@@ -5,11 +5,13 @@ import android.util.Log;
 
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationModel;
 import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
+import com.nsmiles.happybeingsdklib.Models.PackageInfo;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
 import com.nsmiles.happybeingsdklib.Registration.AuthModel;
 import com.nsmiles.happybeingsdklib.Registration.AuthSuccessModel;
 import com.nsmiles.happybeingsdklib.UI.gratitude.SelfLoveData;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.NetworkModule;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.Utils.StatusInteface;
@@ -50,7 +52,8 @@ public class ApiProvider {
                         sdkPreferenceManager.save(AppConstants.SDK_REFRESH_TOKEN, authSuccessModel.body().getResult().getRefreshToken());
                         sdkPreferenceManager.save(AppConstants.SDK_PROFILE_ID, authSuccessModel.body().getResult().getUserProfileId());
                         sdkPreferenceManager.save(AppConstants.SDK_CUSTOMER_ID, authSuccessModel.body().getResult().getCustomerId());
-                        sdkPreferenceManager.save(AppConstants.SDK_EXPIRY_AT, authSuccessModel.body().getResult().getExpiresAt());
+                        String expiry_date = CommonUtils.getDateFormat(authSuccessModel.body().getResult().getExpiresAt());
+                        sdkPreferenceManager.save(AppConstants.SDK_EXPIRY_AT, expiry_date);
                         sdkPreferenceManager.save(AppConstants.SDK_LOGIN_STATUS, authSuccessModel.body().getSuccess());
 
                         statusInteface.onAuthorizationComplete(activity);
@@ -463,6 +466,58 @@ public class ApiProvider {
         }
 
     }
+
+    public static class PaymentPackageExpiryDetails extends WaitingAPIAdapter<PackageInfo, Integer> {
+        public final PackageInfo data;
+        private final String token;
+
+        public PaymentPackageExpiryDetails(PackageInfo input_data, String token, long requestCode, Activity activity, String message, API_Response_Listener<Integer> listener) {
+            super(input_data, token, requestCode, activity, message, listener);
+            this.data = input_data;
+            this.token = token;
+        }
+
+        public PaymentPackageExpiryDetails(PackageInfo input_data, String token, long requestCode, API_Response_Listener<Integer> listener) {
+            super(input_data, token, requestCode, null, null, listener);
+            this.data = input_data;
+            this.token = token;
+        }
+
+        @Override
+        public String getURL() {
+            //TODO: for testing
+//            return "https://dev.api.nsmiles.com/v2/user/payment-expiry";
+            return Urls.getPackageExpiryUrl();
+        }
+
+        @Override
+        public String getHttpMethod() {
+            return "POST";
+        }
+
+        @Override
+        public String getToken() {
+            return token;
+        }
+
+        @Override
+        public JSONObject convertDataToJSON(PackageInfo data) {
+            Log.i("ApiProvider","Json for payment is "+JSONParser.getJsonForPaymentPackageStatus(data));
+            return JSONParser.getJsonForPaymentPackageStatus(data);
+        }
+
+        @Override
+        public Integer convertJSONToData(String response) {
+            Log.i("ApiProvider","Response for payment is "+JSONParser.getUserInfoFromJson(response));
+            return JSONParser.getPackageDaysLeftFromJson(response);
+        }
+
+        @Override
+        public String intrepret_error(String error) {
+            return error;
+        }
+    }
+
 
 
 }

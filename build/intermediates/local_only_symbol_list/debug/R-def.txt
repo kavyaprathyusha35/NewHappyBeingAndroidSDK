@@ -93,6 +93,7 @@ color low
 color media
 color min_3
 color ok
+color only_for_you
 color primary_txt
 color radiobutton_text
 color red
@@ -148,6 +149,10 @@ dimen dimen_80dp
 dimen dimen_8dp
 dimen dots_height
 dimen edit_max
+drawable a1
+drawable a2
+drawable a3
+drawable a4
 drawable about_studying
 drawable about_today
 drawable abundance_icon
@@ -165,18 +170,21 @@ drawable better_filled
 drawable better_gray
 drawable boosters
 drawable bot_button_un_select_border
+drawable bot_rect_button
 drawable bot_text_background
 drawable button_button
 drawable button_button_outer
 drawable button_gratitude_style
 drawable button_gray
 drawable button_gray_border
+drawable button_orange_border
 drawable button_radius
 drawable button_red
 drawable calender_gray
 drawable calm
 drawable calm_filled
 drawable calm_gray
+drawable career_top
 drawable circle_progress
 drawable cloud_audio
 drawable coach_back_new
@@ -192,8 +200,11 @@ drawable de_stress_icon
 drawable delete_stress
 drawable done_button
 drawable emotation_c
+drawable emotion_top
 drawable emp_boy_eight
+drawable env_top
 drawable express_yourself
+drawable fam_top
 drawable family_c
 drawable fav_filled_icon
 drawable feed_back
@@ -201,6 +212,7 @@ drawable feeling_angry_or_upset
 drawable feeling_overwelmed
 drawable feeling_sad_or_low
 drawable feelings
+drawable finace_top
 drawable get_start_button
 drawable good_afternoon
 drawable good_afternoon_background
@@ -283,7 +295,9 @@ drawable nature_calm2
 drawable nature_calm3
 drawable next_icon
 drawable notification_logo
+drawable payment_back
 drawable payment_gray
+drawable phy_tops
 drawable play_c_orange
 drawable plus_icon
 drawable progress
@@ -323,7 +337,9 @@ drawable seekbar_progress
 drawable settings_radius
 drawable shape_button
 drawable shape_rounded
+drawable social_top
 drawable spinner_popup
+drawable spirtul_top
 drawable spitual_c
 drawable streach_background
 drawable swipe_right
@@ -471,6 +487,7 @@ id footer_layout
 id format_tv
 id generate_report
 id get_started
+id getpremium
 id goals_layout
 id gratitude_btn
 id gratitude_content
@@ -665,6 +682,7 @@ id txttime
 id upoadImageview
 id user_desc_tv
 id user_title_tv
+id validtill
 id vent_layout_five
 id vent_layout_four
 id vent_layout_one
@@ -750,6 +768,7 @@ menu save
 menu text_item_menu
 raw affirmations_background
 raw trash
+string Get_my_complete
 string _59
 string about_report
 string about_work
@@ -770,7 +789,9 @@ string express_gratitude_radioOthers
 string express_gratitude_radioThreeThinks
 string feeling_title
 string generate_my_self_care_plan
+string get_now
 string get_started
+string getpremiumaccess
 string goals_will_help
 string gratitude_text
 string happy_message

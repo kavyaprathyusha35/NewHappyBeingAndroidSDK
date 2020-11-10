@@ -10,7 +10,7 @@ public class Urls {
      private static final String SERVER_ADDRESS_V2 = "https://api.nsmiles.com/v2";
      //private static final String SERVER_ADDRESS_V2 = "https://api.widget.nsmiles.com//v2";
    // private static final String SERVER_ADDRESS_V2 = "https://testapi.nsmiles.com/v2";
-   // private static final String SERVER_ADDRESS_V2 = "https://testapi.nsmiles.com/v2";
+    private static final String SERVER_ADDRESS_V1 = "https://partner.nsmiles.com/v1";
     private static final String LIVE = "https://api.nsmiles.com";
     private static final String DYNAMIC_API = "https://api.nsmiles.com/questionnaires";
 
@@ -53,7 +53,7 @@ public class Urls {
     }
 	
 	public static String saveSelfLoveURL() {
-        return SERVER_ADDRESS_V2 + "/gratitude";
+        return SERVER_ADDRESS_V1 + "/questionnaires/gratitude";
     }
 
     public static String saveMyGoalURL() {
@@ -98,7 +98,7 @@ public class Urls {
 
     public static String getMindGymUrl() {
 
-        return SERVER_ADDRESS_V2 + "/getmindgym";
+        return SERVER_ADDRESS_V1 + "/questionnaires/mindgym";
     }
 
 

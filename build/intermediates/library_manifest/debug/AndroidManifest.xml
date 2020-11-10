@@ -61,6 +61,14 @@
             android:name="com.nsmiles.happybeingsdklib.MindGym.RelaxAudiosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.SingleWellBeingReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.nsmiles.happybeingsdklib.UI.payment.SubscriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity android:name="com.nsmiles.happybeingsdklib.MindGymFav.RelaxFavouritesActivity" />
         <activity android:name="com.nsmiles.happybeingsdklib.MindGym.RecommendFoodActivity" />
         <activity android:name="com.nsmiles.happybeingsdklib.NatureCalm.NatureCalmActivity" />

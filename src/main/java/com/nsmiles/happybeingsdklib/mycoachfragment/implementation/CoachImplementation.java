@@ -935,7 +935,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
             mindGymModel.setDataSynced(0);
             dummyMindGymModelList.add(mindGymModel);
             if(CommonUtils.isNetworkAvailable(activity)) {
-               // getMindGymData();
+                getMindGymData();
             }
 
             playAudios(dummyMindGymModelList);
@@ -1240,34 +1240,24 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     public void categoryReportStatuss() {
 
         coachView.showProgressBar();
-        //  Log.i("WellBeingChanges", "Category  API"+CATEGORY_API_URL);
+
 
         final Subscription subscription = service.getWellBeingCategoryStatus(commonUtils.getTokenId(activity),
                 CATEGORY_API_URL, new Service.WellBeingCategoryStatusCheckCallBack() {
                     @Override
                     public void onSuccess(WellBeingCategoryStatusModel wellBeingCategoryStatusModel) {
-                        if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getSuccess() != null) {
-                            //    Log.i("WellBeingChanges", "In On success of status api");
-                            coachView.hideProgressBar();
-                            // reportStatusMap
-/*
-                            for (int i = 0; i < wellBeingCategoryStatusModel.getSuccess().getCategory().size(); i++) {
-                                //Log.i("WellBeingChanges", "name is "+wellBeingCategoryStatusModel.getSuccess().getCategory().get(i).getName());
-                                Log.i("WellBeingChanges", "value is "+wellBeingCategoryStatusModel.getSuccess().getCategory().get(i).getStatus());
-                            }
-*/
+                        if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getResult().getSuccess() != null) {
 
-                            wellBeingCategory = wellBeingCategoryStatusModel.getSuccess().getCategory();
+                            coachView.hideProgressBar();
+
+
+                            wellBeingCategory = wellBeingCategoryStatusModel.getResult().getSuccess().getCategory();
                             for (int i = 0; i < wellBeingCategory.size(); i++) {
-                                //  Log.i("WellBeingChanges", "In first for loop "+wellBeingCategory.size());
+
                                 for (int j = 0; j < status_title.length; j++) {
-//                                    Log.i("WellBeingChanges", "category name is "+wellBeingCategory.get(i).getName());
-//                                    Log.i("WellBeingChanges", "title is "+title[j]);
-//                                    Log.i("WellBeingChanges", "****In Wellbeing category name is **** "+wellBeingCategory.get(i).getName());
-//                                    Log.i("WellBeingChanges", "****In Wellbeing category Title  is **** "+title[j]);
-//                                    Log.i("WellBeingChanges", "****In Wellbeing category status is **** "+wellBeingCategory.get(i).getStatus());
+//
                                     if (wellBeingCategory.get(i).getName().equals(status_title[j])) {
-                                        //   Log.i("WellBeingChanges", "****In condition success**** "+wellBeingCategory.get(i).getStatus());
+
                                         finalModelList.get(j).setAssessmentStatus(wellBeingCategory.get(i).getStatus());
                                         wellBeingAdapter.notifyItemChanged(j);
                                         break;
@@ -1283,7 +1273,6 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                     @Override
                     public void onError(NetworkError networkError) {
 
-                        // dataManager.toast(activity, networkError.getMessage());
                         coachView.hideProgressBar();
                     }
                 });

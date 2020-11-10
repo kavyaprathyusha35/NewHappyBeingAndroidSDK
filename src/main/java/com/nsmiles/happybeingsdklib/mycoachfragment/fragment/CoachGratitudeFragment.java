@@ -18,7 +18,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
 import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
+
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
@@ -44,7 +46,7 @@ import javax.inject.Inject;
 public class CoachGratitudeFragment extends Fragment implements CoachView, View.OnClickListener {
 
     TextView info_text,tv_day_workout;
-    TextView descriptionOfCoach;
+    TextView descriptionOfCoach,getpremium,validtill;
     Activity activity;
     CommonUtils commonUtils;
     CoachView coachView;
@@ -68,7 +70,6 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
 
     private TextView coach_date_tv;
     private TextView coach_month_tv;
-
     private String wishMessage;
     private SdkPreferenceManager sharedPreferences;
     private boolean isNewDayToday;
@@ -84,6 +85,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
     Service service;
     @Inject
     DataManager dataManager;
+    String expiry_date;
 
     @Nullable
     @Override
@@ -100,6 +102,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         info_text = view.findViewById(R.id.info_text);
         wishicon = view.findViewById(R.id.wish_icon);
         descriptionOfCoach = view.findViewById(R.id.descriptionOfCoach);
+        getpremium = view.findViewById(R.id.getpremium);
+        validtill = view.findViewById(R.id.validtill);
         coach_date_tv = view.findViewById(R.id.coach_date_tv);
         coach_month_tv = view.findViewById(R.id.coach_month_tv);
         ll_first_time=view.findViewById(R.id.ll_first_time);
@@ -117,6 +121,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         past_audio_recycle_view = (RecyclerView) view.findViewById(R.id.past_audio_recycle_view);
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         descriptionOfCoach.setOnClickListener(this);
+        getpremium.setOnClickListener(this);
         commonUtils = new CommonUtils();
         assert activity != null;
         coachView = CoachGratitudeFragment.this;
@@ -128,9 +133,14 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         String datedd = (String) android.text.format.DateFormat.format("dd", date1);
         String monthString  = (String) DateFormat.format("MMM",  date1); // Jun
         name = new SdkPreferenceManager(activity).get(AppConstants.SDK_NAME,"");
-
+        expiry_date=commonUtils.getExpiryDate(activity);
         coach_date_tv.setText(datedd);
         coach_month_tv.setText(monthString);
+        validtill.setText("valid till <"+expiry_date+">");
+
+
+
+
 
         coachImplementation.categoryReportStatuss();
 
@@ -365,6 +375,11 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
 
         if (id == R.id.descriptionOfCoach) {
             startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mycoach"));
+        } else if(id==R.id.getpremium){
+
+//            Intent intent = new Intent(getActivity(), SubscriptionActivity.class);
+//            startActivity(intent);
+
         }
     }
     private String todayDate(){
@@ -374,8 +389,6 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         return df.format(c);
     }
-
-
 
 
 }

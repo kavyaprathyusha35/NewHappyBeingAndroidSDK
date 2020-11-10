@@ -72,15 +72,15 @@
                     <ImageView
                         android:layout_gravity="center"
                         android:id="@+id/mind_spa_image"
-                        android:layout_width="@dimen/dimen_25dp"
-                        android:layout_height="@dimen/dimen_25dp"
+                        android:layout_width="@dimen/dimen_30dp"
+                        android:layout_height="@dimen/dimen_30dp"
                         android:background="@drawable/mind_spa_icon"
                         android:contentDescription="@string/mindSpa" />
                     <TextView
                         android:id="@+id/mindspa_textview"
                         android:layout_gravity="center"
                         android:textSize="13dp"
-                        android:layout_marginLeft="3dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -112,7 +112,7 @@
                         android:textSize="13dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="my Coach"/>
+                        android:text="My Coach"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_margin="@dimen/dimen_5dp"
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="my Journal"/>
+                        android:text="My Journal"/>
                 </LinearLayout>
             </LinearLayout>
 

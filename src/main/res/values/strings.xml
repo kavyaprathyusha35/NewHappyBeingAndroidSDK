@@ -4,21 +4,21 @@
     <string name="get_started">Get started</string>
     <string name="iam_here_to_help">I am here to help you</string>
     <string name="hint1" />
-    <string name="my_coach_will_help">\"my Coach\" will help you</string>
+    <string name="my_coach_will_help">Achieve wellbeing goals</string>
     <string name="hint2" >
-        Mind strengthening workouts personalised for you, everyday.
+        Personalised guidance to\nmeasure 8 areas of wellbeing,\nenhance health, relationships, and\nachieve your every wellbeing goals.
     </string>
-    <string name="goals_will_help">\"my Goals\" will help you</string>
+    <string name="goals_will_help">Boost stress resilience</string>
     <string name="hint3" >
-        Personalised guidance to measure and achieve your goals, enhance happiness, health and relationships.
+         Personalised workouts that build\nskills and habits to boost\nmental strength and wellbeing,\nwith just 10 minutes, every day.
     </string>
-    <string name="mindspa_will_help">\"MindSpa\" will help you</string>
+    <string name="mindspa_will_help">MindSpa anywhere, anytime</string>
     <string name="hint4" >
-    Instant relaxation, manage stress and anxiety better. Sleep better. Feel better. Perform better.
+    Instant help to manage\nstress and anxiety better.\nSleep better. Feel better.
     </string>
-    <string name="journal_will_help">\"my Journal\" will help you</string>
+    <string name="journal_will_help">Journaling for happiness</string>
     <string name="hint5" >
-        Helps you practice gratitude. Shift focus from the negative to the positives.
+       Guided gratitude journalling.\nImproves focus on positives.
     </string>
     <string name="image_view">Image view</string>
     <string name="mindSpa">MindSpa</string>
@@ -27,6 +27,12 @@
     <string name="relax_text" >
                 Here\'s a place to relax and rationalise your thoughts when you feel stressed or feeling low. You will find 40+  tools like breathing exercises, guided meditations, relaxing music, food to eat or activities to do, venting or express through writing. Choose a technique that best suits and start feeling better!
     </string>
+
+
+
+    <string name="get_now">Get Now</string>
+
+    <string name="Get_my_complete"><![CDATA[Get MY Complete Well Being Improvement Plan & Daily WorkOuts]]></string>
     <string name="choose_technique">
         Choose a technique that best works for you
     </string>
@@ -90,6 +96,7 @@
     <string name="report_an_issue">Report an issue</string>
     <string name="help_us">Help</string>
     <string name="u_what_s_included_in_this_program_u"><u>What is Happy Being program?</u></string>
+    <string name="getpremiumaccess"><u>Get Premium Access</u></string>
     <string name="happy_message">Capture your happy moments in the happiness journal.</string>
     <string name="my_happiness_amp_wellbeing_score"><![CDATA[My Happiness & wellbeing score :]]></string>
     <string name="no_internet_connection">Internet not available</string>
