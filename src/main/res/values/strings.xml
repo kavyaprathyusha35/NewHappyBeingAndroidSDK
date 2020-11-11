@@ -53,11 +53,29 @@
 3. Talk out about the situation, people or matter that has caused you pain. \n
 4. Express your very deepest feelings, emotions and thoughts including the past pain. \n
 5. Vent out whatever comes to you. Don\'t worry about language, grammar or tone of your voice.\n
-6. Focus on venting out all that\'s bothering you, till you feel lighter in your heart.
+6. Focus on venting out all that\'s bothering you, till you feel lighter in your heart.\n
 7. Reflect on if there is a better way to respond to this situation \n
 8. If possible, forgive the person.\n
 9. Click delete at the end, to destroy the file.\n
 10. After you click delete, go back to the person who have hurt you, express yourself in a cool and collected manner. </string>
+
+
+    <string name="vent_record_start">
+\u2022 Vent out your anger, sadness, hurt or any other painful emotions.\n\n
+\u2022 Talk out about the situation, people or matter that has caused you pain. \n\n
+\u2022 Express your very deepest feelings, emotions and thoughts including the past pain. \n\n
+ </string>
+
+
+    <string name="vent_record_STOP">
+\u2022 Reflect on if there is a better way to respond to this situation \n\n
+\u2022 If possible, forgive the person.\n\n
+\u2022 Click delete at the end, to destroy the file.\n\n
+\u2022 After you click delete, go back to the person who have hurt you, express yourself in a cool and collected manner.
+ </string>
+
+
+
     <string name="gratitude_text">
     Journaling - to build deeper relations with partner, family, friends or peers.
     </string>

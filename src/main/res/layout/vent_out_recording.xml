@@ -43,9 +43,9 @@
                 android:layout_marginBottom="@dimen/dimen_8dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_marginTop="8dp"
                 android:visibility="visible"
-                android:fontFamily="sans-serif-light"
                 android:lineSpacingExtra="@dimen/dimen_10dp"
                 android:text="@string/vent_record"
                 android:textColor="@color/curated"
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginTop="@dimen/dimen_8dp"
-                android:background="@drawable/coach_background"
+                android:background="@drawable/button_gratitude_style"
                 android:maxHeight="38dp"
                 android:maxWidth="88dp"
                 android:visibility="visible"
@@ -79,7 +79,8 @@
     <RelativeLayout
         android:id="@+id/record_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
         android:background="@color/white"
         android:layout_centerInParent="true"
         android:visibility="gone">
@@ -88,12 +89,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_20dp"
             android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:id="@+id/instruction"
+                android:textColor="@color/curated"
+                android:textSize="@dimen/dimen_18dp"
+                android:text="@string/vent_record_start"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/opensans_regular"
+                android:layout_height="wrap_content">
+
+            </TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="@dimen/dimen_10dp"
                 style="@style/CommonMarginStyle"
                 android:orientation="horizontal">
 
@@ -108,12 +126,13 @@
 
                 <ToggleButton
                     android:id="@+id/start_button"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/recorder_record_button"
-                    android:textOff=""
-                    android:textOn="" />
+                    android:textOff="Start"
+                    android:textColor="@color/white"
+                    android:textOn="Stop" />
 
                 <Button
                     android:id="@+id/done_button"
@@ -126,13 +145,30 @@
 
             </LinearLayout>
 
+<!--            <SeekBar-->
+<!--                android:id="@+id/seek_bar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/CommonMarginStyle"-->
+<!--                android:max="100"-->
+<!--                android:progress="0" />-->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
             <SeekBar
-                android:id="@+id/seek_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/CommonMarginStyle"
+                android:id="@+id/seek_bar"
+                android:thumbTint="@color/app_color"
                 android:max="100"
-                android:progress="0" />
+                android:layout_above="@+id/txttime"
+                android:progress="0"
+                android:theme="@style/LinearProgressss"
+                />
 
 
             <TextView
@@ -141,9 +177,13 @@
                 android:layout_height="wrap_content"
                 style="@style/CommonMarginStyle"
                 android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="@dimen/dimen_20dp"
                 android:text=""
                 android:textColor="@color/gratitude_txt"
                 android:textSize="20sp" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 

@@ -26,6 +26,7 @@ import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.dagger.application.BaseApplication;
 import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 import com.nsmiles.happybeingsdklib.mycoachfragment.implementation.CoachImplementation;
 import com.nsmiles.happybeingsdklib.mycoachfragment.view.CoachView;
 import com.nsmiles.happybeingsdklib.network.Service;
@@ -86,6 +87,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
     @Inject
     DataManager dataManager;
     String expiry_date;
+    String payment_status;
 
     @Nullable
     @Override
@@ -117,6 +119,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         personal_text_layout=view.findViewById(R.id.personal_text_layout);
         preferenceManager = new SdkPreferenceManager(getActivity());
 
+        payment_status=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
+
 
         past_audio_recycle_view = (RecyclerView) view.findViewById(R.id.past_audio_recycle_view);
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
@@ -137,6 +141,14 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         coach_date_tv.setText(datedd);
         coach_month_tv.setText(monthString);
         validtill.setText("valid till <"+expiry_date+">");
+
+
+        if(payment_status.equalsIgnoreCase("PAID")){
+
+            validtill.setVisibility(View.VISIBLE);
+        }else{
+            validtill.setVisibility(View.GONE);
+        }
 
 
 
@@ -303,6 +315,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
             Log.i("CoachFragment", "In else loop of profile");
 
         }*/
+
+        coachImplementation.getPaymentstatus();
 
         coachImplementation.defaultCoachData();
         //coachImplementation.getMindGymData();

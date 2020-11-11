@@ -17,6 +17,9 @@ public class AppConstants {
     public static final String RELAX_AUDIO = "Relax Audios";
     public static final String AFFIRMATION = "Affirmations";
     public static final String ACTIVITIES = "Activities";
+
+    public static final String PAYMENT_STATUS = "PAYMENT_STATUS";
+
     public static final String STRESS_RELIEF_FOOD = "Stress Relief Foods";
     public static final String NATURE_CALM = "Nature Calm";
     public static final String VENT_RECORD = "Express Yourself";

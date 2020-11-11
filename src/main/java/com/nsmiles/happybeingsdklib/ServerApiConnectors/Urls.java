@@ -80,7 +80,7 @@ public class Urls {
     }
 
     public static String saveEmotionsURL() {
-        return SERVER_ADDRESS_V2 + "/emotion";
+        return SERVER_ADDRESS_V1 + "/questionnaires/emotion";
     }
 
     public static String updateSecondaryProfileURL() {
@@ -98,7 +98,7 @@ public class Urls {
 
     public static String getMindGymUrl() {
 
-        return SERVER_ADDRESS_V1 + "/questionnaires/mindgym";
+        return SERVER_ADDRESS_V1 + "/get/getMindGym";
     }
 
 

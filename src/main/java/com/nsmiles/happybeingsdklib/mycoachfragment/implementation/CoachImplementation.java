@@ -138,6 +138,8 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     private CompositeSubscription compositeSubscription;
     private Service service;
     private DataManager dataManager;
+    PreferenceManager preferenceManager;
+
 
     public CoachImplementation(Service service,DataManager dataManager,boolean islogin, TextView tv_day_workout, CoachView coachView, Activity activity, RecyclerView past_audio_recycle_view,  ViewPager viewPager, LinearLayout layoutdots) {
         this.service=service;
@@ -171,6 +173,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
         COMPLETED_STATUS_API = NetworkService.corporateAllCompletedStatus.trim();
         PAYMENT_CATEGORY = AppConstants.CORPORATE_WELLBEING;
         report_API_URL = "CORPORATEWELLBEINGV4";
+        preferenceManager=new PreferenceManager(activity);
     }
 
     private void trimSingleName() {
@@ -393,7 +396,6 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
             new ApiProvider.GetMindGymData(parameters, token, 1, new API_Response_Listener<List<MindGymModel>>() {
                 @Override
                 public void onComplete(List<MindGymModel> data, long request_code, String failure_code) {
-
 
                     try {
 
@@ -710,6 +712,54 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
     }
 
     @Override
+    public void getPaymentstatus() {
+        String parameters = "email=" + commonUtils.getUserEmail(activity);
+        String version = "1";
+        final String day = "7";
+        final String unique = "&unique=true";
+        token = commonUtils.getTokenId(activity);
+
+        parameters = parameters.concat("&version=" + version).concat("&days=" + day).concat(unique);
+        // CommonUtils.showLogInforamtion(getClass().getSimpleName(), "ggggggggg", parameters, true);
+
+        if (CommonUtils.isNetworkAvailable(activity)) {
+            coachView.hideSyncTextView();
+            coachView.showProgressBar();
+            new ApiProvider.GetMindGymData(parameters, token, 1, new API_Response_Listener<List<MindGymModel>>() {
+                @Override
+                public void onComplete(List<MindGymModel> data, long request_code, String failure_code) {
+
+
+                    if (data != null) {
+
+                        for (int i = 0; i < data.size(); i++) {
+
+
+                            preferenceManager.add(AppConstants.PAYMENT_STATUS,data.get(i).getPaymentStatus());
+
+
+                        }
+
+
+
+                    }
+                    else {
+                        coachView.showSyncTextView();
+                    }
+
+
+                    coachView.hideProgressBar();
+                }
+            }).call();
+        } else {
+            coachView.showNoInternet();
+        }
+
+
+
+    }
+
+    @Override
     public void upgrade() {
 
        // CommonUtils.playStore(activity);
@@ -935,7 +985,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
             mindGymModel.setDataSynced(0);
             dummyMindGymModelList.add(mindGymModel);
             if(CommonUtils.isNetworkAvailable(activity)) {
-                getMindGymData();
+            //    getMindGymData();
             }
 
             playAudios(dummyMindGymModelList);

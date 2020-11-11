@@ -24,6 +24,7 @@ public class CommonPresenter {
         void initCorporateData();
         void callAdapter();
         void onDestroy();
+
         void checkAssessmentPaymentStatus(WellBeingCategoryImplementation.WellBeingCallBack callBack);
     }
     public interface ReportInterface {

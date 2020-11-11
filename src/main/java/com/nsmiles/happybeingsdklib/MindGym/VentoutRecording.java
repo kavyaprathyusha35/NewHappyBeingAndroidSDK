@@ -50,7 +50,7 @@ public class VentoutRecording extends AppCompatActivity implements View.OnClickL
     private String recordFilePath;
     public static final String STORAGE_DIR = "recordings";
     private Button done_button;
-    TextView vent_record_title;
+    TextView vent_record_title,instruction;
     Button start_button_vent_record;
     RelativeLayout record_layout;
     Toolbar toolbar;
@@ -70,11 +70,12 @@ public class VentoutRecording extends AppCompatActivity implements View.OnClickL
 
 
         toggleButton = (ToggleButton) findViewById(R.id.start_button);
-        toggleButton.setOnCheckedChangeListener(this);
+         toggleButton.setOnCheckedChangeListener(this);
         playOrPause = (ToggleButton) findViewById(R.id.play_button);
         playOrPause.setOnCheckedChangeListener(this);
         seekBar = (SeekBar) findViewById(R.id.seek_bar);
         recordingTimer = (TextView) findViewById(R.id.txttime);
+        instruction = (TextView) findViewById(R.id.instruction);
         done_button = (Button) findViewById(R.id.done_button);
         done_button.setOnClickListener(this);
         start_button_vent_record.setOnClickListener(this);
@@ -116,6 +117,7 @@ public class VentoutRecording extends AppCompatActivity implements View.OnClickL
             record_layout.setVisibility(View.VISIBLE);
             start_button_vent_record.setVisibility(View.GONE);
             vent_record_title.setVisibility(View.GONE);
+            instruction.setVisibility(View.VISIBLE);
         }
     }
 
@@ -295,7 +297,9 @@ public class VentoutRecording extends AppCompatActivity implements View.OnClickL
                     askForPermission(Manifest.permission.RECORD_AUDIO, 2);
                 }
             } else {
+
                 stopRecording();
+                instruction.setText(R.string.vent_record_STOP);
                 playOrPause.setVisibility(View.VISIBLE);
                 done_button.setVisibility(View.VISIBLE);
                 toggleButton.setVisibility(View.INVISIBLE);

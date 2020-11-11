@@ -300,6 +300,7 @@ drawable payment_gray
 drawable phy_tops
 drawable play_c_orange
 drawable plus_icon
+drawable premium_small
 drawable progress
 drawable radar_marker
 drawable rbtn_selector
@@ -509,6 +510,7 @@ id image_view
 id immediate_actions_layout
 id immediate_actions_layout_heading
 id info_text
+id instruction
 id instruction_layout
 id instruction_tv
 id instructions_text
@@ -557,6 +559,7 @@ id physicaloptions1
 id play_audio_img
 id play_button
 id play_progress
+id premium
 id previous_btn
 id progress
 id progress_overlay
@@ -842,6 +845,8 @@ string top_actions_you_may_want_to_take
 string tv_SelfLove
 string u_what_s_included_in_this_program_u
 string vent_record
+string vent_record_STOP
+string vent_record_start
 string view_plan
 string view_report
 string went_wrong_try_again
@@ -853,6 +858,7 @@ style DrawerArrowStyle
 style Eight_Margin_Dimension
 style EighthMarginStyle
 style LinearProgress
+style LinearProgressss
 style MineCustomTabText
 style MyAlertDialogMaterialStyle
 style MyEditTextTheme

@@ -86,6 +86,7 @@ public class PlayRelaxAudioActivity extends AppCompatActivity implements View.On
     LinearLayout repeat_layout,done_layout;
 
 
+
     private boolean fromOnPause = false;
     static boolean active = false;
     boolean isPlaying = false;
@@ -877,6 +878,7 @@ public class PlayRelaxAudioActivity extends AppCompatActivity implements View.On
         feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
         feelings.setText("Thankful");
         relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
+        emotion="Thankful";
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -948,16 +950,16 @@ public class PlayRelaxAudioActivity extends AppCompatActivity implements View.On
             public void onClick(View v) {
                 if (CommonUtils.isNetworkAvailable(activity)) {
 
-                    if (emotion.length() > 0) {
+                    if (emotion.equals("")) {
 
                         AddEmotionRequest emotionss=new AddEmotionRequest();
-                        emotionss.setUser_id(user_id);
+                        emotionss.setEmail(commonUtils.getUserEmail(activity));
                         emotionss.setDate_time(new Date().toString());
                         emotionss.setFeature("RELAX");
                         emotionss.setEmotion1(emotion);
                         emotionss.setActivity(task_name);
 
-                        new ApiProvider.SaveEmotions(emotionss, AppConstants.DEFAULT_TOKEN, 2, activity, "Saving...", new API_Response_Listener<String>() {
+                        new ApiProvider.SaveEmotions(emotionss, commonUtils.getTokenId(activity), 2, activity, "Saving...", new API_Response_Listener<String>() {
 
                             @Override
                             public void onComplete(String data, long request_code, String failure_code) {

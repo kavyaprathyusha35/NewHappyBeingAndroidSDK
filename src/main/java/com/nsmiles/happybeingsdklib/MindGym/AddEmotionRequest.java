@@ -14,6 +14,7 @@ public class AddEmotionRequest {
     private String user_id;
     private String date_time;
     private String device_id;
+    private String email;
 
 
     private String feature;
@@ -23,6 +24,13 @@ public class AddEmotionRequest {
     private String end_date_time;
     private String response;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getId() {
         return id;

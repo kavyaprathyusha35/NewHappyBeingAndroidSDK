@@ -63,7 +63,7 @@ public class JSONParser {
     static JSONObject getJsonForEmotion(AddEmotionRequest data) {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("user_id", data.getUser_id());
+            jsonObject.put("email", data.getEmail());
             jsonObject.put("date_time", data.getDate_time());
             jsonObject.put("device_id", data.getDevice_id());
             jsonObject.put("emotion1", data.getEmotion1());
@@ -196,7 +196,8 @@ public class JSONParser {
         String convertTxt;
         try {
             JSONObject jsonObject = new JSONObject(response);
-            JSONObject successJson = jsonObject.getJSONObject("success");
+            JSONObject resultJson = jsonObject.getJSONObject("result");
+            JSONObject successJson = resultJson.getJSONObject("success");
             JSONObject dateDetailJson = successJson.getJSONObject("datedetails");
             //usercreateddate = dateDetailJson.getString("usercreateddate");
             currentdate = ddmmyyyyFormat.format(new Date());

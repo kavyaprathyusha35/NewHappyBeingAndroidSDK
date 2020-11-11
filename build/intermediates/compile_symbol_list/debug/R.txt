@@ -1919,6 +1919,7 @@ int drawable payment_gray 0x0
 int drawable phy_tops 0x0
 int drawable play_c_orange 0x0
 int drawable plus_icon 0x0
+int drawable premium_small 0x0
 int drawable progress 0x0
 int drawable radar_marker 0x0
 int drawable rbtn_selector 0x0
@@ -2283,6 +2284,7 @@ int id immediate_actions_layout 0x0
 int id immediate_actions_layout_heading 0x0
 int id info 0x0
 int id info_text 0x0
+int id instruction 0x0
 int id instruction_layout 0x0
 int id instruction_tv 0x0
 int id instructions_text 0x0
@@ -2401,6 +2403,7 @@ int id play_button 0x0
 int id play_progress 0x0
 int id position 0x0
 int id postLayout 0x0
+int id premium 0x0
 int id previous_btn 0x0
 int id progress 0x0
 int id progress_circular 0x0
@@ -3035,6 +3038,8 @@ int string top_actions_you_may_want_to_take 0x0
 int string tv_SelfLove 0x0
 int string u_what_s_included_in_this_program_u 0x0
 int string vent_record 0x0
+int string vent_record_STOP 0x0
+int string vent_record_start 0x0
 int string view_plan 0x0
 int string view_report 0x0
 int string went_wrong_try_again 0x0
@@ -3279,6 +3284,7 @@ int style Eight_Margin_Dimension 0x0
 int style EighthMarginStyle 0x0
 int style EmptyTheme 0x0
 int style LinearProgress 0x0
+int style LinearProgressss 0x0
 int style MaterialAlertDialog_MaterialComponents 0x0
 int style MaterialAlertDialog_MaterialComponents_Body_Text 0x0
 int style MaterialAlertDialog_MaterialComponents_Picker_Date_Calendar 0x0
