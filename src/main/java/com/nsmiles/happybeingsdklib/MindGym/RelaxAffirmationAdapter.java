@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 
 import java.util.List;
 
@@ -27,12 +29,17 @@ public class RelaxAffirmationAdapter extends RecyclerView.Adapter<RelaxAffirmati
     int index;
     String favourite;
     boolean is_logIn;
+    PreferenceManager preferenceManager;
+    String payment_status;
+
 
     public RelaxAffirmationAdapter(String favourite, boolean isLogin, List<RelaxAudioModel> relaxAudioModelList, Activity activity) {
         this.is_logIn = isLogin;
         this.relaxAudioModelList = relaxAudioModelList;
         this.activity = activity;
         this.favourite = favourite;
+        preferenceManager=new PreferenceManager(activity);
+        payment_status=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
     }
 
     public void setRelaxPlayAudioOnClickListener(RelaxPlayAudioOnClickListener relaxPlayAudioOnClickListener) {
@@ -57,6 +64,12 @@ public class RelaxAffirmationAdapter extends RecyclerView.Adapter<RelaxAffirmati
         }
         else {
             holder.fav_img.setVisibility(View.GONE);
+        }
+
+        if(payment_status!=null && payment_status.equalsIgnoreCase("EXPIRED")){
+            holder.premium.setVisibility(View.VISIBLE);
+        }else{
+            holder.premium.setVisibility(View.GONE);
         }
     }
 
@@ -110,7 +123,7 @@ public class RelaxAffirmationAdapter extends RecyclerView.Adapter<RelaxAffirmati
         TextView audio_name_tv;
         TextView audio_desc_tv;
         TextView duration_tv;
-        ImageView roundedImageView;
+        ImageView roundedImageView,premium;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -118,6 +131,7 @@ public class RelaxAffirmationAdapter extends RecyclerView.Adapter<RelaxAffirmati
             card_view = (CardView) itemView.findViewById(R.id.card_view);
             fav_img = (ImageView) itemView.findViewById(R.id.fav_img);
             roundedImageView = (ImageView) itemView.findViewById(R.id.roundedImageView);
+            premium = (ImageView) itemView.findViewById(R.id.premium);
             audio_name_tv = (TextView) itemView.findViewById(R.id.audio_name_tv);
             audio_desc_tv = (TextView) itemView.findViewById(R.id.audio_desc_tv);
             duration_tv = (TextView) itemView.findViewById(R.id.duration_tv);

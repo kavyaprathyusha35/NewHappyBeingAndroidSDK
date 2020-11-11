@@ -1,6 +1,7 @@
 package com.nsmiles.happybeingsdklib.mycoachfragment.presenter;
 
 import com.nsmiles.happybeingsdklib.wellbeingassessment.implementation.WellBeingCategoryImplementation;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentData;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentJsonModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.questionmodel.Question;
 
@@ -23,6 +24,7 @@ public class CommonPresenter {
         void initCorporateData();
         void callAdapter();
         void onDestroy();
+
         void checkAssessmentPaymentStatus(WellBeingCategoryImplementation.WellBeingCallBack callBack);
     }
     public interface ReportInterface {
@@ -39,7 +41,7 @@ public class CommonPresenter {
 
         void nextButtonClickListener();
 
-        void callReportGenerateApi(AssessmentJsonModel assessmentJsonModel);
+        void callReportGenerateApi(AssessmentData assessmentJsonModel);
     }
     public interface APICallBack {
         void apiCallingCompleted();

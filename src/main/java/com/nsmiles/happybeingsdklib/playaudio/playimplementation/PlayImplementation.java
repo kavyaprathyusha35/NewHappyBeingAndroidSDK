@@ -887,6 +887,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
         feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
         feelings.setText("Thankful");
         relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
+        emotion="Thankful";
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -958,16 +959,16 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
             public void onClick(View v) {
                 if (CommonUtils.isNetworkAvailable(activity)) {
 
-                    if (emotion.length() > 0) {
+                    if (emotion.equals("")) {
 
                         AddEmotionRequest emotionss=new AddEmotionRequest();
-                        emotionss.setUser_id(user_id);
+                        emotionss.setEmail(commonUtils.getUserEmail(activity));
                         emotionss.setDate_time(new Date().toString());
                         emotionss.setFeature("RELAX");
                         emotionss.setEmotion1(emotion);
                         emotionss.setActivity(task_name);
 
-                        new ApiProvider.SaveEmotions(emotionss, AppConstants.DEFAULT_TOKEN, 2, activity, "Saving...", new API_Response_Listener<String>() {
+                        new ApiProvider.SaveEmotions(emotionss, commonUtils.getTokenId(activity), 2, activity, "Saving...", new API_Response_Listener<String>() {
 
                             @Override
                             public void onComplete(String data, long request_code, String failure_code) {
@@ -976,7 +977,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
                                     Log.e("data", "null");
                                 } else {
 
-                                    if (emotion.length() > 0) {
+                                    if (emotion.equals("")) {
                                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                                         ContentValues cv = new ContentValues();
@@ -1006,7 +1007,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
 
                 }
                 else {
-                    if (emotion.length() > 0) {
+                    if (emotion.equals("")) {
                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues cv = new ContentValues();

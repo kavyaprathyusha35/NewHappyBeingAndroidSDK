@@ -185,6 +185,13 @@ public class CommonUtils {
         return prefs.get(AppConstants.SDK_EMAIL, "");
     }
 
+
+    public String getExpiryDate(Activity activity) {
+        SdkPreferenceManager prefs = new SdkPreferenceManager(activity);
+        return prefs.get(AppConstants.SDK_EXPIRY_AT, "");
+    }
+
+
     public static void showToast(Activity activity, String message) {
 
         try {
@@ -895,4 +902,21 @@ public class CommonUtils {
         return dateFormat.format(date);
     }
 
+    public static String getDateFormat(String paymentValidityDate) {
+        String data = "";
+        SimpleDateFormat dateFormat;
+        SimpleDateFormat outputDateFormat;
+        Date date;
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        outputDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+
+        try {
+            date = dateFormat.parse(paymentValidityDate);
+            data = outputDateFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 }

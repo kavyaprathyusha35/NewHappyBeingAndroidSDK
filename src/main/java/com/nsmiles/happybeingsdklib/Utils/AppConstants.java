@@ -17,12 +17,16 @@ public class AppConstants {
     public static final String RELAX_AUDIO = "Relax Audios";
     public static final String AFFIRMATION = "Affirmations";
     public static final String ACTIVITIES = "Activities";
+
+    public static final String PAYMENT_STATUS = "PAYMENT_STATUS";
+
     public static final String STRESS_RELIEF_FOOD = "Stress Relief Foods";
     public static final String NATURE_CALM = "Nature Calm";
     public static final String VENT_RECORD = "Express Yourself";
     public static final String DEFAULT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDhiMjc0MDcyY2NhMTQ2OGVhMTIxZSIsImlhdCI6MTU5MTMzNzQ1NH0.XBJXdCgstqmF9Z5BfXf3Xjso3TkRiKixSHH6Wt-KzJ4";
     public static final String OVERLAY_DIALOG_BUTTON_CLICKED = "Over_lay_clicked";
     public static final String MOVE_POSITION = "Move_posi";
+    public static final String ASSESS_TOKEN = "YUdsdFlXNXphRzl2TlRRME5TVTBNR2R0WVdsc0xtTnZiUT09OjVmMTk4MWY3MzJhMDg2MGZkYmQwODJhMTo1YjIzNWVmOTI2NmZmOTNlYzhjZjEwMWM6MTU5ODUzMTkyNjM1MQ==";
     public static final String GRATITUDE_JOURNAL = "Gratitude journal";
     public static final String ABUDANCE_JOURNAL = "Abundance journal";
     public static final String MANIFEST_JOURNAL = "Manifest journal";

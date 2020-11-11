@@ -101,7 +101,7 @@ public class ServerHandler {
                     connection.setRequestProperty("Content-Type", "application/json");
                     // Working
                 //    connection.setRequestProperty("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MjUyZTZjMTIzNTRiZWQ4ZTliNzUwZSIsImlhdCI6MTQ5NTY5OTY4MH0.Z7IIk8ck1xbNvtiH42Z992kBkqOVvi7UZ0s3rzEG1u8");
-                    connection.setRequestProperty("Authorization", "Bearer " +token);
+                    connection.setRequestProperty("accesstoken", token);
                 }
                 // Not working
                 // connection.setRequestProperty("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlZmF1bHQiLCJpYXQiOjE0ODk5MzA5NDZ9.x3MobPwdUIUx_JrNCu7bG2aMFz4oaMAWo4VbUmy6FDY");

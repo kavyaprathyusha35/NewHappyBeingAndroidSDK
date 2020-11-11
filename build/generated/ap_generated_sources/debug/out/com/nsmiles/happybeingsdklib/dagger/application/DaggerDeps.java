@@ -3,6 +3,8 @@ package com.nsmiles.happybeingsdklib.dagger.application;
 import android.content.Context;
 import com.nsmiles.happybeingsdklib.Reports.DetailReport.DetailReportActivity;
 import com.nsmiles.happybeingsdklib.Reports.DetailReport.DetailReportActivity_MembersInjector;
+import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.SingleWellBeingReportActivity;
+import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.SingleWellBeingReportActivity_MembersInjector;
 import com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen;
 import com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen_MembersInjector;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
@@ -114,6 +116,11 @@ public final class DaggerDeps implements Deps {
   }
 
   @Override
+  public void inject(SingleWellBeingReportActivity detailReportActivity) {
+    injectSingleWellBeingReportActivity(detailReportActivity);
+  }
+
+  @Override
   public void inject(NetworkChangeReceiver networkChangeReceiver) {
     injectNetworkChangeReceiver(networkChangeReceiver);
   }
@@ -162,6 +169,14 @@ public final class DaggerDeps implements Deps {
   private DetailReportActivity injectDetailReportActivity(DetailReportActivity instance) {
     DetailReportActivity_MembersInjector.injectDataManager(instance, getDataManager());
     DetailReportActivity_MembersInjector.injectService(instance, providesServiceProvider.get());
+    return instance;
+  }
+
+  private SingleWellBeingReportActivity injectSingleWellBeingReportActivity(
+      SingleWellBeingReportActivity instance) {
+    SingleWellBeingReportActivity_MembersInjector.injectDataManager(instance, getDataManager());
+    SingleWellBeingReportActivity_MembersInjector.injectService(
+        instance, providesServiceProvider.get());
     return instance;
   }
 

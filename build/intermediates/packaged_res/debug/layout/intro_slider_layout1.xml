@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="50sp"
+                android:fontFamily="@font/opensans_extrabold"
                 android:text="Hello!"
                 android:gravity="center"/>
             <TextView
@@ -33,12 +34,13 @@
                 android:layout_marginBottom="@dimen/dimen_10dp"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/opensans_extrabold"
                 android:layout_height="wrap_content"
                 android:textSize="50sp"
                 android:gravity="center"
                 android:text="I'm"/>
             <ImageView
-                android:layout_marginTop="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_60dp"
                 android:layout_gravity="center"
                 android:id="@+id/splash_img"
                 android:layout_width="wrap_content"

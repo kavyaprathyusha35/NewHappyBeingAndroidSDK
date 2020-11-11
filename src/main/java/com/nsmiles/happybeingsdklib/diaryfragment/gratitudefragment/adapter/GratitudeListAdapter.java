@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 
 import java.util.List;
 
@@ -25,6 +27,8 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
     private Activity activity;
     private ExpressOnClickListener expressOnClickListener;
     private int row_index=0;
+    PreferenceManager preferenceManager;
+    String payment_status;
 
     public GratitudeListAdapter(Activity activity, List<String> gratitudeList) {
         this.activity = activity;
@@ -52,6 +56,19 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
         try {
             holder.name_tv.setText(gratitudeList.get(position));
 
+            if(payment_status!=null && payment_status.equalsIgnoreCase("EXPIRED")){
+
+                if(gratitudeList.get(position).equalsIgnoreCase(AppConstants.GRATITUDE_JOURNAL)){
+                    holder.premium.setVisibility(View.VISIBLE);
+
+                }else if(gratitudeList.get(position).equalsIgnoreCase(AppConstants.ABUDANCE_JOURNAL)){
+                    holder.premium.setVisibility(View.VISIBLE);
+                }
+
+            } else{
+                holder.premium.setVisibility(View.GONE);
+            }
+
             if(expressOnClickListener!=null){
                 expressOnClickListener.hideLastViewLine(holder.myView, position , gratitudeList.size(), gratitudeList, holder.gratitude_img);
             }
@@ -71,7 +88,7 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
         CardView card_view;
         LinearLayout complete_layout;
         TextView name_tv;
-        ImageView gratitude_img;
+        ImageView gratitude_img,premium;
         View myView;
 
         public ViewHolder(View itemView) {
@@ -82,6 +99,8 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
             gratitude_img = (ImageView) itemView.findViewById(R.id.gratitude_img);
             myView = (View) itemView.findViewById(R.id.myView);
             card_view.setOnClickListener(this);
+            premium = (ImageView) itemView.findViewById(R.id.premium);
+
         }
 
         @Override

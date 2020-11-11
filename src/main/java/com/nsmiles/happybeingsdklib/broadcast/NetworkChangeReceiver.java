@@ -38,6 +38,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     Service service;
     private ConnectivityReceiverListener mConnectivityReceiverListener;
     private boolean isInBackground;
+    CommonUtils commonUtils;
 
     public NetworkChangeReceiver( ConnectivityReceiverListener listener) {
         mConnectivityReceiverListener = listener;
@@ -53,6 +54,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
       //  Toast.makeText(context, "On reconnected  to network", Toast.LENGTH_LONG).show();
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
             this.context = context;
+            commonUtils=new CommonUtils();
             ((BaseApplication) context.getApplicationContext()).getmApplicationApiComponent().inject(this);
             //TODO: add dbsync here
             if (CommonUtils.isNetworkAvailable(context)) {
@@ -92,7 +94,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                 Type type = new TypeToken<AssessmentJsonModel>() {}.getType();
                 Gson gson = new Gson();
                 AssessmentJsonModel assessmentJsonModel = gson.fromJson(assessment_answers, type);
-                  uploadToServer(service, assessmentJsonModel, id, hb_token);
+                  //uploadToServer(service, assessmentJsonModel, id, hb_token);
                 cursor.moveToNext();
             }
 
@@ -101,34 +103,34 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         db.close();
     }
 
-    private void uploadToServer(Service service, AssessmentJsonModel assessmentJsonModel, final String id, String token) {
-
-            Subscription subscription = service.generateAssessmentReportApi(AppConstants.BEARER + token,
-                    assessmentJsonModel, new Service.GenerateReportCallBack() {
-                        @Override
-                        public void onSuccess(CorporateSuccess corporateSuccess) {
-
-                            if (corporateSuccess != null) {
-                                MySql dbHelper = new MySql(context, "mydb", null, MySql.version);
-                                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                                db.delete("Assessment_Answers_Table", "_ID=?", new String[]{id});
-                                Log.i("NetworkConnectivity", "deleted the uploaded entry");
-                            }
-
-                        }
-
-                        @Override
-                        public void onError(NetworkError networkError) {
-
-                        }
-
-                        @Override
-                        public void onSuccessError(String errorMessage) {
-                        }
-
-                    });
-
-            }
+//    private void uploadToServer(Service service, AssessmentJsonModel assessmentJsonModel, final String id, String token) {
+//
+//            Subscription subscription = service.generateAssessmentReportApi("application/json",AppConstants.BEARER + token,
+//                    assessmentJsonModel, new Service.GenerateReportCallBack() {
+//                        @Override
+//                        public void onSuccess(CorporateSuccess corporateSuccess) {
+//
+//                            if (corporateSuccess != null) {
+//                                MySql dbHelper = new MySql(context, "mydb", null, MySql.version);
+//                                SQLiteDatabase db = dbHelper.getWritableDatabase();
+//                                db.delete("Assessment_Answers_Table", "_ID=?", new String[]{id});
+//                                Log.i("NetworkConnectivity", "deleted the uploaded entry");
+//                            }
+//
+//                        }
+//
+//                        @Override
+//                        public void onError(NetworkError networkError) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onSuccessError(String errorMessage) {
+//                        }
+//
+//                    });
+//
+//            }
 
 
     public static boolean isConnected(Context context) {

@@ -12,14 +12,11 @@ import android.widget.Toast;
 import com.nsmiles.happybeingsdklib.Models.PaymentInfo;
 import com.nsmiles.happybeingsdklib.Models.PaymentPackagesModel.PaymentPackagesInfo;
 import com.nsmiles.happybeingsdklib.R;
-import com.nsmiles.happybeingsdklib.ServerApiConnectors.API_Response_Listener;
-import com.nsmiles.happybeingsdklib.ServerApiConnectors.ApiProvider;
 import com.nsmiles.happybeingsdklib.ServerApiConnectors.Urls;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.dagger.application.BaseApplication;
-import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.network.NetworkError;
 import com.nsmiles.happybeingsdklib.network.Service;
 import com.payumoney.core.PayUmoneySdkInitializer.PaymentParam;
@@ -247,6 +244,7 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
 
         paymentInfo.setTxnDateTime(commonUtils.DD_MM_YYYY_T());
 
+/*
         new ApiProvider.SetPayment(paymentInfo, commonUtils.getTokenId(SubscriptionActivity.this), 4, this, "Updating payment details", new API_Response_Listener<UserInformation>() {
             @Override
             public void onComplete(UserInformation data, long request_code, String failure_code) {
@@ -261,6 +259,7 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
 //                }
             }
         }).call();
+*/
 
     }
 

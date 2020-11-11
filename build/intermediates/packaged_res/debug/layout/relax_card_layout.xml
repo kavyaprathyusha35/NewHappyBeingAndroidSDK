@@ -169,6 +169,12 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:id="@+id/premium"
+        android:background="@drawable/premium_small"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

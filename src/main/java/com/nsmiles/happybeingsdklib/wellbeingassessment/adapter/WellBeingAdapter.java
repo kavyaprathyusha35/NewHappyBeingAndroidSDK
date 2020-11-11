@@ -53,34 +53,34 @@ public class WellBeingAdapter extends RecyclerView.Adapter<WellBeingAdapter.View
 //            cardOnClickListener.getFirstCardSize(holder.parent_layout.getMeasuredHeight(), corporateModelList.size()+1);
 //        }
         if (position==0){
-            holder.coach_gratitude_img.setImageResource(R.drawable.family_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.fam_top);
         }
         else if(position==1){
-            holder.coach_gratitude_img.setImageResource(R.drawable.money_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.finace_top);
 
         }
         else if(position==2){
-            holder.coach_gratitude_img.setImageResource(R.drawable.work_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.career_top);
 
         }
         else if(position==3){
-            holder.coach_gratitude_img.setImageResource(R.drawable.romantic_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.social_top);
 
         }
         else if(position==4){
-            holder.coach_gratitude_img.setImageResource(R.drawable.health_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.phy_tops);
 
         }
         else if(position==5){
-            holder.coach_gratitude_img.setImageResource(R.drawable.emotation_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.emotion_top);
 
         }
         else if(position==6){
-            holder.coach_gratitude_img.setImageResource(R.drawable.relation_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.env_top);
 
         }
         else if(position==7){
-            holder.coach_gratitude_img.setImageResource(R.drawable.spitual_c);
+            holder.coach_gratitude_img.setImageResource(R.drawable.spirtul_top);
 
         }
         else if(position==8){

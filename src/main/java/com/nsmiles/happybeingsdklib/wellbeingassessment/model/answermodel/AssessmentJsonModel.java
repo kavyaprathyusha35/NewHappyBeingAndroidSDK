@@ -13,9 +13,6 @@ public class AssessmentJsonModel implements Serializable {
     private AssessmentData assessmentData;
     private final static long serialVersionUID = -2119043918386350648L;
 
-
-
-
     public AssessmentData getAssessmentData() {
         return assessmentData;
     }

@@ -11,6 +11,7 @@ public interface CoachPresenter {
     void getMindGymData();
     void pushCoachData();
     void loadOfflineCoachData();
+    void getPaymentstatus();
 
     void upgrade();
 

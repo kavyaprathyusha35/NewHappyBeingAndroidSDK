@@ -248,96 +248,96 @@ public class DetailReportImplementation implements PregnancyWellBeingPresenter, 
 
     }
 
-    @Override
-    public void getGeneralWellBeingReport() {
-
-
-        Subscription subscription = service.getGeneralWellBeingReport(AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
-                dataManager.get(AppConstants.USER_ID, ""), new Service.GeneralWellBeingReportCallBack() {
-                    @Override
-                    public void onSuccess(GeneralWellBeingModel generalWellBeingModel) {
-
-                        //      dataManager.toast(activity, generalWellBeingModel.getSuccess().getData().getUserAssessmentData().getWellbeing().getReportContent());
-
-                        Log.i("PregnencyWell", "*** data is ********"+generalWellBeingModel.getSuccess().getData().getUserAssessmentData());
-                        tableDatumList = generalWellBeingModel.getSuccess().getData().getUserAssessmentData().getWellbeing().getTableData().get(0);
-
-
-
-                        if(!hideRadar) {
-                            tableDatumList.remove(tableDatumList.size()-1);
-                            if (mActivities != null && mActivities.length > 0) {
-                                mActivities = null;
-                            }
-                            if (entries1 != null && entries2 != null && entries1.size() > 0 && entries2.size() > 0) {
-                                entries1 = new ArrayList<>();
-                                entries2 = new ArrayList<>();
-                            }
-
-                            for (int g = 0; g < tableDatumList.size(); g++) {
-
-                                if (tableDatumList.get(g).getRangePercentage() != null
-                                        && tableDatumList.get(g).getRangePercentage() != 0
-                                        && tableDatumList.get(g).getScore() != null
-                                        ) {
-
-                                    availableCount++;
-                                }
-                            }
-
-                            mActivities = new String[tableDatumList.size()];
-                            mActivities = new String[availableCount];
-
-
-                        for (int i = 0; i < tableDatumList.size(); i++) {
-
-                            //    mActivities[i] = tableDatumList.get(i).getDescription();
-
-                            if (tableDatumList.get(i).getRangePercentage() != null && tableDatumList.get(i).getRangePercentage() != 0
-                                    && tableDatumList.get(i).getScore() != null && tableDatumList.get(i).getScore() != 0) {
-                                mActivities[actCount] = tableDatumList.get(i).getIpTitle();
-                                actCount++;
-                                double val1 = tableDatumList.get(i).getRangePercentage();
-                                entries1.add(new RadarEntry(dataManager.roundNumber(val1, 1)));
-
-                                double val2 = tableDatumList.get(i).getRangePercentageMax();
-                                entries2.add(new RadarEntry(dataManager.roundNumber(val2, 1)));
-
-                                //          dataManager.infoLog(tag, tableDatumList.get(i).getDescription());
-                            }
-                        }
-                        wellBeingRadarChart();
-                        }
-
-                        generalWellBeingAdapter = new WellbeingReportAdapter(activity, tableDatumList, DetailReportImplementation.this);
-                        expandableListView.setAdapter(generalWellBeingAdapter);
-                        if (hideRadar)
-                            expandableListView.expandGroup(0);
-                        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-                            @Override
-                            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                                Log.i("PregnencyWellBeing", "***** Group position is ***** "+i);
-                                setListViewHeight(expandableListView, i);
-                                return false;
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onError(NetworkError networkError) {
-
-                        //dataManager.toast(activity, networkError.getMessage());
-                    }
-
-                    @Override
-                    public void onSuccessError(String errorMessage) {
-
-//                        dataManager.toast(activity, errorMessage);
-                    }
-                });
-
-        compositeSubscription.add(subscription);
-    }
+//    @Override
+//    public void getGeneralWellBeingReport() {
+//
+//
+//        Subscription subscription = service.getGeneralWellBeingReport(AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
+//                dataManager.get(AppConstants.USER_ID, ""), new Service.GeneralWellBeingReportCallBack() {
+//                    @Override
+//                    public void onSuccess(GeneralWellBeingModel generalWellBeingModel) {
+//
+//                        //      dataManager.toast(activity, generalWellBeingModel.getSuccess().getData().getUserAssessmentData().getWellbeing().getReportContent());
+//
+//                        Log.i("PregnencyWell", "*** data is ********"+generalWellBeingModel.getSuccess().getData().getUserAssessmentData());
+//                        tableDatumList = generalWellBeingModel.getSuccess().getData().getUserAssessmentData().getWellbeing().getTableData().get(0);
+//
+//
+//
+//                        if(!hideRadar) {
+//                            tableDatumList.remove(tableDatumList.size()-1);
+//                            if (mActivities != null && mActivities.length > 0) {
+//                                mActivities = null;
+//                            }
+//                            if (entries1 != null && entries2 != null && entries1.size() > 0 && entries2.size() > 0) {
+//                                entries1 = new ArrayList<>();
+//                                entries2 = new ArrayList<>();
+//                            }
+//
+//                            for (int g = 0; g < tableDatumList.size(); g++) {
+//
+//                                if (tableDatumList.get(g).getRangePercentage() != null
+//                                        && tableDatumList.get(g).getRangePercentage() != 0
+//                                        && tableDatumList.get(g).getScore() != null
+//                                        ) {
+//
+//                                    availableCount++;
+//                                }
+//                            }
+//
+//                            mActivities = new String[tableDatumList.size()];
+//                            mActivities = new String[availableCount];
+//
+//
+//                        for (int i = 0; i < tableDatumList.size(); i++) {
+//
+//                            //    mActivities[i] = tableDatumList.get(i).getDescription();
+//
+//                            if (tableDatumList.get(i).getRangePercentage() != null && tableDatumList.get(i).getRangePercentage() != 0
+//                                    && tableDatumList.get(i).getScore() != null && tableDatumList.get(i).getScore() != 0) {
+//                                mActivities[actCount] = tableDatumList.get(i).getIpTitle();
+//                                actCount++;
+//                                double val1 = tableDatumList.get(i).getRangePercentage();
+//                                entries1.add(new RadarEntry(dataManager.roundNumber(val1, 1)));
+//
+//                                double val2 = tableDatumList.get(i).getRangePercentageMax();
+//                                entries2.add(new RadarEntry(dataManager.roundNumber(val2, 1)));
+//
+//                                //          dataManager.infoLog(tag, tableDatumList.get(i).getDescription());
+//                            }
+//                        }
+//                        wellBeingRadarChart();
+//                        }
+//
+//                        generalWellBeingAdapter = new WellbeingReportAdapter(activity, tableDatumList, DetailReportImplementation.this);
+//                        expandableListView.setAdapter(generalWellBeingAdapter);
+//                        if (hideRadar)
+//                            expandableListView.expandGroup(0);
+//                        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+//                            @Override
+//                            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+//                                Log.i("PregnencyWellBeing", "***** Group position is ***** "+i);
+//                                setListViewHeight(expandableListView, i);
+//                                return false;
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onError(NetworkError networkError) {
+//
+//                        //dataManager.toast(activity, networkError.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onSuccessError(String errorMessage) {
+//
+////                        dataManager.toast(activity, errorMessage);
+//                    }
+//                });
+//
+//        compositeSubscription.add(subscription);
+//    }
 
 
     private void setListViewHeight(ExpandableListView listView,
@@ -375,149 +375,149 @@ public class DetailReportImplementation implements PregnancyWellBeingPresenter, 
         listView.requestLayout();
 
     }
-    @Override
-    public void getGeneralWellBeingCategoryReport() {
-
-/*
-
-        Set<String> categoryGroup;
-
-        */
-/*Save Pregnancy Category Group Name*//*
-
-        if (area != null) {
-            categoryGroup = dataManager.get(AppConstants.GENERAL_CATEGORY_GROUP);
-            if (categoryGroup == null) {
-                categoryGroup = new HashSet<>();
-            }
-            categoryGroup.add(area);
-            dataManager.save(AppConstants.GENERAL_CATEGORY_GROUP, categoryGroup);
-        */
-/*Save Pregnancy Category Group Name*//*
-
-
-        */
-/*Save Pregnancy Category Group List Name*//*
-
-            categoryGroup = new HashSet<>();
-            categoryGroup.addAll(category);
-            dataManager.save(area, categoryGroup);
-        */
-/*Save Pregnancy Category Group List Name*//*
-
-        }
-
-        StringBuffer url = new StringBuffer(NetworkService.getGeneralWellBeingCategory);
-        url.append(report_name).append("?").append("reportname").append("=").append(report_name).append("&").append("reportstable").append("=").append("[");
-        Log.i("ReportImplementation", "Url is "+url+"report_name is "+report_name);
-        for (int i = 0; i < category.size(); i++) {
-
-            url.append('"');
-            url.append(category.get(i)).append('"');
-            if (i != category.size() - 1) {
-                url.append(",");
-            }
-
-        }
-        url.append("]");
-
-
-        try {
-            MYURL = java.net.URLDecoder.decode(String.valueOf(url), "UTF-8");
-
-            Log.d("eee", MYURL);
-
-
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        Log.i("WellbingCategory", "############Url is "+MYURL);
-        Log.i("WellbingCategory", "Category is "+category);
-
-        Subscription subscription = service.getGeneralWellBeingCategoryReport(AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
-                MYURL,
-                report_name,
-                category,
-                new Service.GeneralWellBeingCategoryReportCallBack() {
-                    @Override
-                    public void onSuccess(GeneralWellBeingCategoryModel generalWellBeingModel) {
-
-                        //  dataManager.toast(activity, generalWellBeingModel.getSuccess().getTableData().get(0).get(0).getIpTitle());
-                        tableDatumCategoryList = generalWellBeingModel.getSuccess().getTableData().get(0);
-                        Log.i("WellbeingReport","in on success"+tableDatumCategoryList.size());
-
-                        if(!hideRadar)
-                        {
-                            tableDatumCategoryList.remove(tableDatumCategoryList.size()-1);
-                        if (mActivities != null && mActivities.length > 0) {
-                            mActivities = null;
-                        }
-                        if (entries1 != null && entries2 != null && entries1.size() > 0 && entries2.size() > 0) {
-                            entries1 = new ArrayList<>();
-                            entries2 = new ArrayList<>();
-                        }
-
-                        for (int g = 0; g < tableDatumCategoryList.size(); g++) {
-
-                            if (tableDatumCategoryList.get(g).getRangePercentage() != 0
-                                    && tableDatumCategoryList.get(g).getRangePercentage() != 0
-                                    && tableDatumCategoryList.get(g).getScore() != null
-                                    ) {
-
-                                availableCount++;
-                            }
-                        }
-
-                        mActivities = new String[tableDatumCategoryList.size()];
-                        mActivities = new String[availableCount];
-
-
-                        for (int i = 0; i < tableDatumCategoryList.size(); i++) {
-
-                            //    mActivities[i] = tableDatumList.get(i).getDescription();
-
-                            if (tableDatumCategoryList.get(i).getRangePercentage() != 0 && tableDatumCategoryList.get(i).getRangePercentage() != 0
-                                    && tableDatumCategoryList.get(i).getScore() != null && tableDatumCategoryList.get(i).getScore() != 0) {
-                                mActivities[actCount] = tableDatumCategoryList.get(i).getIpTitle();
-                                mActivities[actCount] = String.valueOf(i+1);
-                                actCount++;
-                                double val1 = tableDatumCategoryList.get(i).getRangePercentage();
-                                entries1.add(new RadarEntry(dataManager.roundNumber(val1, 1)));
-
-                                double val2 = tableDatumCategoryList.get(i).getRangePercentageMax();
-                                entries2.add(new RadarEntry(dataManager.roundNumber(val2, 1)));
-                            }
-                        }
-                        wellBeingRadarChart();
-
-                    }
-
-                        generalWellBeingCategoryAdapter = new WellbeingCategoryReportAdapter(activity, tableDatumCategoryList, DetailReportImplementation.this);
-                        expandableListView.setAdapter(generalWellBeingCategoryAdapter);
-                        setListViewHeight(expandableListView, 0);
-                        if (hideRadar)
-                            expandableListView.expandGroup(0);
-
-
-                    }
-
-                    @Override
-                    public void onError(NetworkError networkError) {
-                        Log.i("WellbeingReport","IN network error "+networkError);
-
-                        dataManager.toast(activity, networkError.getMessage());
-                    }
-
-                    @Override
-                    public void onSuccessError(String errorMessage) {
-                        Log.i("WellbeingReport", "In success error "+errorMessage);
-                        dataManager.toast(activity, errorMessage);
-                    }
-                });
-
-        compositeSubscription.add(subscription);
-*/
-    }
+//    @Override
+//    public void getGeneralWellBeingCategoryReport() {
+//
+///*
+//
+//        Set<String> categoryGroup;
+//
+//        */
+///*Save Pregnancy Category Group Name*//*
+//
+//        if (area != null) {
+//            categoryGroup = dataManager.get(AppConstants.GENERAL_CATEGORY_GROUP);
+//            if (categoryGroup == null) {
+//                categoryGroup = new HashSet<>();
+//            }
+//            categoryGroup.add(area);
+//            dataManager.save(AppConstants.GENERAL_CATEGORY_GROUP, categoryGroup);
+//        */
+///*Save Pregnancy Category Group Name*//*
+//
+//
+//        */
+///*Save Pregnancy Category Group List Name*//*
+//
+//            categoryGroup = new HashSet<>();
+//            categoryGroup.addAll(category);
+//            dataManager.save(area, categoryGroup);
+//        */
+///*Save Pregnancy Category Group List Name*//*
+//
+//        }
+//
+//        StringBuffer url = new StringBuffer(NetworkService.getGeneralWellBeingCategory);
+//        url.append(report_name).append("?").append("reportname").append("=").append(report_name).append("&").append("reportstable").append("=").append("[");
+//        Log.i("ReportImplementation", "Url is "+url+"report_name is "+report_name);
+//        for (int i = 0; i < category.size(); i++) {
+//
+//            url.append('"');
+//            url.append(category.get(i)).append('"');
+//            if (i != category.size() - 1) {
+//                url.append(",");
+//            }
+//
+//        }
+//        url.append("]");
+//
+//
+//        try {
+//            MYURL = java.net.URLDecoder.decode(String.valueOf(url), "UTF-8");
+//
+//            Log.d("eee", MYURL);
+//
+//
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//        Log.i("WellbingCategory", "############Url is "+MYURL);
+//        Log.i("WellbingCategory", "Category is "+category);
+//
+//        Subscription subscription = service.getGeneralWellBeingCategoryReport(AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
+//                MYURL,
+//                report_name,
+//                category,
+//                new Service.GeneralWellBeingCategoryReportCallBack() {
+//                    @Override
+//                    public void onSuccess(GeneralWellBeingCategoryModel generalWellBeingModel) {
+//
+//                        //  dataManager.toast(activity, generalWellBeingModel.getSuccess().getTableData().get(0).get(0).getIpTitle());
+//                        tableDatumCategoryList = generalWellBeingModel.getSuccess().getTableData().get(0);
+//                        Log.i("WellbeingReport","in on success"+tableDatumCategoryList.size());
+//
+//                        if(!hideRadar)
+//                        {
+//                            tableDatumCategoryList.remove(tableDatumCategoryList.size()-1);
+//                        if (mActivities != null && mActivities.length > 0) {
+//                            mActivities = null;
+//                        }
+//                        if (entries1 != null && entries2 != null && entries1.size() > 0 && entries2.size() > 0) {
+//                            entries1 = new ArrayList<>();
+//                            entries2 = new ArrayList<>();
+//                        }
+//
+//                        for (int g = 0; g < tableDatumCategoryList.size(); g++) {
+//
+//                            if (tableDatumCategoryList.get(g).getRangePercentage() != 0
+//                                    && tableDatumCategoryList.get(g).getRangePercentage() != 0
+//                                    && tableDatumCategoryList.get(g).getScore() != null
+//                                    ) {
+//
+//                                availableCount++;
+//                            }
+//                        }
+//
+//                        mActivities = new String[tableDatumCategoryList.size()];
+//                        mActivities = new String[availableCount];
+//
+//
+//                        for (int i = 0; i < tableDatumCategoryList.size(); i++) {
+//
+//                            //    mActivities[i] = tableDatumList.get(i).getDescription();
+//
+//                            if (tableDatumCategoryList.get(i).getRangePercentage() != 0 && tableDatumCategoryList.get(i).getRangePercentage() != 0
+//                                    && tableDatumCategoryList.get(i).getScore() != null && tableDatumCategoryList.get(i).getScore() != 0) {
+//                                mActivities[actCount] = tableDatumCategoryList.get(i).getIpTitle();
+//                                mActivities[actCount] = String.valueOf(i+1);
+//                                actCount++;
+//                                double val1 = tableDatumCategoryList.get(i).getRangePercentage();
+//                                entries1.add(new RadarEntry(dataManager.roundNumber(val1, 1)));
+//
+//                                double val2 = tableDatumCategoryList.get(i).getRangePercentageMax();
+//                                entries2.add(new RadarEntry(dataManager.roundNumber(val2, 1)));
+//                            }
+//                        }
+//                        wellBeingRadarChart();
+//
+//                    }
+//
+//                        generalWellBeingCategoryAdapter = new WellbeingCategoryReportAdapter(activity, tableDatumCategoryList, DetailReportImplementation.this);
+//                        expandableListView.setAdapter(generalWellBeingCategoryAdapter);
+//                        setListViewHeight(expandableListView, 0);
+//                        if (hideRadar)
+//                            expandableListView.expandGroup(0);
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(NetworkError networkError) {
+//                        Log.i("WellbeingReport","IN network error "+networkError);
+//
+//                        dataManager.toast(activity, networkError.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onSuccessError(String errorMessage) {
+//                        Log.i("WellbeingReport", "In success error "+errorMessage);
+//                        dataManager.toast(activity, errorMessage);
+//                    }
+//                });
+//
+//        compositeSubscription.add(subscription);
+//*/
+//    }
     @Override
     public void getCorporateWellbeingReport() {
 //TODO : Call the different api for the corpporate wellbeing/
@@ -571,13 +571,13 @@ public class DetailReportImplementation implements PregnancyWellBeingPresenter, 
                 new Service.CorporateWellbeingReportCallBack() {
                     @Override
                     public void onSuccess(CorporateWellbeingReportModel corporateWellBeingModel) {
-                        Log.i("WellbingCategory","in on succes1 range is "+corporateWellBeingModel.getSuccess().getCorporatewellbeingv4Percentage());
-                        Double happinessIndex = corporateWellBeingModel.getSuccess().getCorporatewellbeingv4Percentage();
-                        List<String> actionsList = corporateWellBeingModel.getSuccess().getOverallGoals();
+                        Log.i("WellbingCategory","in on succes1 range is "+corporateWellBeingModel.getResult().getSuccess().getCorporatewellbeingv4Percentage());
+                        Double happinessIndex = corporateWellBeingModel.getResult().getSuccess().getCorporatewellbeingv4Percentage();
+                        List<String> actionsList = corporateWellBeingModel.getResult().getSuccess().getOverallGoals();
                         view.setHappinessIndexText(happinessIndex);
                         view.setActionsText(actionsList);
                         //  dataManager.toast(activity, generalWellBeingModel.getSuccess().getTableData().get(0).get(0).getIpTitle());
-                        categoryTableData = corporateWellBeingModel.getSuccess().getTableData().get(0);
+                        categoryTableData = corporateWellBeingModel.getResult().getSuccess().getTableData().get(0);
 
                         if(!hideRadar)
                         {

@@ -7,28 +7,16 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class CorporateWellbeingReportModel {
-    @SerializedName("err")
-    private String err;
-    @SerializedName("success")
-    private Success success;
 
-    @SerializedName("err")
-    public String getErr() {
-        return err;
+    @SerializedName("result")
+    private CorprateWellBeingModel result;
+
+
+    public CorprateWellBeingModel getResult() {
+        return result;
     }
 
-    @SerializedName("err")
-    public void setErr(String err) {
-        this.err = err;
-    }
-
-    @SerializedName("success")
-    public Success getSuccess() {
-        return success;
-    }
-
-    @SerializedName("success")
-    public void setSuccess(Success success) {
-        this.success = success;
+    public void setResult(CorprateWellBeingModel result) {
+        this.result = result;
     }
 }

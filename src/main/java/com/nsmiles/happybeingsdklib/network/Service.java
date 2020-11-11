@@ -7,7 +7,9 @@ import com.nsmiles.happybeingsdklib.Models.SendEmailModel;
 import com.nsmiles.happybeingsdklib.Models.SendGratitudeModel;
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingmodel.GeneralWellBeingModel;
 import com.nsmiles.happybeingsdklib.ServerApiConnectors.MyJsonObject;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateResultModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentData;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentJsonModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
@@ -88,9 +90,9 @@ public class Service {
     }
 
 
-    public Subscription getNSmilesAssessmentQuestion(String API_URL, final GetNSmilesAssessmentQuestionCallBack callBack) {
+    public Subscription getNSmilesAssessmentQuestion(String token,String API_URL, final GetNSmilesAssessmentQuestionCallBack callBack) {
 
-        return networkService.getQuestionnaires(API_URL)
+        return networkService.getQuestionnaires(token,API_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends CorporateAssessModel>>() {
@@ -147,18 +149,18 @@ public class Service {
 
       /*Generate  Report Answer Passing Api*/
 
-    public Subscription generateAssessmentReportApi(String token, AssessmentJsonModel assessmentData, final GenerateReportCallBack callBack) {
+    public Subscription generateAssessmentReportApi(String content_type, String token, AssessmentData assessmentData, final GenerateReportCallBack callBack) {
 
-        return networkService.generateCorporateWellBeingAssessmentReport(token, assessmentData)
+        return networkService.generateCorporateWellBeingAssessmentReport(content_type,token, assessmentData)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends CorporateSuccess>>() {
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends CorporateResultModel>>() {
                     @Override
-                    public Observable<? extends CorporateSuccess> call(Throwable throwable) {
+                    public Observable<? extends CorporateResultModel> call(Throwable throwable) {
                         return Observable.error(throwable);
                     }
                 })
-                .subscribe(new Subscriber<CorporateSuccess>() {
+                .subscribe(new Subscriber<CorporateResultModel>() {
                     @Override
                     public void onCompleted() {
 
@@ -180,11 +182,11 @@ public class Service {
                         }                    }
 
                     @Override
-                    public void onNext(CorporateSuccess corporateSuccess) {
-                        if (corporateSuccess.getSuccess() != null) {
+                    public void onNext(CorporateResultModel corporateSuccess) {
+                        if (corporateSuccess.getResult().getSuccess() != null) {
                             callBack.onSuccess(corporateSuccess);
                         } else {
-                            callBack.onSuccessError(corporateSuccess.getErrors());
+                            callBack.onSuccessError(corporateSuccess.getResult().getErrors());
 
                         }
 
@@ -196,7 +198,7 @@ public class Service {
 
     public interface GenerateReportCallBack {
 
-        void onSuccess(CorporateSuccess corporateSuccess);
+        void onSuccess(CorporateResultModel corporateSuccess);
 
         void onError(NetworkError networkError);
 
@@ -351,7 +353,7 @@ public class Service {
 
                     @Override
                     public void onNext(CorporateWellbeingReportModel generalWellBeingModel) {
-                        if (generalWellBeingModel.getSuccess() != null) {
+                        if (generalWellBeingModel.getResult().getSuccess() != null) {
                             callBack.onSuccess(generalWellBeingModel);
                         } else {
                             callBack.onSuccessError("###Error###");
@@ -714,7 +716,7 @@ public class Service {
 
                     @Override
                     public void onNext(WellBeingCategoryStatusModel wellBeingCategoryStatusModel) {
-                        if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getSuccess() != null) {
+                        if (wellBeingCategoryStatusModel != null && wellBeingCategoryStatusModel.getResult().getSuccess() != null) {
                             callBack.onSuccess(wellBeingCategoryStatusModel);
 
                         }

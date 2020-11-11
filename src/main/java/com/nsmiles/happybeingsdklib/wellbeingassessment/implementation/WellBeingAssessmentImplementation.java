@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nsmiles.happybeingsdklib.Models.WellBeingAssessmentView;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
@@ -20,6 +21,7 @@ import com.nsmiles.happybeingsdklib.network.NetworkError;
 import com.nsmiles.happybeingsdklib.network.NetworkService;
 import com.nsmiles.happybeingsdklib.network.Service;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.adapter.NSmilesAssessmentAdapter;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateResultModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.Answer;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.Answer_;
@@ -72,6 +74,7 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
     List<Question> spinnerTypeList;
     List<Question> spinnerValueList;
     /*Spinner*/
+    CommonUtils commonUtils;
 
     String API_URL;
     String ASSESSMENT_CATEGORY;
@@ -92,6 +95,7 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
         view.hidePreviousButton();
         view.hideFooterLayout();
         preferenceManager = new SdkPreferenceManager(activity);
+        commonUtils=new CommonUtils();
 
 
     /*Getting User Primary Profile and Secondary Profile
@@ -535,9 +539,10 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
                     userRole.add(1, dataManager.get(AppConstants.ROLE, ""));
 
                     String combinedValue = "";
-                    AssessmentJsonModel assessmentJsonModel = new AssessmentJsonModel();
+
                     AssessmentData assessmentData = new AssessmentData();
                     List<Answer> completedAnswerList = new ArrayList<>();
+
 
                     List<Answer_> answerList;
                     List<Value> valueList;
@@ -627,13 +632,13 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
 
 
                         assessmentData.setAnswers(completedAnswerList);
-                        assessmentJsonModel.setAssessmentData(assessmentData);
 
-                        String pri = new Gson().toJson(assessmentJsonModel);
+
+                        String pri = new Gson().toJson(assessmentData);
                         dataManager.infoLog(tag, pri);
 
                     }
-                    callReportGenerateApi(assessmentJsonModel);
+                    callReportGenerateApi(assessmentData);
 
                 }
             }
@@ -690,18 +695,18 @@ public class WellBeingAssessmentImplementation implements CommonPresenter.WellBe
 
 
     @Override
-    public void callReportGenerateApi(AssessmentJsonModel assessmentJsonModel) {
+    public void callReportGenerateApi(AssessmentData assessmentJsonModel) {
         view.showProgress();
-        Subscription subscription = service.generateAssessmentReportApi(AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
+        Subscription subscription = service.generateAssessmentReportApi("application/json",commonUtils.getTokenId(activity),
                 assessmentJsonModel, new Service.GenerateReportCallBack() {
                     @Override
-                    public void onSuccess(CorporateSuccess corporateSuccess) {
+                    public void onSuccess(CorporateResultModel corporateSuccess) {
 
                         if (corporateSuccess != null) {
 
 
-                            if (corporateSuccess.getErrors() != null) {
-                                dataManager.toast(context, corporateSuccess.getErrors());
+                            if (corporateSuccess.getResult().getErrors() != null) {
+                                dataManager.toast(context, corporateSuccess.getResult().getErrors());
                             }
                            // dataManager.toast(context, "Report generated");
                             view.hideProgress();

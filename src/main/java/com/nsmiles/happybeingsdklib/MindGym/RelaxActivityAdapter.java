@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 
 import java.util.List;
 
@@ -25,12 +26,16 @@ public class RelaxActivityAdapter extends RecyclerView.Adapter<RelaxActivityAdap
     List<String> activity_list;
     int index;
     RelaxActivityOnClickListener relaxActivityOnClickListener;
+    PreferenceManager preferenceManager;
+    String paymentstatus;
 
 
     public RelaxActivityAdapter(List<String> activity_list, Activity activity) {
 
         this.activity_list = activity_list;
         this.activity = activity;
+        preferenceManager=new PreferenceManager(activity);
+        paymentstatus=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
     }
 
     public void setRelaxActivityOnClickListener(RelaxActivityOnClickListener relaxActivityOnClickListener) {
@@ -51,6 +56,22 @@ public class RelaxActivityAdapter extends RecyclerView.Adapter<RelaxActivityAdap
         if(position==0){
             holder.card_view.measure(0,0);
             relaxActivityOnClickListener.getFirstCardSize(holder.card_view.getMeasuredHeight(), activity_list.size());
+        }
+
+        if(paymentstatus!=null && paymentstatus.equalsIgnoreCase("EXPIRED")){
+
+            if(activity_list.get(position).equalsIgnoreCase("Relax Audios")){
+
+                holder.premium.setVisibility(View.VISIBLE);
+
+            }else if(activity_list.get(position).equalsIgnoreCase("Nature Calm")){
+
+                holder.premium.setVisibility(View.VISIBLE);
+
+            }
+
+        }else{
+            holder.premium.setVisibility(View.GONE);
         }
 
 
@@ -99,7 +120,7 @@ public class RelaxActivityAdapter extends RecyclerView.Adapter<RelaxActivityAdap
         CardView card_view;
         TextView activity_name;
         View myView;
-        ImageView roundedImageView;
+        ImageView roundedImageView,premium;
 
 
         public ViewHolder(View itemView) {
@@ -108,6 +129,7 @@ public class RelaxActivityAdapter extends RecyclerView.Adapter<RelaxActivityAdap
             roundedImageView = (ImageView) itemView.findViewById(R.id.roundedImageView);
             activity_name = (TextView) itemView.findViewById(R.id.activity_name);
             myView = (View) itemView.findViewById(R.id.myView);
+            premium = (ImageView) itemView.findViewById(R.id.premium);
             card_view.setOnClickListener(this);
         }
 

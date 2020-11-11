@@ -7,7 +7,9 @@ import com.nsmiles.happybeingsdklib.Models.SendEmailModel;
 import com.nsmiles.happybeingsdklib.Models.SendGratitudeModel;
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingcategorymodel.GeneralWellBeingCategoryModel;
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingmodel.GeneralWellBeingModel;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateResultModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
+import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentData;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.answermodel.AssessmentJsonModel;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
@@ -32,7 +34,7 @@ public interface NetworkService {
     String getGeneralWellBeingCategory = "questionnaires/report/";
     String generalWellBeingCategoryStatus = "v2/getCategoryStatus/WELLBEING";
     String generalAllCompletedStatus = "v2/user/getWellbeingAssessmentStatus";
-    String getCorporateWellbeingUrl = "questionnaires/report/CORPORATEWELLBEINGV4";
+    String getCorporateWellbeingUrl = "v1/get/questionnaires/report/CORPORATEWELLBEINGV4";
      //String getCorporateWellbeingUrls = "v2/user/corporatewellbeingv4report";
 
     String pregnancyWellBeing = "questionnaires/pregnancy_wellbeing";
@@ -41,9 +43,9 @@ public interface NetworkService {
 
 
     //String corporateWellBeing = "questionnaires/corporate_wellness";
-    String corporateWellBeing = "questionnaires/CorporateWellbeing";
+    String corporateWellBeing = "v1/questionnaires/CorporateWellbeing/questions?";
     //String corporateWellBeingCategoryStatus = "v2/getCategoryStatus/CORPORATEWELLBEING";
-    String corporateWellBeingCategoryStatus = "v2/getCategoryStatus/CORPORATEWELLBEINGV4";
+    String corporateWellBeingCategoryStatus = "v1/questionnaires/allcorporatewellbeing/status/CORPORATEWELLBEINGV4";
     //String corporateAllCompletedStatus = "v2/user/getCorporateWellbeingAssessmentStatus";
     String corporateAllCompletedStatus = "v2/user/getCorporateWellbeingV4Status";
 
@@ -67,15 +69,11 @@ public interface NetworkService {
     Observable<CorporateAssessModel> getCorporateWellBeingAssessment();
 
 
-    @Headers({
-            "Accept: application/json",
-            "Content-type: application/json"
-    })
-     @POST("genericform/get")
-     Observable<CorporateSuccess> generateCorporateWellBeingAssessmentReport(@Header("Authorization") String authorization, @Body AssessmentJsonModel assessmentData);
+     @POST("v1/questionnaires/CorporateWellbeing/answers")
+     Observable<CorporateResultModel> generateCorporateWellBeingAssessmentReport(@Header("Content-Type") String content_type, @Header("accesstoken") String accesstoken, @Body AssessmentData assessmentData);
 
     @GET
-    Observable<CorporateAssessModel> getQuestionnaires(@Url String url);
+    Observable<CorporateAssessModel> getQuestionnaires(@Header("accesstoken") String accesstoken,@Url String url);
 
 
     @GET("v2/user/wellbeingreportbyid")
@@ -114,7 +112,7 @@ https://api.nsmiles.com/questionnaires/report/WELLBEING?reportname=WELLBEING&rep
 */
 
     @GET
-    Observable<CorporateWellbeingReportModel> getCorporateWellBeingCategoryReport(@Header("authorization") String authorization,
+    Observable<CorporateWellbeingReportModel> getCorporateWellBeingCategoryReport(@Header("accesstoken") String authorization,
                                                                                   @Url String url);
     @POST("/gratitude/others")
     Observable<SendEmailModel> gratitudeToOthers
@@ -123,7 +121,7 @@ https://api.nsmiles.com/questionnaires/report/WELLBEING?reportname=WELLBEING&rep
 
 
     @GET
-    Observable<WellBeingCategoryStatusModel> getWellBeingCategoryStatus(@Header("Authorization") String authorization, @Url String url);
+    Observable<WellBeingCategoryStatusModel> getWellBeingCategoryStatus(@Header("accesstoken") String accesstoken, @Url String url);
 
 
     @GET
