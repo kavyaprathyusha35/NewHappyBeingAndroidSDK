@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
 import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
@@ -33,12 +34,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
-import javax.inject.Inject;
 
 
 public class CoachGratitudeFragment extends Fragment implements CoachView, View.OnClickListener {
@@ -74,7 +75,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
     private boolean isNewDayToday;
     private String isNewDayId;
     private Animation animationFadeIn;
-    private TextView tv_user_message;
+    private TextView tv_user_message, subscribe_text;
     private String name;
     ImageView wishicon;
     SharedPreferences settings;
@@ -112,7 +113,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         layoutDots=view.findViewById(R.id.layoutDots);
         personal_text_layout=view.findViewById(R.id.personal_text_layout);
         preferenceManager = new SdkPreferenceManager(getActivity());
-
+        subscribe_text = view.findViewById(R.id.subscribe_text);
+        subscribe_text.setOnClickListener(this);
 
         past_audio_recycle_view = (RecyclerView) view.findViewById(R.id.past_audio_recycle_view);
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
@@ -365,6 +367,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
 
         if (id == R.id.descriptionOfCoach) {
             startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mycoach"));
+        } else if (id == R.id.subscribe_text) {
+            startActivity(new Intent(getActivity(), SubscriptionActivity.class));
         }
     }
     private String todayDate(){

@@ -3,6 +3,7 @@ package com.nsmiles.happybeingsdklib.dagger.application;
 import com.nsmiles.happybeingsdklib.Reports.DetailReport.DetailReportActivity;
 import com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
 import com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers;
 import com.nsmiles.happybeingsdklib.broadcast.NetworkChangeReceiver;
 import com.nsmiles.happybeingsdklib.broadcastnotifications.ShowRelaxBigNotification;
@@ -26,7 +27,7 @@ public interface Deps {
 
     void inject(WellBeingAssessmentActivity nSmilesAssessmentActivity);
     void inject(HappyBeingLaunchScreen happyBeingLaunchScreen);
-    //void inject(NatureCalmActivity natureCalmActivity);
+    void inject(SubscriptionActivity subscriptionActivity);
     void inject(WellBeingCategoryActivity nSmilesAssessmentCategoryActivity);
     void inject(DetailReportActivity detailReportActivity);
     void inject(NetworkChangeReceiver networkChangeReceiver);

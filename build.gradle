@@ -53,6 +53,8 @@ dependencies {
     implementation 'com.google.dagger:dagger-android-support:2.15'
     implementation 'com.github.Q42:AndroidScrollingImageView:1.2'
     implementation 'com.github.channguyen:rsv:1.0.1'
+    implementation 'com.payumoney.sdkui:plug-n-play:1.6.0'
+    implementation 'com.payumoney.core:payumoney-sdk:7.4.4'
 
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     compileOnly 'javax.annotation:jsr250-api:1.0'

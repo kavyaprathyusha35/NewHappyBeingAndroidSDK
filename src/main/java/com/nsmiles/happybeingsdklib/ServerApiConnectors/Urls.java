@@ -283,4 +283,8 @@ public class Urls {
     public static String getSplashScreenImageUrl() {
         return "https://api.nsmiles.com/v2/splashscreenlist";
     }
+
+    public static String getPaymentPackagesUrl() {
+        return "https://partner.nsmiles.com/v1/questionnaires/getPaymentPackages";
+    }
 }

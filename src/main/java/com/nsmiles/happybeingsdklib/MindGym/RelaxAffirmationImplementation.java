@@ -228,7 +228,7 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
         try {
             @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM relax_audio", null);
             if (cursor.getCount() == 0) {
-                relaxUtils.insertAllRelaxAudio(activity);
+               // relaxUtils.insertAllRelaxAudio(activity);
             }
             cursor = db.rawQuery("SELECT * FROM relax_audio", null);
             if (cursor.getCount() > 0) {

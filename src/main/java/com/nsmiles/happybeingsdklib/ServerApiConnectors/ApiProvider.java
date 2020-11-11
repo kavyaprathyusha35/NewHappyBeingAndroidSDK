@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationModel;
 import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
+import com.nsmiles.happybeingsdklib.Models.PaymentInfo;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
 import com.nsmiles.happybeingsdklib.Registration.AuthModel;
 import com.nsmiles.happybeingsdklib.Registration.AuthSuccessModel;
@@ -13,6 +14,7 @@ import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.NetworkModule;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.Utils.StatusInteface;
+import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.playaudio.MindGymModel;
 
 import org.json.JSONObject;
@@ -464,5 +466,54 @@ public class ApiProvider {
 
     }
 
+    public static class SetPayment extends WaitingAPIAdapter<PaymentInfo, UserInformation> {
+        public final PaymentInfo data;
+        private final String token;
+
+        public SetPayment(PaymentInfo input_data, String token, long requestCode, Activity activity, String message, API_Response_Listener<UserInformation> listener) {
+            super(input_data, token, requestCode, activity, message, listener);
+            this.data = input_data;
+            this.token = token;
+        }
+
+
+        public SetPayment(PaymentInfo input_data, String token, long requestCode, API_Response_Listener<UserInformation> listener) {
+            super(input_data, token, requestCode, null, null, listener);
+            this.data = input_data;
+            this.token = token;
+        }
+
+        @Override
+        public String getURL() {
+            return Urls.getSetPaymentStatusUrl();
+        }
+
+        @Override
+        public String getHttpMethod() {
+            return "POST";
+        }
+
+        @Override
+        public String getToken() {
+            return token;
+        }
+
+        @Override
+        public JSONObject convertDataToJSON(PaymentInfo data) {
+            Log.i("ApiProvider","Json for payment is "+JSONParser.getJsonForPayment(data));
+            return JSONParser.getJsonForPayment(data);
+        }
+
+        @Override
+        public UserInformation convertJSONToData(String response) {
+            Log.i("ApiProvider","Response for payment api is "+JSONParser.getUserInfoFromJson(response));
+            return JSONParser.getUserInfoFromJson(response);
+        }
+
+        @Override
+        public String intrepret_error(String error) {
+            return error;
+        }
+    }
 
 }

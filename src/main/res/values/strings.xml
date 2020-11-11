@@ -129,6 +129,17 @@
     <string name="express_gratitude_radioThreeThinks">Identify 3 things you are grateful for today. These 3 things can be events that occurred today, problems which could have happened but didn\’t happen, or simply things which have always been in your life but which you suddenly came to feel grateful for today.</string>
 
     <string name="recommond_button_text">Think of 3 reasons, you are thankful about the topic recommended. Appreciate what you have in life which otherwise you may be taking granted for. Express your thanks, however small or big it may seem.</string>
+    <string name="subscribe_text">Subscribe now</string>
+    <string name="payment_string1">
+    Get everyday tools and guided exercises to
+    \n\u2714 Enhance mindfulness
+    \n\u2714 Improve health and wellbeing
+    \n \u2714 Relieve stress and anxiety
+    \n \u2714 Overcome limiting beliefs
+    \n \u2714 Improve Self-love and feel deserving
+    \n \u2714 Build closer relationships
+    \n \u2714 Enhance - Joy, money &amp; success
+    </string>
 
 
 </resources>

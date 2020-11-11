@@ -15,6 +15,22 @@ public class SdkPreferenceManager {
     public SdkPreferenceManager(Context context) {
         pref = context.getSharedPreferences(AppConstants.SHARED_HAPPY_BEING, Context.MODE_PRIVATE);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void save(String key, String value) {
         pref.edit().putString(key, value).apply();
     }

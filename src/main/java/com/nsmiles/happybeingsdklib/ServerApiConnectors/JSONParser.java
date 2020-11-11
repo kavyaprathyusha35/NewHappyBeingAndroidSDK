@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationModel;
 import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
+import com.nsmiles.happybeingsdklib.Models.PaymentInfo;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
 import com.nsmiles.happybeingsdklib.UI.gratitude.SelfLoveData;
+import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.playaudio.MindGymModel;
 
 import org.json.JSONArray;
@@ -524,6 +526,40 @@ public class JSONParser {
             Log.e("offer catch error", e.getMessage());
         }
         return mindGymList;
+    }
+    static JSONObject getJsonForPayment(PaymentInfo data) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(data.getPackageName(), true);
+            jsonObject.put("isPackage", data.getPackageName());
+            jsonObject.put("TxId", data.getTxId());
+            jsonObject.put("TxMsg", data.getTxMsg());
+            jsonObject.put("paymentMode", data.getPaymentMode());
+            jsonObject.put("txnDateTime", data.getTxnDateTime());
+            jsonObject.put("txnExpiryDateTime", data.getExnExpiryDateTime());
+            jsonObject.put("amount", data.getAmount());
+            jsonObject.put("email", data.getEmail());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+    static UserInformation getUserInfoFromJson(String response) {
+        UserInformation userInformation = new UserInformation();
+        try {
+            MyJsonObject jsonObject = new MyJsonObject(response);
+            String successString = jsonObject.getString("success");
+            if (successString != null && !successString.equals("")) {
+                userInformation.setIsPaid(true);
+            } else {
+                userInformation.setIsPaid(false);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return userInformation;
     }
 
 }

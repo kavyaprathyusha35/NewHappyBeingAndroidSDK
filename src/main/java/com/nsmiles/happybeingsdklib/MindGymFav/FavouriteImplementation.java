@@ -92,7 +92,7 @@ public class FavouriteImplementation implements FavouritePresenter {
                         new String[]{audio_number_list.get(i)});
 
                 if (cursor.getCount() == 0) {
-                    relaxUtils.insertAllRelaxAudio(activity);
+                    //relaxUtils.insertAllRelaxAudio(activity);
                 }
 
                 cursor = db.rawQuery("SELECT * FROM relax_audio WHERE AUDIO_NUMBER=?",

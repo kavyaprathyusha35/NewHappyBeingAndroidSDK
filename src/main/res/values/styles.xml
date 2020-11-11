@@ -77,6 +77,15 @@
         <item name="android:layout_marginBottom">@dimen/dimen_16dp</item>
     </style>
 
+    <style name="payment_screen_layout">
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_15dp</item>
+        <item name="android:paddingTop">@dimen/dimen_15dp</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10dp</item>
+    </style>
+
     <dimen name="dimen_25dp">25dp</dimen>
     <dimen name="dimen_3dp">3dp</dimen>
 </resources>

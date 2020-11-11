@@ -81,7 +81,7 @@ public class RelaxImplementation implements RelaxAudioPresenter {
 
         @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM relax_audio", null);
         if (cursor.getCount() == 0) {
-            relaxUtils.insertAllRelaxAudio(activity);
+            //relaxUtils.insertAllRelaxAudio(activity);
         }
         if (cursor.getCount() > 0) {
             relaxAudioModelList = new ArrayList<>();

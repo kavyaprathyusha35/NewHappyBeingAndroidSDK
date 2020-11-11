@@ -61,6 +61,9 @@ public class AppConstants {
     public static final String ASSESSMENT_DOWNLOADED = "Assessment_download";
     public static final String PROFILE_EMPLOYED = "Profile_employee";
     public static final String IS_FIRST_TIME_LAUNCH = "Is_first_time_launch";
+    public static final String ITEM_SKU_ONE_YEAR = "one_year";
+    public static final String ITEM_SKU_LIFETIME = "life_time";
+    public static final String ITEM_SKU_ONE_MONTH = "one_month";
     public static String BEARER = "Bearer";
     public static final String GENERAL_CATEGORY_GROUP = "general_category_group";
     public static final String IMAGE_URL = "https://www.nsmiles.com/";

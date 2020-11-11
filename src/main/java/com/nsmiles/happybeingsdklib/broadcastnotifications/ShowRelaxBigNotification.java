@@ -73,7 +73,7 @@ public class ShowRelaxBigNotification extends BroadcastReceiver {
         try {
             @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM relax_audio", null);
             if (cursor.getCount() == 0) {
-                relaxUtils.insertAllRelaxAudio(context);
+               // relaxUtils.insertAllRelaxAudio(context);
             }
             cursor = db.rawQuery("SELECT * FROM relax_audio", null);
             if (cursor.getCount() > 0) {

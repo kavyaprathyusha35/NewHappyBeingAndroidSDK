@@ -879,5 +879,20 @@ public class CommonUtils {
             return false;
         }
     }
+    public String getExpiryDate(int moths_to_be_added) {
+        SimpleDateFormat dateFormat;
+        Calendar gc = Calendar.getInstance();
+        gc.add(Calendar.MONTH, moths_to_be_added);
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        Date tomorrow = gc.getTime();
+        return dateFormat.format(tomorrow);
+    }
+    public String DD_MM_YYYY_T() {
+        Calendar mInstance = Calendar.getInstance();
+        SimpleDateFormat dateFormat;
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        Date date = new Date(mInstance.getTimeInMillis());
+        return dateFormat.format(date);
+    }
 
 }

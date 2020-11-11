@@ -2,9 +2,9 @@ package com.nsmiles.happybeingsdklib.network;
 
 
 import com.nsmiles.happybeingsdklib.Models.CorporateWellbeing.CorporateWellbeingReportModel;
+import com.nsmiles.happybeingsdklib.Models.PaymentPackagesModel.PaymentPackagesInfo;
 import com.nsmiles.happybeingsdklib.Models.SendEmailModel;
 import com.nsmiles.happybeingsdklib.Models.SendGratitudeModel;
-import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingcategorymodel.GeneralWellBeingCategoryModel;
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingmodel.GeneralWellBeingModel;
 import com.nsmiles.happybeingsdklib.ServerApiConnectors.MyJsonObject;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateSuccess;
@@ -265,23 +265,20 @@ public class Service {
 
    /*General WEllBeing WellBeingCategoryCategory Report*/
 
-    public Subscription getGeneralWellBeingCategoryReport(String token,
-                                                          String API_URL,
-                                                          String reportName,
-                                                          List<String> category,
-                                                          final GeneralWellBeingCategoryReportCallBack callBack) {
+    public Subscription getPaymentPackagesInfo(String token, String API_URL,
+                                                          final PaymentPackagesCallBack callBack) {
 
-        return networkService.getGeneralWellBeingCategoryReport(token,
+        return networkService.getPaymentPackages(token,
                 API_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .onErrorResumeNext(new Func1<Throwable, Observable<? extends GeneralWellBeingCategoryModel>>() {
+                .onErrorResumeNext(new Func1<Throwable, Observable<? extends PaymentPackagesInfo>>() {
                     @Override
-                    public Observable<? extends GeneralWellBeingCategoryModel> call(Throwable throwable) {
+                    public Observable<? extends PaymentPackagesInfo> call(Throwable throwable) {
                         return Observable.error(throwable);
                     }
                 })
-                .subscribe(new Subscriber<GeneralWellBeingCategoryModel>() {
+                .subscribe(new Subscriber<PaymentPackagesInfo>() {
                     @Override
                     public void onCompleted() {
 
@@ -304,7 +301,7 @@ public class Service {
                     }
 
                     @Override
-                    public void onNext(GeneralWellBeingCategoryModel generalWellBeingModel) {
+                    public void onNext(PaymentPackagesInfo generalWellBeingModel) {
                         if (generalWellBeingModel.getSuccess() != null) {
                             callBack.onSuccess(generalWellBeingModel);
                         } else {
@@ -364,9 +361,9 @@ public class Service {
     }
 
 
-    public interface GeneralWellBeingCategoryReportCallBack {
+    public interface  PaymentPackagesCallBack{
 
-        void onSuccess(GeneralWellBeingCategoryModel generalWellBeingModel);
+        void onSuccess(PaymentPackagesInfo paymentPackagesInfo);
 
         void onError(NetworkError networkError);
 

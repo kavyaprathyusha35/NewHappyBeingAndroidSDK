@@ -82,126 +82,22 @@ public class DownloadService extends IntentService {
                 audio_id = intent.getStringExtra("AUDIO_ID");
                // check_file_availability = new File(storagePath + audio_sub_url);
                // if (check_file_availability.exists()) {
+                getDownloadedDataFromDB();
 
                     initDownload();
               //  }
             }
             // Download All Relax Audio Bulk
+/*
             if (intent.hasExtra("RELAX")) {
                 downloadAllRelaxAudio();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    private void downloadAllRelaxAudio() {
-        try {
-            //ResponseBody body;
-            dbHelper = new MySql(context, "mydb", null, MySql.version);
-            db = dbHelper.getWritableDatabase();
-            ContentValues cv = new ContentValues();
-
-            Cursor cursor = db.rawQuery("SELECT * FROM relax_audio WHERE DOWNLOAD_STATUS=?", new String[]{"0"});
-            if (cursor.getCount() > 0) {
-                cursor.moveToFirst();
-                do {
-
-                    id = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow("_ID")));
-                    audio_number = cursor.getString(cursor.getColumnIndexOrThrow("AUDIO_NUMBER"));
-                    audio_base_url = cursor.getString(cursor.getColumnIndexOrThrow("AUDIO_BASE_URL"));
-                    audio_sub_url = cursor.getString(cursor.getColumnIndexOrThrow("AUDIO_SUB_URL"));
-                    download_status = cursor.getString(cursor.getColumnIndexOrThrow("DOWNLOAD_STATUS"));
-                    sd_card_path = cursor.getString(cursor.getColumnIndexOrThrow("SD_CARD_PATH"));
-
-                /*    CommonUtils.showLogInforamtion(getClass().getSimpleName(), "AUDIO_NUMBER", audio_number, true);
-                    CommonUtils.showLogInforamtion(getClass().getSimpleName(), "AUDIO_BASE_URL", audio_base_url, true);
-                    CommonUtils.showLogInforamtion(getClass().getSimpleName(), "AUDIO_SUB_URL", audio_sub_url, true);
-                    CommonUtils.showLogInforamtion(getClass().getSimpleName(), "DOWNLOAD STATUS", download_status, true);
-                    CommonUtils.showLogInforamtion(getClass().getSimpleName(), "SD CARD PATH", sd_card_path, true);
 */
-
-                    // Check Already the files are available or not in local db;
-                    check_file_availability = new File(storagePath + audio_sub_url);
-                    if (check_file_availability.exists()) {
-                        //  File Already Exist
-  //                      CommonUtils.showLogInforamtion(getClass().getSimpleName(), "File Already Exist", audio_base_url + audio_sub_url, true);
-                        cv.put("DOWNLOAD_STATUS", "1");
-                        cv.put("SD_CARD_PATH", storagePath + audio_sub_url);
-                        cv.put("UPDATED_AT", new Date().toString());
-                        db.update("relax_audio", cv, "_ID=?",
-                                new String[]{id});
-                    } /// File Not Available Download it
-                    else {
-
-//                        body = request.execute().body();
-                        String urlString = audio_base_url+audio_sub_url;
-                        URL url = new URL(urlString);
-                        URLConnection conexion = url.openConnection();
-                        conexion.connect();
-
-                        OutputStream output = null;
-                        int count;
-                        byte data[] = new byte[1024 * 4];
-                        long fileSize = conexion.getContentLength();
-                        InputStream bis = new BufferedInputStream(url.openStream(), 1024 * 8);
-                        final File dir = new File(storagePath);
-                        if (!dir.exists()) {
-                            dir.mkdirs();
-                        }
-                        output = new FileOutputStream(dir + "/" + audio_sub_url);
-
-
-                        long total = 0;
-                        long startTime = System.currentTimeMillis();
-                        int timeCount = 1;
-                        while ((count = bis.read(data)) != -1) {
-
-                            total += count;
-                            totalFileSize = (int) (fileSize / (Math.pow(1024, 2)));
-                            double current = Math.round(total / (Math.pow(1024, 2)));
-                            int progress = (int) ((total * 100) / fileSize);
-                            long currentTime = System.currentTimeMillis() - startTime;
-                            AudioDownload download = new AudioDownload();
-                            download.setTotalFileSize(totalFileSize);
-
-                            if (currentTime > 1000 * timeCount) {
-                                // NO NEED UPDATE STATUS FOR BULK DOWNLOAD
-                                //    download.setCurrentFileSize((int) current);
-                                //    download.setProgress(progress);
-                                //    sendNotification(download);
-                                timeCount++;
-                            }
-
-
-                            output.write(data, 0, count);
-
-                        }
-                        // NO NEED UPDATE STATUS FOR BULK DOWNLOAD
-                        // onDownloadComplete();
-                        cv.put("DOWNLOAD_STATUS", "1");
-                        cv.put("SD_CARD_PATH", dir + "/" + audio_sub_url);
-                        cv.put("UPDATED_AT", new Date().toString());
-                        db.update("relax_audio", cv, "_ID=?",
-                                new String[]{id});
-                        output.flush();
-                        output.close();
-                        bis.close();
-
-                    } // do block end
-
-                } // File Not Available Else Block
-
-                while (cursor.moveToNext());
-            }
-            cursor.close();
-            db.close();
         } catch (Exception e) {
             e.printStackTrace();
-            //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
 
@@ -288,6 +184,40 @@ public class DownloadService extends IntentService {
         }
 
     }
+
+    private void getDownloadedDataFromDB() {
+        dbHelper = new MySql(context, "mydb", null, MySql.version);
+        db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM relax_audio WHERE DOWNLOAD_STATUS=?", new String[]{"1"});
+        Log.i("CoachDownloadService", "Cursor count of downloaded data is "+cursor.getCount());
+        if (cursor.getCount() > 0) {
+            //GET THE FILE PATH AND DELETE THE FILE;
+            cursor.moveToFirst();
+            do {
+                Log.i("CoachDownloadService", "In do loop ");
+                String download_status = cursor.getString(cursor.getColumnIndexOrThrow("DOWNLOAD_STATUS"));
+                String sd_card_path = cursor.getString(cursor.getColumnIndexOrThrow("SD_CARD_PATH"));
+                String audio_number = cursor.getString(cursor.getColumnIndexOrThrow("AUDIO_NUMBER"));
+                File file = new File(sd_card_path);
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                    Log.i("DownloadService", "Delete is " + delete);
+                    if (delete) {
+                        //Update the table with upload status 0 and sd_card_path ""
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("DOWNLOAD_STATUS", "0");
+                        contentValues.put("SD_CARD_PATH", "");
+                        String update_table = "relax_audio";
+                        db.update(update_table, contentValues, "AUDIO_NUMBER=?", new String[]{audio_number});
+                    }
+                }
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+    }
+
     private void sendIntent(AudioDownload download) {
 
         try {

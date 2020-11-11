@@ -2,6 +2,7 @@ package com.nsmiles.happybeingsdklib.network;
 
 
 import com.nsmiles.happybeingsdklib.Models.CorporateWellbeing.CorporateWellbeingReportModel;
+import com.nsmiles.happybeingsdklib.Models.PaymentPackagesModel.PaymentPackagesInfo;
 import com.nsmiles.happybeingsdklib.Models.SendEmailModel;
 import com.nsmiles.happybeingsdklib.Models.SendGratitudeModel;
 import com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.pregnancywellbeingcategorymodel.GeneralWellBeingCategoryModel;
@@ -128,4 +129,6 @@ https://api.nsmiles.com/questionnaires/report/WELLBEING?reportname=WELLBEING&rep
     @GET
     Observable<AssessmentCompletedStatus> getWellBeingAllCompletedStatus(@Header("Authorization") String authorization, @Url String url);
 
+    @GET
+    Observable<PaymentPackagesInfo> getPaymentPackages(@Header("accessToken") String auth, @Url String url);
 }
