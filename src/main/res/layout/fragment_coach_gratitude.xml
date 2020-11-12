@@ -394,6 +394,7 @@
                     android:textSize="@dimen/dimen_16sp"
                     android:layout_marginBottom="@dimen/dimen_26dp"/>
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/subscribe_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -406,6 +407,7 @@
                     android:layout_marginBottom="@dimen/dimen_26dp"/>
 
                 <TextView
+                    android:layout_marginBottom="@dimen/dimen_10dp"
                     android:id="@+id/getpremium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

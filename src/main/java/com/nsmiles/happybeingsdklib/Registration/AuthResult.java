@@ -29,6 +29,9 @@ public class AuthResult implements Serializable
     @SerializedName("expires_at")
     @Expose
     private String expiresAt;
+    @SerializedName("userStatus")
+    @Expose
+    private String userStatus;
     private final static long serialVersionUID = 5692130182473972258L;
 
     public String getName() {
@@ -87,4 +90,11 @@ public class AuthResult implements Serializable
         this.expiresAt = expiresAt;
     }
 
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
 }

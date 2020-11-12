@@ -48,7 +48,6 @@ import com.nsmiles.happybeingsdklib.wellbeingassessment.activity.AssessmentDetai
 import com.nsmiles.happybeingsdklib.wellbeingassessment.adapter.WellBeingAdapter;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.implementation.WellBeingCategoryImplementation;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.CorporateModel;
-import com.nsmiles.happybeingsdklib.wellbeingassessment.model.assessmentcompleted.AssessmentCompletedStatus;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryCategory;
 import com.nsmiles.happybeingsdklib.wellbeingassessment.model.categorymodel.WellBeingCategoryStatusModel;
 
@@ -70,7 +69,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
@@ -210,7 +208,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                 coachAdapterAudioList = new ArrayList<>();    /// adapter list initilization
                 if (currentProfile != null)
                     currentProfile = currentProfile.toUpperCase();
-                mindGymModelList.get(0).setActual_server_day(1);
+              //  mindGymModelList.get(0).setActual_server_day(1);
                 /* Implementation for relax first 9 audio*/
                 Log.d(getClass().getSimpleName(), String.valueOf(mindGymModelList.get(0).getActual_server_day()));
                 addImagery(mindGymModelList.get(0).getDdDate(), mindGymModelList.get(0).getActual_server_day(),
@@ -229,7 +227,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                                     new String[]{String.valueOf(mindGymModelList.get(i).getActual_server_day() - 1)}, null);
 
                      //   CommonUtils.showLogInforamtion(getClass().getSimpleName(), "sssss aaaa", cursor.getCount(), true);
-
+                        Log.i("CoachImplementation", "Cursor count is "+cursor.getCount());
                         if (cursor.getCount() > 0) {
                             cursor.moveToFirst();
                             audio_id = String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow("_ID")));
@@ -306,7 +304,12 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                 }
 
                 int gratitudeDayCheck;
-                gratitudeDayCheck = Integer.parseInt(day_number);
+                if (day_number != null) {
+                    gratitudeDayCheck = Integer.parseInt(day_number);
+                }
+                else {
+                    gratitudeDayCheck = 2;
+                }
                 if (gratitudeDayCheck > 33) {
                     day_number = String.valueOf(gratitudeDayCheck % 33);
                 }
@@ -985,7 +988,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
             mindGymModel.setDataSynced(0);
             dummyMindGymModelList.add(mindGymModel);
             if(CommonUtils.isNetworkAvailable(activity)) {
-            //    getMindGymData();
+                getMindGymData();
             }
 
             playAudios(dummyMindGymModelList);

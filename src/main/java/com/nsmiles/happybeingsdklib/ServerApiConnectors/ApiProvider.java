@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationModel;
 import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
-import com.nsmiles.happybeingsdklib.Models.PaymentInfo;
 import com.nsmiles.happybeingsdklib.Models.PackageInfo;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
 import com.nsmiles.happybeingsdklib.Registration.AuthModel;
@@ -16,7 +15,6 @@ import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.NetworkModule;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
 import com.nsmiles.happybeingsdklib.Utils.StatusInteface;
-import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.playaudio.MindGymModel;
 
 import org.json.JSONObject;
@@ -54,6 +52,7 @@ public class ApiProvider {
                         sdkPreferenceManager.save(AppConstants.SDK_REFRESH_TOKEN, authSuccessModel.body().getResult().getRefreshToken());
                         sdkPreferenceManager.save(AppConstants.SDK_PROFILE_ID, authSuccessModel.body().getResult().getUserProfileId());
                         sdkPreferenceManager.save(AppConstants.SDK_CUSTOMER_ID, authSuccessModel.body().getResult().getCustomerId());
+                        sdkPreferenceManager.save(AppConstants.NEW_OR_OLD, authSuccessModel.body().getResult().getUserStatus());
                         String expiry_date = CommonUtils.getDateFormat(authSuccessModel.body().getResult().getExpiresAt());
                         sdkPreferenceManager.save(AppConstants.SDK_EXPIRY_AT, expiry_date);
                         sdkPreferenceManager.save(AppConstants.SDK_LOGIN_STATUS, authSuccessModel.body().getSuccess());
@@ -475,9 +474,6 @@ public class ApiProvider {
         private final String token;
 
         public SetPayment(PaymentInfo input_data, String token, long requestCode, Activity activity, String message, API_Response_Listener<UserInformation> listener) {
-            public static class PaymentPackageExpiryDetails extends WaitingAPIAdapter<PackageInfo, Integer> {
-                public final PackageInfo data;
-                private final String token;
 
 
                 public SetPayment(PaymentInfo input_data, String token, long requestCode, API_Response_Listener<UserInformation> listener) {
@@ -532,4 +528,50 @@ public class ApiProvider {
         }
     }
 */
+
+    public static class PaymentPackageExpiryDetails extends WaitingAPIAdapter<PackageInfo, Integer> {
+        public final PackageInfo data;
+        private final String token;
+
+        public PaymentPackageExpiryDetails(PackageInfo input_data, String token, long requestCode, Activity activity, String message, API_Response_Listener<Integer> listener) {
+            super(input_data, token, requestCode, activity, message, listener);
+            data = input_data;
+            this.token = token;
+        }
+        public PaymentPackageExpiryDetails(PackageInfo input_data, String token, long requestCode,  API_Response_Listener<Integer> listener) {
+            super(input_data, token, requestCode, null, null, listener);
+            data = input_data;
+            this.token = token;
+        }
+
+        @Override
+        public String getURL() {
+            return Urls.getPackageExpiryUrl();
+        }
+
+        @Override
+        public String getHttpMethod () {
+            return "POST";
+        }
+
+        @Override
+        public String getToken () {
+            return token;
+        }
+
+        @Override
+        public Integer convertJSONToData(String response) {
+            return JSONParser.getPackageDaysLeftFromJson(response);
+        }
+
+        @Override
+        public JSONObject convertDataToJSON(PackageInfo data) {
+            return JSONParser.getJsonForPaymentPackageStatus(data);
+        }
+        @Override
+        public String intrepret_error (String error){
+            return error;
+        }
+
+    }
 }

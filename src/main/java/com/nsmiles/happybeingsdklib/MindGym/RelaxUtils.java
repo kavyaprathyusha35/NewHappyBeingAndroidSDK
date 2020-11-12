@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.Services.DownloadService;
-import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 
 import java.util.ArrayList;
@@ -181,9 +180,11 @@ public class RelaxUtils {
 
         // @SuppressLint("Recycle") Cursor cursor = db.rawQuery("SELECT * FROM relax_audio WHERE DOWNLOAD_STATUS=?", new String[]{"0"});
 
+/*
         if (CommonUtils.isNetworkAvailable(context)) {
             downloadAllRelaxAudioFiles(context);
         }
+*/
     }
 
     private void downloadAllRelaxAudioFiles(Context context) {

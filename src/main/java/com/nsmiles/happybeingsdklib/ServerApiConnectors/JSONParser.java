@@ -546,7 +546,7 @@ public class JSONParser {
         }
         return jsonObject;
     }
-    
+
 
     static JSONObject getJsonForPaymentPackageStatus(PackageInfo data) {
         JSONObject jsonObject = new JSONObject();
@@ -557,6 +557,7 @@ public class JSONParser {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return jsonObject;
     }
 

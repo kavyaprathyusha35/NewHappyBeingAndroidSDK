@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.google.gson.Gson;
+import com.nsmiles.happybeingsdklib.MindGym.RelaxUtils;
+import com.nsmiles.happybeingsdklib.Models.RelaxCoachAudioUtils;
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
@@ -78,10 +80,10 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         SdkPreferenceManager sdkPreferenceManager = new SdkPreferenceManager(this);
         if (sdkPreferenceManager.get(AppConstants.IS_FIRST_TIME, true)) {
             sdkPreferenceManager.save(AppConstants.IS_FIRST_TIME, false);
-            /*RelaxUtils relaxUtils = new RelaxUtils();
+            RelaxUtils relaxUtils = new RelaxUtils();
             relaxUtils.insertAllRelaxAudio(this);
             RelaxCoachAudioUtils relaxCoachAudioUtils = new RelaxCoachAudioUtils();
-            relaxCoachAudioUtils.insertAllOthersAudio(this);*/
+            relaxCoachAudioUtils.insertAllOthersAudio(this);
         }
 
         boolean isDownloaded = sdkPreferenceManager.get(AppConstants.ASSESSMENT_DOWNLOADED, false);
@@ -100,8 +102,9 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
             public void run() {
                 Intent intent = getIntent();
                 SdkPreferenceManager sdkPreferenceManager = new SdkPreferenceManager(HappyBeingLaunchScreen.this);
-                boolean isFirstTimeLaunch = sdkPreferenceManager.get(AppConstants.IS_FIRST_TIME_LAUNCH, true);
-                if (isFirstTimeLaunch) {
+                String userStatus = sdkPreferenceManager.get(AppConstants.NEW_OR_OLD, "");
+                Log.i("Launch", "User status is "+userStatus);
+                if (userStatus.equals("New User")) {
                     intent = new Intent(HappyBeingLaunchScreen.this, IntroSliderActivity.class);
                     sdkPreferenceManager.save(AppConstants.IS_FIRST_TIME_LAUNCH, false);
                 }
