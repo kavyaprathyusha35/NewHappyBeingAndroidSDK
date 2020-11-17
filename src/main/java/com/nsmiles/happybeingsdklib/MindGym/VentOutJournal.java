@@ -8,9 +8,11 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,8 +27,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.ServerApiConnectors.API_Response_Listener;
+import com.nsmiles.happybeingsdklib.ServerApiConnectors.ApiProvider;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 
@@ -124,7 +130,7 @@ public class VentOutJournal extends AppCompatActivity implements Animation.Anima
             mediaPlayer.stop();
         doneButton.setVisibility(View.GONE);
         contentEdittext.setVisibility(View.GONE);
-        showHowAreYouFeeling();
+        howAreYouFeeling(this, "VentOutJournal", "Vent_Out_journal");
     }
 
     @Override
@@ -195,145 +201,169 @@ public class VentOutJournal extends AppCompatActivity implements Animation.Anima
         }
     }
 
-    public void showHowAreYouFeeling() {
+    public void howAreYouFeeling(final Activity activity, final String activity_name, final String task_name) {
 
-
-        final LinearLayout sad_layout, better_layout, calm_layout, confident_layout, motivated_layout, thankful_layout;
-        final ImageView sad_img, better_img, calm_img, confident_img, motivated_img, thankful_img;
+        final ImageView feeling_image, better_img, calm_img, confident_img, motivated_img, thankful_img;
         Button save_btn;
+        SeekBar seekBar;
+        final TextView feelings;
+        final RelativeLayout relativeLayout;
         //  sad better  calm   confident  motivated  energised
-
-        final Dialog d = new Dialog(activity);
-        d.setContentView(R.layout.dialog_feeling_right_layout);
-        d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        // d.setTitle("Happy Being");
+        final Dialog d = new Dialog(activity,R.style.full_screen_dialog);
+        d.setContentView(R.layout.dialog_audio_done_screen);
+        assert d.getWindow() != null;
+        d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        //   d.setTitle("Happy Being");
         d.setCancelable(false);
         d.setCanceledOnTouchOutside(false);
         d.show();
 
-        sad_layout = (LinearLayout) d.findViewById(R.id.sad_layout);
-        better_layout = (LinearLayout) d.findViewById(R.id.better_layout);
-        calm_layout = (LinearLayout) d.findViewById(R.id.calm_layout);
-        confident_layout = (LinearLayout) d.findViewById(R.id.confident_layout);
-        motivated_layout = (LinearLayout) d.findViewById(R.id.motivated_layout);
-        thankful_layout = (LinearLayout) d.findViewById(R.id.thankful_layout);
+        seekBar=(SeekBar)d.findViewById(R.id.seekbar);
+        feelings=(TextView) d.findViewById(R.id.feelings);
+        feeling_image = (ImageView) d.findViewById(R.id.feeling_image);
+        relativeLayout = (RelativeLayout) d.findViewById(R.id.relative);
+        feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
+        feelings.setText("Thankful");
+        relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
+        emotion="Thankful";
 
-        sad_img = (ImageView) d.findViewById(R.id.sad_img);
-        better_img = (ImageView) d.findViewById(R.id.better_img);
-        calm_img = (ImageView) d.findViewById(R.id.calm_img);
-        confident_img = (ImageView) d.findViewById(R.id.confident_img);
-        motivated_img = (ImageView) d.findViewById(R.id.motivated_img);
-        thankful_img = (ImageView) d.findViewById(R.id.thankful_img);
-
-        save_btn = (Button) d.findViewById(R.id.save_btn);
-
-        sad_layout.setOnClickListener(new View.OnClickListener() {
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View v) {
-                emotion = "sad";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_filled));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_gray));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_gray));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_gray));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_gray));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_gray));
-            }
-        });
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        better_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emotion = "better";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_gray));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_filled));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_gray));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_gray));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_gray));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_gray));
+                if(progress <= 16){
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_));
+                    feelings.setText("sad");
+                    relativeLayout.setBackgroundColor(Color.parseColor("#f7b089"));
+                    emotion="sad";
+                } else if(progress <= 32){
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm));
+                    feelings.setText("calm");
+                    relativeLayout.setBackgroundColor(Color.parseColor("#f4d3b8"));
+                    emotion="calm";
+                }else if(progress <= 48){
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.better));
+                    feelings.setText("better");
+                    relativeLayout.setBackgroundColor(Color.parseColor("#f9eb9b"));
+                    emotion="better";
 
-            }
-        });
+                }else if(progress <= 64){
 
-        calm_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emotion = "calm";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_gray));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_gray));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_filled));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_gray));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_gray));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_gray));
+                    feelings.setText("confident");
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_));
+                    relativeLayout.setBackgroundColor(Color.parseColor("#ebf4ba"));
+                    emotion="confident";
+
+                }else if(progress <= 80){
+
+                    feelings.setText("motivated");
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_));
+                    relativeLayout.setBackgroundColor(Color.parseColor("#def498"));
+                    emotion="motivated";
+                }else if(progress <= 100){
+
+                    feelings.setText("Thankful");
+                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
+                    relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
+                    emotion="Thankful";
+                }
+
 
             }
-        });
 
-        confident_layout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                emotion = "confident";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_gray));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_gray));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_gray));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_filled));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_gray));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_gray));
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
         });
 
-        motivated_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emotion = "motivated";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_gray));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_gray));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_gray));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_gray));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_filled));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_gray));
+        save_btn = (Button) d.findViewById(R.id.done_button_n);
 
-            }
-        });
-
-        thankful_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emotion = "energised";
-                sad_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_gray));
-                better_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.better_gray));
-                calm_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm_gray));
-                confident_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_gray));
-                motivated_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_gray));
-                thankful_img.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_filled));
-            }
-        });
 
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (CommonUtils.isNetworkAvailable(activity)) {
 
-                try {
-                    if (emotion==null || emotion.length() > 0) {
+                    if (emotion != null && !emotion.equals("")) {
+                        CommonUtils commonUtils = new CommonUtils();
+                        AddEmotionRequest emotionss=new AddEmotionRequest();
+                        emotionss.setEmail(commonUtils.getUserEmail(activity));
+                        emotionss.setDate_time(new Date().toString());
+                        emotionss.setFeature("RELAX");
+                        emotionss.setEmotion1(emotion);
+                        emotionss.setActivity(task_name);
+
+                        new ApiProvider.SaveEmotions(emotionss, commonUtils.getTokenId(activity), 2, activity, "Saving...", new API_Response_Listener<String>() {
+
+                            @Override
+                            public void onComplete(String data, long request_code, String failure_code) {
+                                Log.e("failure_code", failure_code);
+                                if (data == null) {
+                                    Log.e("data", "null");
+                                } else {
+
+                                    if (emotion.equals("")) {
+                                        MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
+                                        SQLiteDatabase db = dbHelper.getWritableDatabase();
+                                        ContentValues cv = new ContentValues();
+                                        cv.put("date_time", new Date().toString());
+                                        cv.put("feature", activity_name);
+                                        cv.put("activity", task_name);
+                                        cv.put("emotion1", emotion);
+                                        cv.put("sync_flag", "0");
+                                        db.insert("New_Feelings_Table", null, cv);
+                                        db.close();
+                                        d.dismiss();
+                                        resultPopup();
+/*                                        activity.finish();
+                                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                                        */emotion = "";
+                                    } else {
+                                        CommonUtils.showToast(activity, "Please select you feelings...");
+                                    }
+
+
+                                }
+                            }
+                        }).call();
+
+                    } else {
+                        CommonUtils.showToast(activity, "Please select you feelings...");
+                    }
+
+                }
+                else {
+                    if (emotion.equals("")) {
                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues cv = new ContentValues();
                         cv.put("date_time", new Date().toString());
-                        cv.put("feature", "DE_STRESS_JOURNAL");
-                        cv.put("activity", "DE_STRESS_JOURNAL");
+                        cv.put("feature", activity_name);
+                        cv.put("activity", task_name);
                         cv.put("emotion1", emotion);
                         cv.put("sync_flag", "0");
                         db.insert("New_Feelings_Table", null, cv);
                         db.close();
                         d.dismiss();
-                        resultPopup();
+                        activity.finish();
+                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                        emotion = "";
                     } else {
                         CommonUtils.showToast(activity, "Please select you feelings...");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+
                 }
+
+                activity.finish();
+
             }
+
         });
     }
 

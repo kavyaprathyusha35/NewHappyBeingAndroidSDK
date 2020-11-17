@@ -60,6 +60,8 @@
         <activity android:name=".playaudio.fragment.PlayAudioActivity" />
         <activity android:name=".wellbeingassessment.activity.AssessmentDetailsActivity" />
         <activity android:name=".UI.SubscriptionActivity" />
+        <activity android:name=".UI.SettingsLayout" />
+        <activity android:name=".MindGym.ImageScreen" />
 
         <service android:name=".Services.DownloadService" />
         <service android:name=".Services.CoachDownloadService" />

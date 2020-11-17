@@ -49,6 +49,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
     public static boolean viewJournalClicked;
     private Toolbar toolbar;
     private TextView header_name,header_email,toolbar_tv;
+    private ImageView reminder_icon;
     private DrawerLayout mDrawerLayout;
     private ExpandableListView expandableList;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -88,6 +89,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
         bundle = new Bundle();
         toolbar = findViewById(R.id.toolbar);
         toolbar_tv = toolbar.findViewById(R.id.toolbar_tv);
+        reminder_icon = findViewById(R.id.reminder_icon);
         toolbar.bringToFront();
         mDrawerLayout = findViewById(R.id.drawer_layout);
         my_coach_layout = findViewById(R.id.home_layout);
@@ -106,15 +108,11 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             assert fromFragment != null;
             loadBeforeFragment(fromFragment);
         } else{
-
-
             coachSelected = true;
             journalSelected = false;
             mindSpaSelected = false;
             fragmentManager.beginTransaction().replace(R.id.new_screen_fragment_layout, new CoachGratitudeFragment()).commit();
             fragmentManager.popBackStack("CoachFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-
         }
 
         int min = 1, max = 5;
@@ -132,7 +130,19 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             goToGratitudeJournalListFragment();
         }
 
-        SdkPreferenceManager sdkPreferenceManager = new SdkPreferenceManager(this);
+        reminder_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeScreenActivity.this, SettingsLayout.class);
+                if (coachSelected) {
+                    intent.putExtra("FROM_SCREEN", "CoachReminders");
+                } else if (mindSpaSelected) {
+                    intent.putExtra("FROM_SCREEN", "MindSpaRminders");
+                }
+                startActivity(intent);
+            }
+        });
+
     }
 
     public static void setStatusBarColor(Activity activity) {
@@ -260,6 +270,7 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             coachSelected = false;
             journalSelected = false;
             fragment = new RelaxAffirmationFragment();
+            reminder_icon.setVisibility(View.VISIBLE);
         } else if (id == R.id.home_layout) {
             recordfirebaseAnalatics("My coach clicked");
             //appEventsLogger.logEvent("My coach clicked");
@@ -267,26 +278,20 @@ public class HomeScreenActivity extends AppCompatActivity implements View.OnClic
             coachSelected = true;
             journalSelected = false;
             fragment = new CoachGratitudeFragment();
+            reminder_icon.setVisibility(View.VISIBLE);
         } else if (id == R.id.my_journal_layout) {
             recordfirebaseAnalatics("Journal clicked");
             mindSpaSelected = false;
             coachSelected = false;
             journalSelected = true;
             fragment = new DiaryFragment();
+            reminder_icon.setVisibility(View.INVISIBLE);
         }
         updateBottomMenuSelected();
         loadSelectedFragment(fragment, bundle, true);
     }
 
     private void recordfirebaseAnalatics(String event_name) {
-        /*Bundle b1 = new Bundle();
-        b1.putString(AppConstants.FIRE_BASE_DEVICE_ID, AppConstants.DEVICE_ID);
-        b1.putString(AppConstants.FIRE_BASE_PRIMARY_PROFILE, event_name);
-        firebaseAnalytics.logEvent(AppConstants.BOTTOM_NAVIGATION_DRAWER_CLICKED, b1);
-        firebaseAnalytics.setAnalyticsCollectionEnabled(true);
-        firebaseAnalytics.setMinimumSessionDuration(20000);
-        firebaseAnalytics.setSessionTimeoutDuration(500);
-*/
     }
 
     @SuppressLint("LongLogTag")

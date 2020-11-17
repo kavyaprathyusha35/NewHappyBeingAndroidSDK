@@ -240,22 +240,24 @@ public class VentoutRecording extends AppCompatActivity implements View.OnClickL
 
     public void playIt() {
         // Create MediaPlayer object
-        mediaPlayer = new MediaPlayer();
-        // set start time
-        playTime = 0;
-        // Reset max and progress of the SeekBar
-        seekBar.setMax(recordTime);
-        seekBar.setProgress(0);
-        try {
-            // Initialize the player and start playing the audio
-            mediaPlayer.setOnCompletionListener(this);
-            mediaPlayer.setDataSource(recordFilePath);
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-            // Post the play progress
-            handler.post(UpdatePlayTime);
-        } catch (IOException e) {
-            Log.e("LOG_TAG", "prepare failed");
+        if (recordFilePath != null) {
+            mediaPlayer = new MediaPlayer();
+            // set start time
+            playTime = 0;
+            // Reset max and progress of the SeekBar
+            seekBar.setMax(recordTime);
+            seekBar.setProgress(0);
+            try {
+                // Initialize the player and start playing the audio
+                mediaPlayer.setOnCompletionListener(this);
+                mediaPlayer.setDataSource(recordFilePath);
+                mediaPlayer.prepare();
+                mediaPlayer.start();
+                // Post the play progress
+                handler.post(UpdatePlayTime);
+            } catch (IOException e) {
+                Log.e("LOG_TAG", "prepare failed");
+            }
         }
     }
 

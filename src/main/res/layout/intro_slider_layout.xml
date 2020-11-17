@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!--    <TextView-->
-    <!--        android:padding="@dimen/dimen_10dp"-->
-    <!--        android:layout_marginBottom="@dimen/dimen_20dp"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:gravity="center"-->
-    <!--        android:id="@+id/login_text"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/log_in_text"-->
-    <!--        android:textSize="18sp"/>-->
-
 
     <LinearLayout
         android:id="@+id/layoutDots"
@@ -40,7 +29,7 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="22sp"
-        android:background="@drawable/bot_rect_button"/>
+        android:background="@drawable/get_start_button"/>
 
 
     <androidx.viewpager.widget.ViewPager

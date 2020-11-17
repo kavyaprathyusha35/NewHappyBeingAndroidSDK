@@ -43,6 +43,17 @@
                     android:textSize="20sp"
                     android:gravity="center"/>
 
+                <ImageView
+                    android:id="@+id/reminder_icon"
+                    style="@style/Eight_Margin_Dimension"
+                    android:layout_width="@dimen/dimen_35dp"
+                    android:layout_height="@dimen/dimen_35dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/reminder_on"
+                    android:layout_gravity="right"
+                    android:padding="5dp"/>
+
+
             </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout

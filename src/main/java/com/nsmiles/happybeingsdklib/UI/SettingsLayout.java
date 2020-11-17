@@ -4,7 +4,6 @@ package com.nsmiles.happybeingsdklib.UI;
 import android.app.TimePickerDialog;
 import android.content.ComponentName;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -46,7 +45,6 @@ import java.util.Locale;
 import java.util.Random;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -345,54 +343,29 @@ public class SettingsLayout extends AppCompatActivity implements View.OnClickLis
             finish();
             overridePendingTransition(R.anim.right_in, R.anim.left_out);
         } else if (id == R.id.save_menu) {
-            if (user_login.equalsIgnoreCase("true")) {
-                editor = getSharedPreferences("HAPPY_BEING", MODE_PRIVATE).edit();
-                editor.putBoolean(AppConstants.COACH_SETTINGS_TOGGLE, coach_settings_on_off);
-                editor.apply();
-                editor.commit();
-                if (coach_settings_on_off) {
-                    coachStartAllBroadCastListener();
-                } else {
-                    coachStopAllBroadCastListener();
-                }
-
-
-                editor.putBoolean(AppConstants.RELAX_SETTINGS_TOGGLE, relax_settings_on_off);
-                editor.apply();
-                editor.commit();
-
-                if (relax_settings_on_off) {
-                    relaxStartAllBroadCastListener();
-                } else {
-                    relaxStopAllBroadCastListener();
-                }
-
-                saveToPreferences();
+            editor = getSharedPreferences("HAPPY_BEING", MODE_PRIVATE).edit();
+            editor.putBoolean(AppConstants.COACH_SETTINGS_TOGGLE, coach_settings_on_off);
+            editor.apply();
+            editor.commit();
+            if (coach_settings_on_off) {
+                coachStartAllBroadCastListener();
             } else {
-                AlertDialog.Builder builder1 = new
-                        AlertDialog.Builder(SettingsLayout.this);
-                builder1.setTitle("Happy Being");
-                builder1.setMessage("Do you want sign in ?.");
-                builder1.setCancelable(false);
-                builder1.setPositiveButton(
-                        "Ok",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-                builder1.setNegativeButton(
-                        "NO",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-
-                            }
-                        })
-                ;
-                AlertDialog alert11 = builder1.create();
-                alert11.show();
+                coachStopAllBroadCastListener();
             }
+
+
+            editor.putBoolean(AppConstants.RELAX_SETTINGS_TOGGLE, relax_settings_on_off);
+            editor.apply();
+            editor.commit();
+
+            if (relax_settings_on_off) {
+                relaxStartAllBroadCastListener();
+            } else {
+                relaxStopAllBroadCastListener();
+            }
+
+            saveToPreferences();
+
         }
         return super.onOptionsItemSelected(item);
     }

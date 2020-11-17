@@ -65,7 +65,7 @@
                 android:layout_height="38dp"
                 android:layout_gravity="center"
                 style="@style/CommonMarginStyle"
-                android:background="@drawable/coach_background"
+                android:background="@drawable/get_start_button"
                 android:fontFamily="sans-serif-light"
                 android:maxHeight="38dp"
                 android:maxWidth="120dp"

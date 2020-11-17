@@ -75,7 +75,12 @@
         <item name="android:textSize">12dp</item>
     </style>
 
-    <style name="Eight_Margin_Dimension"></style>
+    <style name="Eight_Margin_Dimension">
+        <item name="android:layout_marginLeft">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_8dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_8dp</item>
+    </style>
 
     <style name="Sixteen_Margin_Dimension" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>

@@ -41,7 +41,6 @@ import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.ServerApiConnectors.API_Response_Listener;
 import com.nsmiles.happybeingsdklib.ServerApiConnectors.ApiProvider;
 import com.nsmiles.happybeingsdklib.Services.CoachDownloadService;
-import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 import com.nsmiles.happybeingsdklib.playaudio.fragment.PlayAudioActivity;
@@ -491,9 +490,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
 
     @Override
     public void doneaudio() {
-
-
-        howAreYouFeeling(activity, "MY_GUIDE_ANDROID", audio_title);
+        commonUtils.howAreYouFeeling(activity, "MY_GUIDE_ANDROID", audio_title);
 
     }
 
@@ -959,7 +956,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
             public void onClick(View v) {
                 if (CommonUtils.isNetworkAvailable(activity)) {
 
-                    if (emotion.equals("")) {
+                    if (emotion != null && !emotion.equals("")) {
 
                         AddEmotionRequest emotionss=new AddEmotionRequest();
                         emotionss.setEmail(commonUtils.getUserEmail(activity));
@@ -1001,7 +998,7 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
                             }
                         }).call();
 
-                    }else {
+                    } else {
                         CommonUtils.showToast(activity, "Please select you feelings...");
                     }
 
