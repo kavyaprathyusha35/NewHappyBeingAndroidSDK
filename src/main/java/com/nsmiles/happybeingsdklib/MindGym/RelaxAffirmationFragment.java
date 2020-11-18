@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
-import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
+import com.nsmiles.happybeingsdklib.UI.MyCoachDescription;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 
 import androidx.annotation.Nullable;
@@ -85,10 +85,7 @@ public class RelaxAffirmationFragment extends Fragment implements View.OnClickLi
         if (id == R.id.favouritesLayout) {
             relaxAffirmationImplementation.favouriteOnClickListener();
         }else if(id == R.id.descriptionOfCoach){
-
-            startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mindspa"));
-
-
+            startActivity(new Intent(getActivity(), MyCoachDescription.class));
         }
     }
 

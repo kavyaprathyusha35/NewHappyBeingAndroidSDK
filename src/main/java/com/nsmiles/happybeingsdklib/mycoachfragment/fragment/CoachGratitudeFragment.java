@@ -18,8 +18,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.UI.MyCoachDescription;
 import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
-import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
@@ -385,7 +385,8 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         int id = v.getId();
 
         if (id == R.id.descriptionOfCoach) {
-            startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mycoach"));
+            //startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mycoach"));
+            startActivity(new Intent(getActivity(), MyCoachDescription.class));
         } else if (id == R.id.subscribe_text) {
             startActivity(new Intent(getActivity(), SubscriptionActivity.class));
         } else if(id==R.id.getpremium){

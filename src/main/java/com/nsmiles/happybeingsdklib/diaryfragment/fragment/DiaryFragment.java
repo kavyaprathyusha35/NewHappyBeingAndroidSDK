@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.nsmiles.happybeingsdklib.R;
-import com.nsmiles.happybeingsdklib.UI.WebViewActivity;
+import com.nsmiles.happybeingsdklib.UI.MyCoachDescription;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.diaryfragment.gratitudefragment.implementation.ExpressImplementation;
@@ -210,7 +210,8 @@ public class DiaryFragment extends Fragment implements DiaryView, ExpressView, V
                 Log.e(getClass().getSimpleName(), e.toString());
             }
         } else if (id == R.id.descriptionOfCoach) {
-            startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/myjournal"));
+          //  startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/myjournal"));
+            startActivity(new Intent(getActivity(), MyCoachDescription.class));
         }
     }
 
