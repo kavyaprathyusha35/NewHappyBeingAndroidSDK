@@ -166,7 +166,10 @@ public class VentOutJournal extends AppCompatActivity implements Animation.Anima
         if (v.getId() == R.id.done_button) {
             try {
                 if (!contentEdittext.getText().toString().equals("")) {
-                    if(doneButton.getText().equals("DONE")){
+                    if(doneButton.getText().equals("DONE")) {
+                        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+
                         doneButton.setText("DELETE");
                         doneButton.setBackground(getResources().getDrawable(R.drawable.button_red));
                         contentEdittext.setFocusable(false);
@@ -308,7 +311,7 @@ public class VentOutJournal extends AppCompatActivity implements Animation.Anima
                                     Log.e("data", "null");
                                 } else {
 
-                                    if (emotion.equals("")) {
+                                    if (!emotion.equals("")) {
                                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                                         ContentValues cv = new ContentValues();
@@ -339,7 +342,7 @@ public class VentOutJournal extends AppCompatActivity implements Animation.Anima
 
                 }
                 else {
-                    if (emotion.equals("")) {
+                    if (!emotion.equals("")) {
                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues cv = new ContentValues();

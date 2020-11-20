@@ -950,7 +950,7 @@ public class PlayRelaxAudioActivity extends AppCompatActivity implements View.On
             public void onClick(View v) {
                 if (CommonUtils.isNetworkAvailable(activity)) {
 
-                    if (emotion.equals("")) {
+                    if (!emotion.equals("")) {
 
                         AddEmotionRequest emotionss=new AddEmotionRequest();
                         emotionss.setEmail(commonUtils.getUserEmail(activity));

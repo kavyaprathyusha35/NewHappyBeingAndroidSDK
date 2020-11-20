@@ -316,7 +316,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         coachImplementation.getPaymentstatus();
 
         coachImplementation.defaultCoachData();
-        //coachImplementation.getMindGymData();
+        //coachImplementation.getMindGymData();Pls
         coachImplementation.loadOfflineCoachData();
         coachImplementation.pushCoachData();
         //scroll_view.setVisibility(View.GONE);
@@ -386,7 +386,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
 
         if (id == R.id.descriptionOfCoach) {
             //startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/mycoach"));
-            startActivity(new Intent(getActivity(), MyCoachDescription.class));
+            startActivity(new Intent(getActivity(), MyCoachDescription.class).putExtra("DescriptionName", "My Coach"));
         } else if (id == R.id.subscribe_text) {
             startActivity(new Intent(getActivity(), SubscriptionActivity.class));
         } else if(id==R.id.getpremium){

@@ -187,13 +187,12 @@ public class DataManager {
 
 /*
     */
-/*Insert Alarm Notification MultipleReportData to SQLITE Database*//*
+/*Insert Alarm Notification MultipleReportData to SQLITE Database*/
 
     public Long insertNotificationData(UserInformation userInformation) throws Exception {
         return dbHelper.insertNotificationTimings(userInformation);
     }
 
-    */
 /*Insert Activity Analytic MultipleReportData to SQLITE Database*//*
 
     public Long insertActivityData(ActivityDataModel activityDataModel) throws Exception {

@@ -8,10 +8,70 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".dagger.application.BaseApplication"
         android:theme="@style/AppTheme">
+
+        <service
+            android:name=".network.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- Include the AdActivity configChanges and theme. -->
+        <!-- Notification Audio -->
+        <receiver android:name=".broadcast.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.AlarmForMindGymAudio"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.AlarmForMindGymAffirmations"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".broadcastnotifications.ShowMindGymAudioNotification"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver> <!-- Test Hide -->
+        <receiver
+            android:name=".broadcastnotifications.ShowMindGymAffirmationsNotification"
+            android:process=":remote" />
+        <receiver
+            android:name=".broadcast.AlarmForHappyMoment"
+            android:process=":remote" />
+        <receiver
+            android:name=".broadcastnotifications.ShowHappyMomentNotification"
+            android:process=":remote" /> <!-- DB Sync -->
+        <receiver android:name=".broadcast.DBSync" /> <!-- Random One -->
+        <receiver
+            android:name=".broadcast.AlarmForRelaxOne"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcastnotifications.ShowRelaxNotification"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+
         <activity android:name=".UI.HomeScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
@@ -48,7 +108,7 @@
         <activity android:name=".Reports.pregnancywellbeing.SingleWellBeingReportActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".UI.payment.SubscriptionActivity"
+        <activity android:name=".UI.SubscriptionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".MindGymFav.RelaxFavouritesActivity" />
@@ -59,7 +119,6 @@
         <activity android:name=".Affimations.AffirmationScreen" />
         <activity android:name=".playaudio.fragment.PlayAudioActivity" />
         <activity android:name=".wellbeingassessment.activity.AssessmentDetailsActivity" />
-        <activity android:name=".UI.SubscriptionActivity" />
         <activity android:name=".UI.SettingsLayout" />
         <activity android:name=".MindGym.ImageScreen" />
         <activity android:name=".UI.MyCoachDescription" />

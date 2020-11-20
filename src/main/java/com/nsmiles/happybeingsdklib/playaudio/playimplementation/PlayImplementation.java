@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -14,7 +13,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -25,15 +23,8 @@ import android.os.SystemClock;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
-import com.nsmiles.happybeingsdklib.MindGym.AddEmotionRequest;
 import com.nsmiles.happybeingsdklib.MindGym.AudioDownload;
 import com.nsmiles.happybeingsdklib.MindGym.MediaControlReceiver;
 import com.nsmiles.happybeingsdklib.MyCoach.CoachModel;
@@ -857,179 +848,6 @@ public class PlayImplementation implements PlayPresenter, MediaPlayer.OnCompleti
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-
-    private void howAreYouFeeling(final Activity activity, final String activity_name, final String task_name) {
-
-        final ImageView feeling_image, better_img, calm_img, confident_img, motivated_img, thankful_img;
-        Button save_btn;
-        SeekBar seekBar;
-        final TextView feelings;
-        final RelativeLayout relativeLayout;
-        //  sad better  calm   confident  motivated  energised
-        final Dialog d = new Dialog(activity,R.style.full_screen_dialog);
-        d.setContentView(R.layout.dialog_audio_done_screen);
-        assert d.getWindow() != null;
-        d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        //   d.setTitle("Happy Being");
-        d.setCancelable(false);
-        d.setCanceledOnTouchOutside(false);
-        d.show();
-
-        seekBar=(SeekBar)d.findViewById(R.id.seekbar);
-        feelings=(TextView) d.findViewById(R.id.feelings);
-        feeling_image = (ImageView) d.findViewById(R.id.feeling_image);
-        relativeLayout = (RelativeLayout) d.findViewById(R.id.relative);
-        feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
-        feelings.setText("Thankful");
-        relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
-        emotion="Thankful";
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                if(progress<=16){
-
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.sad_));
-                    feelings.setText("sad");
-                    relativeLayout.setBackgroundColor(Color.parseColor("#f7b089"));
-                    emotion="sad";
-
-                }else if(progress<=32){
-
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.calm));
-                    feelings.setText("calm");
-                    relativeLayout.setBackgroundColor(Color.parseColor("#f4d3b8"));
-                    emotion="calm";
-
-
-
-                }else if(progress<=48){
-
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.better));
-                    feelings.setText("better");
-                    relativeLayout.setBackgroundColor(Color.parseColor("#f9eb9b"));
-                    emotion="better";
-
-                }else if(progress<=64){
-
-                    feelings.setText("confident");
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.confident_));
-                    relativeLayout.setBackgroundColor(Color.parseColor("#ebf4ba"));
-                    emotion="confident";
-
-                }else if(progress<=80){
-
-                    feelings.setText("motivated");
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.motivated_));
-                    relativeLayout.setBackgroundColor(Color.parseColor("#def498"));
-                    emotion="motivated";
-                }else if(progress<=100){
-
-                    feelings.setText("Thankful");
-                    feeling_image.setImageDrawable(activity.getResources().getDrawable(R.drawable.thankful_));
-                    relativeLayout.setBackgroundColor(Color.parseColor("#cee279"));
-                    emotion="Thankful";
-                }
-
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        save_btn = (Button) d.findViewById(R.id.done_button_n);
-
-
-        save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CommonUtils.isNetworkAvailable(activity)) {
-
-                    if (emotion != null && !emotion.equals("")) {
-
-                        AddEmotionRequest emotionss=new AddEmotionRequest();
-                        emotionss.setEmail(commonUtils.getUserEmail(activity));
-                        emotionss.setDate_time(new Date().toString());
-                        emotionss.setFeature("RELAX");
-                        emotionss.setEmotion1(emotion);
-                        emotionss.setActivity(task_name);
-
-                        new ApiProvider.SaveEmotions(emotionss, commonUtils.getTokenId(activity), 2, activity, "Saving...", new API_Response_Listener<String>() {
-
-                            @Override
-                            public void onComplete(String data, long request_code, String failure_code) {
-                                Log.e("failure_code", failure_code);
-                                if (data == null) {
-                                    Log.e("data", "null");
-                                } else {
-
-                                    if (emotion.equals("")) {
-                                        MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
-                                        SQLiteDatabase db = dbHelper.getWritableDatabase();
-                                        ContentValues cv = new ContentValues();
-                                        cv.put("date_time", new Date().toString());
-                                        cv.put("feature", activity_name);
-                                        cv.put("activity", task_name);
-                                        cv.put("emotion1", emotion);
-                                        cv.put("sync_flag", "0");
-                                        db.insert("New_Feelings_Table", null, cv);
-                                        db.close();
-                                        d.dismiss();
-                                        activity.finish();
-                                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                                        emotion = "";
-                                    } else {
-                                        CommonUtils.showToast(activity, "Please select you feelings...");
-                                    }
-
-
-                                }
-                            }
-                        }).call();
-
-                    } else {
-                        CommonUtils.showToast(activity, "Please select you feelings...");
-                    }
-
-                }
-                else {
-                    if (emotion.equals("")) {
-                        MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
-                        SQLiteDatabase db = dbHelper.getWritableDatabase();
-                        ContentValues cv = new ContentValues();
-                        cv.put("date_time", new Date().toString());
-                        cv.put("feature", activity_name);
-                        cv.put("activity", task_name);
-                        cv.put("emotion1", emotion);
-                        cv.put("sync_flag", "0");
-                        db.insert("New_Feelings_Table", null, cv);
-                        db.close();
-                        d.dismiss();
-                        activity.finish();
-                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
-                        emotion = "";
-                    } else {
-                        CommonUtils.showToast(activity, "Please select you feelings...");
-                    }
-
-                }
-
-                activity.finish();
-
-            }
-
-        });
     }
 
     @Override

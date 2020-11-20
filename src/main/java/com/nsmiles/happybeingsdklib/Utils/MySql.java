@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
+
 import java.util.Calendar;
 
 public class MySql extends SQLiteOpenHelper {
@@ -1149,6 +1151,35 @@ public class MySql extends SQLiteOpenHelper {
         }
         return status;
 
+    }
+    public Long insertNotificationTimings(UserInformation user) throws Exception {
+
+        Long error = -1L;
+        Cursor cursor;
+        writeDb = this.getWritableDatabase();
+        readDb = this.getReadableDatabase();
+        cursor = readDb.query(NOTIFICATION_TABLE, null, null, null, null, null, null);
+        try {
+
+
+            if (cursor.getCount() == 0) {
+                cv = new ContentValues();
+                cv.put(NOTIFICATION_COACH_MORNING, user.getMind_gym_start_time());
+                cv.put(NOTIFICATION_COACH_EVENING, user.getMind_gym_end_time());
+                cv.put(NOTIFICATION_ID_RELAX_START, user.getRelax_start_time());
+                cv.put(NOTIFICATION_ID_RELAX_END, user.getRelax_end_time());
+                cv.put(NOTIFICATION_ID_HAPPY_MOMENT, user.getHappy_moment_time());
+                return writeDb.insert(NOTIFICATION_TABLE, null, cv);
+            } else {
+                return error;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            cursor.close();
+            writeDb.close();
+        }
     }
 
 }

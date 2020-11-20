@@ -211,7 +211,7 @@ public class DiaryFragment extends Fragment implements DiaryView, ExpressView, V
             }
         } else if (id == R.id.descriptionOfCoach) {
           //  startActivity(new Intent(getActivity(), WebViewActivity.class).putExtra("PAGE_URL", "https://myhappybeing.com/myjournal"));
-            startActivity(new Intent(getActivity(), MyCoachDescription.class));
+            startActivity(new Intent(getActivity(), MyCoachDescription.class).putExtra("DescriptionName", "My Journal"));
         }
     }
 

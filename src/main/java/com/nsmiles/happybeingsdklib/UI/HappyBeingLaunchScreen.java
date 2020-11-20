@@ -22,7 +22,11 @@ import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
 import com.nsmiles.happybeingsdklib.Utils.SdkPreferenceManager;
+import com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAffirmations;
+import com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAudio;
 import com.nsmiles.happybeingsdklib.dagger.application.BaseApplication;
+import com.nsmiles.happybeingsdklib.dagger.data.DataManager;
+import com.nsmiles.happybeingsdklib.dagger.data.UserInformation;
 import com.nsmiles.happybeingsdklib.mycoachfragment.presenter.CommonPresenter;
 import com.nsmiles.happybeingsdklib.network.NetworkError;
 import com.nsmiles.happybeingsdklib.network.NetworkService;
@@ -36,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +58,8 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
     private static MySql dbHelper;
     CommonUtils commonUtils;
     private static SQLiteDatabase db;
+    @Inject
+    DataManager mDataManager;
 
     @Inject
     Service service;
@@ -63,7 +70,7 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.splash_activity);
         commonUtils=new CommonUtils();
-
+        ((BaseApplication) getApplication()).getmApplicationApiComponent().inject(this);
         RelativeLayout splash_screen_layout = findViewById(R.id.splash_activity_layout);
         ImageView splash_img = findViewById(R.id.splash_img);
         Animation a = AnimationUtils.loadAnimation(this, R.anim.center_in);
@@ -79,6 +86,7 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         }
         SdkPreferenceManager sdkPreferenceManager = new SdkPreferenceManager(this);
         if (sdkPreferenceManager.get(AppConstants.IS_FIRST_TIME, true)) {
+            insertNotificationAlarmData();
             sdkPreferenceManager.save(AppConstants.IS_FIRST_TIME, false);
             RelaxUtils relaxUtils = new RelaxUtils();
             relaxUtils.insertAllRelaxAudio(this);
@@ -88,7 +96,6 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
 
         boolean isDownloaded = sdkPreferenceManager.get(AppConstants.ASSESSMENT_DOWNLOADED, false);
         if (!isDownloaded) {
-            ((BaseApplication) getApplication()).getmApplicationApiComponent().inject(this);
             sdkPreferenceManager.save(AppConstants.ASSESSMENT_DOWNLOADED, true);
             assesmentDownload(AppConstants.ASSESS_TOKEN,NetworkService.corporateWellBeing.trim(), service, this, AppConstants.PROFILE_EMPLOYED);
         }
@@ -390,6 +397,97 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
             apiCallBack.apiCallingCompleted();
         }
 
+    }
+    private void insertNotificationAlarmData(){
+        Date currentDate, reminderDate;
+        Calendar scheduleCalender = Calendar.getInstance();
+        Date currentTime = new Date();
+        long currentMillisecond;
+        scheduleCalender.setTime(currentTime);
+        currentMillisecond = scheduleCalender.getTimeInMillis();
+
+        UserInformation info= new UserInformation();
+        Calendar mInstance = Calendar.getInstance();
+
+        // Coach Start Time
+        mInstance.setTimeInMillis(mDataManager.getCurrentTimeMilliSeconds());
+        mInstance.set(Calendar.HOUR, 8);
+        mInstance.set(Calendar.MINUTE, 00);
+        mInstance.set(Calendar.SECOND, 00);
+        mInstance.set(Calendar.AM_PM, Calendar.AM);
+        Log.d("coach start date", mDataManager.convertMilliSecondToDateFormat(mInstance.getTimeInMillis()));
+        info.setMind_gym_start_time(String.valueOf(mInstance.getTimeInMillis()));
+
+        // Coach End Time
+        mInstance.setTimeInMillis(mDataManager.getCurrentTimeMilliSeconds());
+        mInstance.set(Calendar.HOUR, 9);
+        mInstance.set(Calendar.MINUTE, 30);
+        mInstance.set(Calendar.SECOND, 00);
+        mInstance.set(Calendar.AM_PM, Calendar.PM);
+        info.setMind_gym_end_time(String.valueOf(mInstance.getTimeInMillis()));
+
+
+        // Relax Start Time
+        mInstance.setTimeInMillis(mDataManager.getCurrentTimeMilliSeconds());
+        mInstance.set(Calendar.HOUR, 9);
+        mInstance.set(Calendar.MINUTE, 00);
+        mInstance.set(Calendar.SECOND, 00);
+        mInstance.set(Calendar.AM_PM, Calendar.AM);
+        info.setRelax_start_time(String.valueOf(mInstance.getTimeInMillis()));
+
+        // Relax End Time
+        mInstance.setTimeInMillis(mDataManager.getCurrentTimeMilliSeconds());
+        mInstance.set(Calendar.HOUR, 7);
+        mInstance.set(Calendar.MINUTE, 00);
+        mInstance.set(Calendar.SECOND, 00);
+        mInstance.set(Calendar.AM_PM, Calendar.PM);
+        info.setRelax_end_time(String.valueOf(mInstance.getTimeInMillis()));
+
+        // Happy Moment Time
+        mInstance.setTimeInMillis(mDataManager.getCurrentTimeMilliSeconds());
+        mInstance.set(Calendar.HOUR, 7);
+        mInstance.set(Calendar.MINUTE, 30);
+        mInstance.set(Calendar.SECOND, 00);
+        mInstance.set(Calendar.AM_PM, Calendar.PM);
+        info.setHappy_moment_time(String.valueOf(mInstance.getTimeInMillis()));
+        //TODO: set the check here for day time.
+        scheduleCalender = Calendar.getInstance();
+        scheduleCalender.setTimeInMillis(Long.parseLong(info.getMind_gym_start_time()));
+        reminderDate = scheduleCalender.getTime();
+
+        scheduleCalender.setTimeInMillis(currentMillisecond);
+        currentDate = scheduleCalender.getTime();
+        if (reminderDate.after(currentDate)) {
+            AlarmForMindGymAudio alarmForMindGymAudio = new AlarmForMindGymAudio();
+            alarmForMindGymAudio.setAlarm(this, Long.parseLong(info.getMind_gym_start_time()));
+        }
+        else {
+            scheduleCalender.setTimeInMillis(Long.parseLong(info.getMind_gym_start_time()));
+            scheduleCalender.add(Calendar.DATE, 1);
+            AlarmForMindGymAudio alarmForMindGymAudio = new AlarmForMindGymAudio();
+            alarmForMindGymAudio.setAlarm(this, scheduleCalender.getTimeInMillis());
+        }
+
+        scheduleCalender = Calendar.getInstance();
+        scheduleCalender.setTimeInMillis(Long.parseLong(info.getMind_gym_end_time()));
+        reminderDate = scheduleCalender.getTime();
+        if (reminderDate.after(currentDate)) {
+            AlarmForMindGymAffirmations alarmForMindGymAffirmations = new AlarmForMindGymAffirmations();
+            alarmForMindGymAffirmations.setAlarm(this, Long.parseLong(info.getMind_gym_end_time()));
+        }
+        else {
+            scheduleCalender.setTimeInMillis(Long.parseLong(info.getMind_gym_end_time()));
+            scheduleCalender.add(Calendar.DATE, 1);
+            AlarmForMindGymAffirmations alarmForMindGymAffirmations = new AlarmForMindGymAffirmations();
+            alarmForMindGymAffirmations.setAlarm(this, Long.parseLong(info.getMind_gym_end_time()));
+        }
+
+        try {
+            mDataManager.insertNotificationData(info);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mDataManager.save(AppConstants.IS_FIRST_TIME, false);
     }
 
 }

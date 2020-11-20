@@ -85,7 +85,7 @@ public class RelaxAffirmationFragment extends Fragment implements View.OnClickLi
         if (id == R.id.favouritesLayout) {
             relaxAffirmationImplementation.favouriteOnClickListener();
         }else if(id == R.id.descriptionOfCoach){
-            startActivity(new Intent(getActivity(), MyCoachDescription.class));
+            startActivity(new Intent(getActivity(), MyCoachDescription.class).putExtra("DescriptionName", "MindSpa"));
         }
     }
 

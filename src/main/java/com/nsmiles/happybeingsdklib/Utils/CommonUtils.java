@@ -1016,7 +1016,7 @@ public class CommonUtils {
                         AddEmotionRequest emotionss=new AddEmotionRequest();
                         emotionss.setEmail(getUserEmail(activity));
                         emotionss.setDate_time(new Date().toString());
-                        emotionss.setFeature("RELAX");
+                        emotionss.setFeature("MyCoach");
                         emotionss.setEmotion1(emotion);
                         emotionss.setActivity(task_name);
 
@@ -1029,7 +1029,7 @@ public class CommonUtils {
                                     Log.e("data", "null");
                                 } else {
 
-                                    if (emotion.equals("")) {
+                                    if (!emotion.equals("")) {
                                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                                         ContentValues cv = new ContentValues();
@@ -1059,7 +1059,7 @@ public class CommonUtils {
 
                 }
                 else {
-                    if (emotion.equals("")) {
+                    if (!emotion.equals("")) {
                         MySql dbHelper = new MySql(activity, "mydb", null, MySql.version);
                         SQLiteDatabase db = dbHelper.getWritableDatabase();
                         ContentValues cv = new ContentValues();

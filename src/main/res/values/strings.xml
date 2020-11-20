@@ -165,6 +165,117 @@
     \n \u2714 Build closer relationships
     \n \u2714 Enhance - Joy, money &amp; success
     </string>
+    <string name="coach_heading">My Wellbeing Coach</string>
+    <string name="coach_desc_1" >
+        My coach presents everyday practices that build skills and habits to boost mental strength, enhance focus, develop self-love and take actions to achieve goals.
+    </string>
+    <string name="coach_heading1" >
+        Mindfulness meditation
+    </string>
+    <string name="coach_desc_2" >
+        Meditation training to be mindful, obtain emotional stability and improve sleep.
+    </string>
+    <string name="coach_heading2" >
+        Guided Imagery
+    </string>
+    <string name="coach_desc_3" >
+        Visualization techniques to overcome fear and self-doubt and boost your confidence.
+    </string>
+    <string name="coach_heading3" >
+        Affirmations
+    </string>
+    <string name="coach_desc_4" >
+        Establish positive self-talk to obtain positive behavioural changes.
+    </string>
+    <string name="coach_heading4" >
+Journal prompts
+    </string>
+    <string name="coach_desc_5" >
+Receive prompts to act on your goals and write your thoughts.
+    </string>
+    <string name="goals_heading" >
+        My Goals
+    </string>
+    <string name="goals_desc_1" >
+        The first step to improve your wellbeing is to help you understand - what are your aspirations, approaches and priorities post completing the assessment, we will provide you with a personalised self-care plan and daily activities to enhance your chance for success.
+    </string>
+    <string name="goals_heading1" >
+        Health and fitness
+    </string>
+    <string name="goals_desc_2">
+        Get present to current choices that are increasing your health risks and delay in recovery. Develop empowering beliefs and habits for having an energized, strong and healthy body.
+    </string>
+    <string name="goals_heading2" >
+        Career success
+    </string>
+    <string name="goals_desc_3">
+        Understand current work habits, attitudes and behaviour. Nurture skills that bring work-life balance, career satisfaction and delightful career growth.    </string>
+    <string name="goals_heading4" >
+        Financial security and growth
+    </string>
+    <string name="goals_desc_5">
+        Find what money habits and belief\'s of yours are leading to financial limitations. Build attitudes and behaviours that will ensure financial security and freedom.
+    </string>
+     <string name="goals_heading5" >
+        Self and family relationships
+     </string>
+    <string name="goals_desc_6">
+        Discover your perspective of love, support and connectedness with self, family and loved ones. Nurture strong relationships.
+    </string>
+    <string name="goals_heading6" >
+Emotional strength
+    </string>
+    <string name="goals_desc_7">
+Discover your emotional awareness, stress resilience and measure of your positive mental attitude. This is a foundation pillar to your happiness and wellbeing.
+    </string>
+     <string name="goals_heading7" >
+         Personal environment
+     </string>
+    <string name="goals_desc_8">
+        Understand how your surroundings are impacting your wellbeing. Find ways to bring comfort and harmony to your life.
+    </string>
+     <string name="goals_heading8" >
+        Purpose and meaning
+     </string>
+    <string name="goals_desc_9">
+        Consider the thought of having a strong purpose, meaning and your understanding of the same. This keeps your faith alive and enables means to bounce back during challenging times.
+    </string>
+    <string name="goals_heading9" >
+        Friends and community
+    </string>
+    <string name="goals_desc_10">
+        Measure your habits, attitudes and behaviours that brings belongingness and supportive relationships.
+    </string>
+    <string name="mind_spa_heading" >
+        MindSpa
+    </string>
+    <string name="mindspa_desc" >
+        Different relaxation techniques to help you focus, calm down or relax before sleep.
+    </string>
+    <string name="mindspa_heading1" >
+        Breathing exercises
+    </string>
+    <string name="mindspa_desc_1"><![CDATA[Breathing techniques to quickly relax & boost focus.]]></string>
+    <string name="mindspa_heading2">Relax using the senses</string>
+    <string name="mindsap_desc_2"><![CDATA[Activities to relax using your senses like touch & smell.]]></string>
+    <string name="mindspa_heading3">Relax with Nature</string>
+    <string name="mindspa_desc_3"><![CDATA[Nature calming sounds and images to relax your body & mind.]]></string>
+    <string name="mindspa_heading4">Meditation</string>
+    <string name="mindspa_desc_4">Guided meditations to calm and improve compassion.</string>
+    <string name="mindspa_heading5">Music therapy</string>
+    <string name="mindspa_desc_5">Relax to the sounds of a singing bowl.</string>
+    <string name="mindspa_heading6">Relax with food</string>
+    <string name="mindspa_desc_6"><![CDATA[Foods to eat to relax & boost brain power]]></string>
+    <string name="journal_heading">My Journal</string>
+    <string name="journal_desc">A confidential platform to shift your focus away from the negative aspects of your life to the positive ones.</string>
+    <string name="journal_heading1">Gratitude Journal</string>
+    <string name="journal_desc_1">Affirm the positive aspects of life. Improve your mood and build stronger relations.</string>
+    <string name="journal_heading2">De-stress</string>
+    <string name="journal_desc_2">Reflect on your painful thoughts, feelings and experience to let go of pain and clear your headspace.</string>
+    <string name="journal_heading3">Savour a happy moment</string>
+    <string name="journal_desc_3">Notice, appreciate and celebrate the good times to amplify positive emotions.</string>
+    <string name="journal_heading4">Reflection journal</string>
+    <string name="journal_desc_4">Reflect on your learning and write what you did/didn\'t do well. This improves confidence and motivation.</string>
 
 
 </resources>
