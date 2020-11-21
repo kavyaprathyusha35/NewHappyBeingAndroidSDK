@@ -33,6 +33,8 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
     public GratitudeListAdapter(Activity activity, List<String> gratitudeList) {
         this.activity = activity;
         this.gratitudeList = gratitudeList;
+        preferenceManager=new PreferenceManager(activity);
+        payment_status=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
     }
 
     public void setExpressOnClickListener(ExpressOnClickListener expressOnClickListener){
@@ -61,10 +63,7 @@ public class GratitudeListAdapter extends RecyclerView.Adapter<GratitudeListAdap
                 if(gratitudeList.get(position).equalsIgnoreCase(AppConstants.GRATITUDE_JOURNAL)){
                     holder.premium.setVisibility(View.VISIBLE);
 
-                }else if(gratitudeList.get(position).equalsIgnoreCase(AppConstants.ABUDANCE_JOURNAL)){
-                    holder.premium.setVisibility(View.VISIBLE);
                 }
-
             } else{
                 holder.premium.setVisibility(View.GONE);
             }

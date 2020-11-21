@@ -585,7 +585,8 @@ public class JSONParser {
             Log.e("response", response);
 
             MyJsonObject jsonObject = new MyJsonObject(response);
-            String success = jsonObject.getString("success");
+            JSONObject result = jsonObject.getJSONObject("result");
+            String success = result.getString("success");
 
             if(success != null && success.equalsIgnoreCase("no payment information available for the package and assessment given")){
                 daysLeft = -1;

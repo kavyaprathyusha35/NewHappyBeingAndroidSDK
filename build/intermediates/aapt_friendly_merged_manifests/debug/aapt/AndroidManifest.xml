@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.nsmiles.happybeingsdklib"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -15,10 +16,68 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name="com.nsmiles.happybeingsdklib.dagger.application.BaseApplication"
         android:theme="@style/AppTheme" >
+        <service
+            android:name="com.nsmiles.happybeingsdklib.network.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- Include the AdActivity configChanges and theme. -->
+        <!-- Notification Audio -->
+        <receiver android:name="com.nsmiles.happybeingsdklib.broadcast.NetworkChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAudio"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAffirmations"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcastnotifications.ShowMindGymAudioNotification"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver> <!-- Test Hide -->
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcastnotifications.ShowMindGymAffirmationsNotification"
+            android:process=":remote" />
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcast.AlarmForHappyMoment"
+            android:process=":remote" />
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcastnotifications.ShowHappyMomentNotification"
+            android:process=":remote" /> <!-- DB Sync -->
+        <receiver android:name="com.nsmiles.happybeingsdklib.broadcast.DBSync" /> <!-- Random One -->
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcast.AlarmForRelaxOne"
+            android:exported="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.nsmiles.happybeingsdklib.broadcastnotifications.ShowRelaxNotification"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.project.ActionSetter" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.nsmiles.happybeingsdklib.UI.HomeScreenActivity"
             android:screenOrientation="portrait"
@@ -68,7 +127,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.nsmiles.happybeingsdklib.UI.payment.SubscriptionActivity"
+            android:name="com.nsmiles.happybeingsdklib.UI.SubscriptionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name="com.nsmiles.happybeingsdklib.MindGymFav.RelaxFavouritesActivity" />
@@ -79,6 +138,9 @@
         <activity android:name="com.nsmiles.happybeingsdklib.Affimations.AffirmationScreen" />
         <activity android:name="com.nsmiles.happybeingsdklib.playaudio.fragment.PlayAudioActivity" />
         <activity android:name="com.nsmiles.happybeingsdklib.wellbeingassessment.activity.AssessmentDetailsActivity" />
+        <activity android:name="com.nsmiles.happybeingsdklib.UI.SettingsLayout" />
+        <activity android:name="com.nsmiles.happybeingsdklib.MindGym.ImageScreen" />
+        <activity android:name="com.nsmiles.happybeingsdklib.UI.MyCoachDescription" />
 
         <service android:name="com.nsmiles.happybeingsdklib.Services.DownloadService" />
         <service android:name="com.nsmiles.happybeingsdklib.Services.CoachDownloadService" />

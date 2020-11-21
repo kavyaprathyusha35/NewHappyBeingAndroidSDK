@@ -178,7 +178,7 @@ public class Urls {
 
     public static String getPackageExpiryUrl() {
 
-        return SERVER_ADDRESS_V2 + "/user/payment-expiry";
+        return SERVER_ADDRESS_V1 + "/questionnaires/user/payment-expiry";
     }
 
 

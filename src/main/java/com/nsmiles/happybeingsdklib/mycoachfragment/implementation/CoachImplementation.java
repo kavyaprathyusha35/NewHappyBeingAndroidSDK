@@ -723,7 +723,7 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
         token = commonUtils.getTokenId(activity);
 
         parameters = parameters.concat("&version=" + version).concat("&days=" + day).concat(unique);
-        // CommonUtils.showLogInforamtion(getClass().getSimpleName(), "ggggggggg", parameters, true);
+
 
         if (CommonUtils.isNetworkAvailable(activity)) {
             coachView.hideSyncTextView();
@@ -732,18 +732,14 @@ public class CoachImplementation implements CoachPresenter, ForceUpdateChecker.O
                 @Override
                 public void onComplete(List<MindGymModel> data, long request_code, String failure_code) {
 
-
                     if (data != null) {
 
                         for (int i = 0; i < data.size(); i++) {
-
 
                             preferenceManager.add(AppConstants.PAYMENT_STATUS,data.get(i).getPaymentStatus());
 
 
                         }
-
-
 
                     }
                     else {

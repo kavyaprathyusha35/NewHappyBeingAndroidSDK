@@ -164,6 +164,34 @@
     <string name="choose_technique">
         Choose a technique that best works for you
     </string>
+    <string name="coach_desc_1">
+        My coach presents everyday practices that build skills and habits to boost mental strength, enhance focus, develop self-love and take actions to achieve goals.
+    </string>
+    <string name="coach_desc_2">
+        Meditation training to be mindful, obtain emotional stability and improve sleep.
+    </string>
+    <string name="coach_desc_3">
+        Visualization techniques to overcome fear and self-doubt and boost your confidence.
+    </string>
+    <string name="coach_desc_4">
+        Establish positive self-talk to obtain positive behavioural changes.
+    </string>
+    <string name="coach_desc_5">
+Receive prompts to act on your goals and write your thoughts.
+    </string>
+    <string name="coach_heading">My Wellbeing Coach</string>
+    <string name="coach_heading1">
+        Mindfulness meditation
+    </string>
+    <string name="coach_heading2">
+        Guided Imagery
+    </string>
+    <string name="coach_heading3">
+        Affirmations
+    </string>
+    <string name="coach_heading4">
+Journal prompts
+    </string>
     <string name="de_stress_1">Write your feelings and deepest thought what is hurting you.</string>
     <string name="de_stress_2">In your writing,  really let go and explore your deepest emotions and thoughts.</string>
     <string name="de_stress_3">Be it pain due to relationships with parents, spouse, friends or relatives; to your past, your present or your future; or to who you have been, who you would like to be or who you are now.</string>
@@ -183,6 +211,59 @@
     <string name="get_now">Get Now</string>
     <string name="get_started">Get started</string>
     <string name="getpremiumaccess"><u>Get Premium Access</u></string>
+    <string name="goals_desc_1">
+        The first step to improve your wellbeing is to help you understand - what are your aspirations, approaches and priorities post completing the assessment, we will provide you with a personalised self-care plan and daily activities to enhance your chance for success.
+    </string>
+    <string name="goals_desc_10">
+        Measure your habits, attitudes and behaviours that brings belongingness and supportive relationships.
+    </string>
+    <string name="goals_desc_2">
+        Get present to current choices that are increasing your health risks and delay in recovery. Develop empowering beliefs and habits for having an energized, strong and healthy body.
+    </string>
+    <string name="goals_desc_3">
+        Understand current work habits, attitudes and behaviour. Nurture skills that bring work-life balance, career satisfaction and delightful career growth.    </string>
+    <string name="goals_desc_5">
+        Find what money habits and belief\'s of yours are leading to financial limitations. Build attitudes and behaviours that will ensure financial security and freedom.
+    </string>
+    <string name="goals_desc_6">
+        Discover your perspective of love, support and connectedness with self, family and loved ones. Nurture strong relationships.
+    </string>
+    <string name="goals_desc_7">
+Discover your emotional awareness, stress resilience and measure of your positive mental attitude. This is a foundation pillar to your happiness and wellbeing.
+    </string>
+    <string name="goals_desc_8">
+        Understand how your surroundings are impacting your wellbeing. Find ways to bring comfort and harmony to your life.
+    </string>
+    <string name="goals_desc_9">
+        Consider the thought of having a strong purpose, meaning and your understanding of the same. This keeps your faith alive and enables means to bounce back during challenging times.
+    </string>
+    <string name="goals_heading">
+        My Goals
+    </string>
+    <string name="goals_heading1">
+        Health and fitness
+    </string>
+    <string name="goals_heading2">
+        Career success
+    </string>
+    <string name="goals_heading4">
+        Financial security and growth
+    </string>
+    <string name="goals_heading5">
+        Self and family relationships
+     </string>
+    <string name="goals_heading6">
+Emotional strength
+    </string>
+    <string name="goals_heading7">
+         Personal environment
+     </string>
+    <string name="goals_heading8">
+        Purpose and meaning
+     </string>
+    <string name="goals_heading9">
+        Friends and community
+    </string>
     <string name="goals_will_help">Boost stress resilience</string>
     <string name="gratitude_text">
     Journaling - to build deeper relations with partner, family, friends or peers.
@@ -211,6 +292,16 @@
     <string name="intro_to_report">
         Thank you for completing the wellbeing questionnaire. This report provides you with summary feedback about your current wellbeing in 8 relevant areas.
     </string>
+    <string name="journal_desc">A confidential platform to shift your focus away from the negative aspects of your life to the positive ones.</string>
+    <string name="journal_desc_1">Affirm the positive aspects of life. Improve your mood and build stronger relations.</string>
+    <string name="journal_desc_2">Reflect on your painful thoughts, feelings and experience to let go of pain and clear your headspace.</string>
+    <string name="journal_desc_3">Notice, appreciate and celebrate the good times to amplify positive emotions.</string>
+    <string name="journal_desc_4">Reflect on your learning and write what you did/didn\'t do well. This improves confidence and motivation.</string>
+    <string name="journal_heading">My Journal</string>
+    <string name="journal_heading1">Gratitude Journal</string>
+    <string name="journal_heading2">De-stress</string>
+    <string name="journal_heading3">Savour a happy moment</string>
+    <string name="journal_heading4">Reflection journal</string>
     <string name="journal_will_help">Journaling for happiness</string>
     <string name="let_us_work">Let us work on your goal</string>
     <string name="log_in_text">Have an account? <b>Log in</b>></string>
@@ -218,9 +309,29 @@
     Write your dreams, desires and wishes you wish to manifest in your life in as much detail as possible. Remember, to also put the needed effort to manifest your dream life.
     </string>
     <string name="mindSpa">MindSpa</string>
+    <string name="mind_spa_heading">
+        MindSpa
+    </string>
+    <string name="mindsap_desc_2"><![CDATA[Activities to relax using your senses like touch & smell.]]></string>
     <string name="mindspa">
                 <u>How mindspa helps?</u>
     </string>
+    <string name="mindspa_desc">
+        Different relaxation techniques to help you focus, calm down or relax before sleep.
+    </string>
+    <string name="mindspa_desc_1"><![CDATA[Breathing techniques to quickly relax & boost focus.]]></string>
+    <string name="mindspa_desc_3"><![CDATA[Nature calming sounds and images to relax your body & mind.]]></string>
+    <string name="mindspa_desc_4">Guided meditations to calm and improve compassion.</string>
+    <string name="mindspa_desc_5">Relax to the sounds of a singing bowl.</string>
+    <string name="mindspa_desc_6"><![CDATA[Foods to eat to relax & boost brain power]]></string>
+    <string name="mindspa_heading1">
+        Breathing exercises
+    </string>
+    <string name="mindspa_heading2">Relax using the senses</string>
+    <string name="mindspa_heading3">Relax with Nature</string>
+    <string name="mindspa_heading4">Meditation</string>
+    <string name="mindspa_heading5">Music therapy</string>
+    <string name="mindspa_heading6">Relax with food</string>
     <string name="mindspa_will_help">MindSpa anywhere, anytime</string>
     <string name="morning_message">Prepare for a positive and productive day.</string>
     <string name="my_assess_text">Wellbeing, happiness &amp; success are all closely inter-related. Here is your personal wellbeing assessment, personalised improvement plan and your daily workout coach in an App. To know what\'s causing your current situation, take this holistic wellbeing assessment across these 8 areas - physical, mental, social, finances, purpose, environmental, family and career wellbeing. Get your wellbeing enhancement plan &amp; daily workouts personalised to you in my coach.</string>
@@ -232,6 +343,16 @@
     <string name="network_message">Please check your data network</string>
     <string name="no_internet_connection">Internet not available</string>
     <string name="no_network">Internet not available</string>
+    <string name="payment_string1">
+    Get everyday tools and guided exercises to
+    \n\u2714 Enhance mindfulness
+    \n\u2714 Improve health and wellbeing
+    \n \u2714 Relieve stress and anxiety
+    \n \u2714 Overcome limiting beliefs
+    \n \u2714 Improve Self-love and feel deserving
+    \n \u2714 Build closer relationships
+    \n \u2714 Enhance - Joy, money &amp; success
+    </string>
     <string name="personal_email">Email id</string>
     <string name="please_retry">Some time internet connection is low.\nPlease retry</string>
     <string name="question1_IHaveLearnt">Situation: Write about something that went well or something that didn\'t go right or as planned. At this stage write what actually happened – no feelings, thoughts, reflections, or assumptions – just facts. Be concise, but write as much as you feel you need to. Incidents will vary in complexity and depth.</string>
@@ -247,6 +368,7 @@
     </string>
     <string name="report_an_issue">Report an issue</string>
     <string name="splash_screen">app_icon</string>
+    <string name="subscribe_text">Subscribe now</string>
     <string name="subscribe_to_get_detail_report">Subscribe to get detailed wellbeing improvement plan &amp; daily workouts</string>
     <string name="top_actions_you_may_want_to_take">TOP ACTIONS YOU MAY WANT TO TAKE IMMEDIATELY TO RESTORE WELLBEING QUICKLY</string>
     <string name="tv_SelfLove">Write few things you appreciate in your-self. Write about the quality and attitude that brought a positive outcome or made others happy. Appreciate yourself for that completely.</string>
@@ -301,7 +423,12 @@
         <item name="android:textColor">@color/hb_orange_header</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
-    <style name="Eight_Margin_Dimension"/>
+    <style name="Eight_Margin_Dimension">
+        <item name="android:layout_marginLeft">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_8dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_8dp</item>
+    </style>
     <style name="EighthMarginStyle">
         <item name="android:layout_marginTop">@dimen/dimen_3dp</item>
     </style>
@@ -345,6 +472,14 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="payment_screen_layout">
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_15dp</item>
+        <item name="android:paddingTop">@dimen/dimen_15dp</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_10dp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10dp</item>
     </style>
     <declare-styleable name="CalendarView">
         <attr format="string" name="dateFormat"/>

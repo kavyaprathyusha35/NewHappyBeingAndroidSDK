@@ -392,9 +392,22 @@
                     android:text="@string/u_what_s_included_in_this_program_u"
                     android:textColor="@color/white"
                     android:textSize="@dimen/dimen_16sp"
-                  />
+                    android:layout_marginBottom="@dimen/dimen_26dp"/>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/subscribe_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:text="@string/subscribe_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:layout_marginBottom="@dimen/dimen_26dp"/>
 
                 <TextView
+                    android:layout_marginBottom="@dimen/dimen_10dp"
                     android:id="@+id/getpremium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

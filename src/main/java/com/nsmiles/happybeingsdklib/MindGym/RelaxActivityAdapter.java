@@ -64,10 +64,6 @@ public class RelaxActivityAdapter extends RecyclerView.Adapter<RelaxActivityAdap
 
                 holder.premium.setVisibility(View.VISIBLE);
 
-            }else if(activity_list.get(position).equalsIgnoreCase("Nature Calm")){
-
-                holder.premium.setVisibility(View.VISIBLE);
-
             }
 
         }else{

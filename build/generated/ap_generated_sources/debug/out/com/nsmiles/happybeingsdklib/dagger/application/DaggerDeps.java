@@ -9,6 +9,8 @@ import com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen;
 import com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen_MembersInjector;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity_MembersInjector;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity_MembersInjector;
 import com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers;
 import com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers_MembersInjector;
 import com.nsmiles.happybeingsdklib.broadcast.NetworkChangeReceiver;
@@ -106,6 +108,11 @@ public final class DaggerDeps implements Deps {
   }
 
   @Override
+  public void inject(SubscriptionActivity subscriptionActivity) {
+    injectSubscriptionActivity(subscriptionActivity);
+  }
+
+  @Override
   public void inject(WellBeingCategoryActivity nSmilesAssessmentCategoryActivity) {
     injectWellBeingCategoryActivity(nSmilesAssessmentCategoryActivity);
   }
@@ -154,7 +161,13 @@ public final class DaggerDeps implements Deps {
   }
 
   private HappyBeingLaunchScreen injectHappyBeingLaunchScreen(HappyBeingLaunchScreen instance) {
+    HappyBeingLaunchScreen_MembersInjector.injectMDataManager(instance, getDataManager());
     HappyBeingLaunchScreen_MembersInjector.injectService(instance, providesServiceProvider.get());
+    return instance;
+  }
+
+  private SubscriptionActivity injectSubscriptionActivity(SubscriptionActivity instance) {
+    SubscriptionActivity_MembersInjector.injectService(instance, providesServiceProvider.get());
     return instance;
   }
 

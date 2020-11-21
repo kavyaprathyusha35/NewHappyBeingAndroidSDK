@@ -13,9 +13,11 @@ import com.nsmiles.happybeingsdklib.NatureCalm.NatureCalmActivity;
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.Affimations.AffirmationScreen;
 import com.nsmiles.happybeingsdklib.MindGymFav.RelaxFavouritesActivity;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
 import com.nsmiles.happybeingsdklib.Utils.MySql;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -62,6 +64,8 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
     private FragmentManager fragmentManager;
     //Activity
     private List<String> activity_list;
+    PreferenceManager preferenceManager;
+    String payment_status;
 
     private String[] activityData = new String[]{
             AppConstants.RELAX_AUDIO,
@@ -73,7 +77,7 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
 
     private String token;
     private int today, lastAudio;
-    private String paymentStatus;
+
     private SharedPreferences prefs;
     private int audio_size = 0;
     private Random recommendRandomGenerator;
@@ -103,6 +107,8 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
         activity_list = new ArrayList<>();
         activity_list.addAll(Arrays.asList(activityData));
         prefs = activity.getSharedPreferences("HAPPY_BEING", MODE_PRIVATE);
+        preferenceManager=new PreferenceManager(activity);
+        payment_status=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
     }
 
 
@@ -187,8 +193,21 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
                         activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
 
                     } else if (activity_list.get(position).equalsIgnoreCase(AppConstants.RELAX_AUDIO)) {
-                        activity.startActivity(new Intent(activity, RelaxAudiosActivity.class));
-                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+                        if(payment_status.equalsIgnoreCase("EXPIRED")){
+
+                            activity.startActivity(new Intent(activity, SubscriptionActivity.class));
+                            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+                        }else{
+
+                            activity.startActivity(new Intent(activity, RelaxAudiosActivity.class));
+                            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+                        }
+
+
+
                     } else if (activity_list.get(position).equalsIgnoreCase(AppConstants.STRESS_RELIEF_FOOD)) {
                         activity.startActivity(new Intent(activity, RecommendFoodActivity.class));
                         activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
@@ -271,14 +290,22 @@ public class RelaxAffirmationImplementation implements RelaxAffirmationPresenter
                 homeAdapter.setRelaxPlayAudioOnClickListener(new RelaxPlayAudioOnClickListener() {
                     @Override
                     public void PlayAudioOnClickListener(String fav, List<RelaxAudioModel> relaxAudioModelList, int position) {
-                        activity.startActivity(new Intent(activity, PlayRelaxAudioActivity.class)
-                                .putExtra("AUDIO_ID", relaxAudioModelList.get(position).getId())
-                                .putExtra("AUDIO_NUMBER", relaxAudioModelList.get(position).getAudio_number())
-                                .putExtra("FAVOURITE", fav)
+
+                        if(payment_status.equalsIgnoreCase("EXPIRED")){
+
+                            activity.startActivity(new Intent(activity, SubscriptionActivity.class));
+                            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+                        }else {
 
 
-                        );
-                        activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                            activity.startActivity(new Intent(activity, PlayRelaxAudioActivity.class)
+                                    .putExtra("AUDIO_ID", relaxAudioModelList.get(position).getId())
+                                    .putExtra("AUDIO_NUMBER", relaxAudioModelList.get(position).getAudio_number())
+                                    .putExtra("FAVOURITE", fav));
+                            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+                        }
                     }
                 });
             }

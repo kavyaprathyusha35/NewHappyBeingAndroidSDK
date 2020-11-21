@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
@@ -68,6 +69,7 @@ public class RelaxAffirmationAdapter extends RecyclerView.Adapter<RelaxAffirmati
 
         if(payment_status!=null && payment_status.equalsIgnoreCase("EXPIRED")){
             holder.premium.setVisibility(View.VISIBLE);
+
         }else{
             holder.premium.setVisibility(View.GONE);
         }

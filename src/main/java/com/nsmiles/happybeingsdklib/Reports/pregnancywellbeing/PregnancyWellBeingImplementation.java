@@ -77,8 +77,8 @@ public class PregnancyWellBeingImplementation implements PregnancyWellBeingPrese
     private RadarDataSet set1, set2;
     private MarkerView mv;
     private CompositeSubscription compositeSubscription;
-    private String tag = "combined_report", PAYMENT_CATEGORY = "";
-    private WellbeingReportAdapter generalWellBeingAdapter;
+    private String tag = "combined_report", PAYMENT_CATEGORY = "corporateWellbeing";
+   // private WellbeingReportAdapter generalWellBeingAdapter;
     private CorporateWellbeingReportAdapter corporateWellbeingReportAdapter;
     //private RecyclerView recyclerView;
     private ExpandableListView expandableListView;
@@ -571,35 +571,35 @@ public class PregnancyWellBeingImplementation implements PregnancyWellBeingPrese
 
                     }
                         Log.i("WellbeingCategory", "Setting adapter");
-//                        if (CommonUtils.isNetworkAvailable(activity)) {
-//                            checkAssessmentPaymentStatus(new WellBeingCategoryImplementation.WellBeingCallBack() {
-//                                @Override
-//                                public void onPaymentCompleted() {
-//                                    corporateWellbeingReportAdapter = new CorporateWellbeingReportAdapter(activity, dataManager, categoryTableData, true, PregnancyWellBeingImplementation.this);
-//                                    expandableListView.setAdapter(corporateWellbeingReportAdapter);
-//                                    setListViewHeight(expandableListView, 0);
-//                                    if (hideRadar)
-//                                        expandableListView.expandGroup(0);
-//                                }
-//
-//                                @Override
-//                                public void onPaymentNotCompleted() {
-//                                    corporateWellbeingReportAdapter = new CorporateWellbeingReportAdapter(activity, dataManager, categoryTableData, false, PregnancyWellBeingImplementation.this);
-//                                    expandableListView.setAdapter(corporateWellbeingReportAdapter);
-//                                    setListViewHeight(expandableListView, 0);
-//                                    if (hideRadar)
-//                                        expandableListView.expandGroup(0);
-//                                }
-//                            });
-//                        }
-//                        else {
+                        if (CommonUtils.isNetworkAvailable(activity)) {
+                            checkAssessmentPaymentStatus(new WellBeingCategoryImplementation.WellBeingCallBack() {
+                                @Override
+                                public void onPaymentCompleted() {
+                                    corporateWellbeingReportAdapter = new CorporateWellbeingReportAdapter(activity, dataManager, categoryTableData, true, PregnancyWellBeingImplementation.this);
+                                    expandableListView.setAdapter(corporateWellbeingReportAdapter);
+                                    setListViewHeight(expandableListView, 0);
+                                    if (hideRadar)
+                                        expandableListView.expandGroup(0);
+                                }
+
+                                @Override
+                                public void onPaymentNotCompleted() {
+                                    corporateWellbeingReportAdapter = new CorporateWellbeingReportAdapter(activity, dataManager, categoryTableData, false, PregnancyWellBeingImplementation.this);
+                                    expandableListView.setAdapter(corporateWellbeingReportAdapter);
+                                    setListViewHeight(expandableListView, 0);
+                                    if (hideRadar)
+                                        expandableListView.expandGroup(0);
+                                }
+                            });
+                        }
+                        else {
                             corporateWellbeingReportAdapter = new CorporateWellbeingReportAdapter(activity, dataManager, categoryTableData, false, PregnancyWellBeingImplementation.this);
                             expandableListView.setAdapter(corporateWellbeingReportAdapter);
                             setListViewHeight(expandableListView, 0);
                             if (hideRadar)
                                 expandableListView.expandGroup(0);
 
-       //                 }
+                        }
 
                     }
 
@@ -669,7 +669,7 @@ public class PregnancyWellBeingImplementation implements PregnancyWellBeingPrese
             packageInfo.setAssessment_name(PAYMENT_CATEGORY);
 
 
-            new ApiProvider.PaymentPackageExpiryDetails(packageInfo, AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
+            new ApiProvider.PaymentPackageExpiryDetails(packageInfo,  commonUtils.getTokenId(activity),
                     1, null, null, new API_Response_Listener<Integer>() {
                 @Override
                 public void onComplete(Integer data, long request_code, String failure_code) {

@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -28,6 +29,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nsmiles.happybeingsdklib.R;
+import com.nsmiles.happybeingsdklib.ServerApiConnectors.API_Response_Listener;
+import com.nsmiles.happybeingsdklib.ServerApiConnectors.ApiProvider;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
@@ -265,11 +268,21 @@ public class HappyMomentView extends AppCompatActivity implements View.OnClickLi
         if (id == R.id.save_button) {
             if (from_diary) {
                 if (checkValidation()) {
-                    updateHappyMoment();
+
+                    if (CommonUtils.isNetworkAvailable(this)) {
+                        updateHappyMomentGratitude();
+                    } else {
+                        updateHappyMoment();
+                    }
                 }
             } else {
                 if (checkValidation()) {
-                    saveHappyMomentLocally();
+
+                    if (CommonUtils.isNetworkAvailable(this)) {
+                        saveHappyMomentGratitude();
+                    } else {
+                        saveHappyMomentLocally();
+                    }
 
                 }
             }
@@ -299,6 +312,85 @@ public class HappyMomentView extends AppCompatActivity implements View.OnClickLi
 
             mPopupWindow.showAtLocation(mRelativeLayout, Gravity.CENTER, 0, 0);
         }
+
+    }
+
+    private void updateHappyMomentGratitude() {
+        try {
+            if (CommonUtils.isNetworkAvailable(this)) {
+                Log.i("Express","In save express to server");
+                SelfLoveData selfLoveData = new SelfLoveData();
+                selfLoveData.setUser_id(user_id); // "59252e6c12354bed8e9b750e");
+                selfLoveData.setDate_time(new Date().toString());
+                selfLoveData.setType_of_gratitude("SELF_LOVE");
+                selfLoveData.setDescription(titleText.getText().toString());
+                selfLoveData.setLink(user_email);
+                selfLoveData.setPic(picturePath);
+                selfLoveData.setTitle(feelingText.getText().toString());
+                selfLoveData.setEmail(user_email);
+                selfLoveData.setSubject("");
+
+                // CALL API to save data
+                new ApiProvider.UpdateSelfLove(selfLoveData, commonUtils.getTokenId(this), 2, this, "Updating...", new API_Response_Listener<String>() {
+
+                    @Override
+                    public void onComplete(String data, long request_code, String failure_code) {
+                        Log.e("failure_code", failure_code);
+                        if (data == null) {
+                            Log.e("data", "null");
+                        } else {
+                            updateHappyMoment();
+                        }
+                    }
+                }).call();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        activityCall();
+//        setResult(RESULT_OK,new Intent().putExtra(AppConstants.MOVE_POSITION, move_position));
+//        finish();
+    }
+
+
+    private void saveHappyMomentGratitude() {
+
+        try {
+            if (CommonUtils.isNetworkAvailable(this)) {
+                Log.i("Express","In save express to server");
+                SelfLoveData selfLoveData = new SelfLoveData();
+                selfLoveData.setUser_id(user_id); // "59252e6c12354bed8e9b750e");
+                selfLoveData.setDate_time(new Date().toString());
+                selfLoveData.setType_of_gratitude("HAPPY_MOMENT");
+                selfLoveData.setDescription(titleText.getText().toString());
+                selfLoveData.setLink(user_email);
+                selfLoveData.setPic(picturePath);
+                selfLoveData.setTitle(feelingText.getText().toString());
+                selfLoveData.setEmail(user_email);
+                selfLoveData.setSubject("");
+
+                // CALL API to save data
+                new ApiProvider.SaveSelfLove(selfLoveData, commonUtils.getTokenId(this), 2, this, "Saving...", new API_Response_Listener<String>() {
+
+                    @Override
+                    public void onComplete(String data, long request_code, String failure_code) {
+                        Log.e("failure_code", failure_code);
+                        if (data == null) {
+                            saveHappyMomentLocally();
+                        } else {
+                            saveHappyMomentLocally();
+                        }
+                    }
+                }).call();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        activityCall();
+//        setResult(RESULT_OK);
+//        finish();
 
     }
 

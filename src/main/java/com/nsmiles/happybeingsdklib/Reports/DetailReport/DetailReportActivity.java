@@ -37,7 +37,7 @@ public class DetailReportActivity extends AppCompatActivity implements Pregnancy
     private ExpandableListView expandableListView;
     private ScrollView scrollView;
     private PregnancyWellBeingView view;
-    private DetailReportImplementation detailReportImplementation;
+   // private DetailReportImplementation detailReportImplementation;
     private Intent myIntent;
     LinearLayout appBar;
     private View progressOverlay;
@@ -103,10 +103,12 @@ public class DetailReportActivity extends AppCompatActivity implements Pregnancy
         immediate_actions_layout_heading = findViewById(R.id.immediate_actions_layout_heading);
         //report_recycler_view = (RecyclerView) findViewById(R.id.report_recycler_view);
         expandableListView.setIndicatorBounds(expandableListView.getRight()- 100, expandableListView.getWidth());
-        detailReportImplementation = new DetailReportImplementation(activity, dataManager, service,view,
-                radar_chart, expandableListView, scrollView,  myIntent);
-        detailReportImplementation.initilizeRadarChartComponent();
-        detailReportImplementation.getCorporateWellbeingReport();            }
+//        detailReportImplementation = new DetailReportImplementation(activity, dataManager, service,view,
+//                radar_chart, expandableListView, scrollView,  myIntent);
+//        detailReportImplementation.initilizeRadarChartComponent();
+//        detailReportImplementation.getCorporateWellbeingReport();
+
+    }
 
         Intent intent = getIntent();
         /*if (intent.hasExtra(AppConstants.HIDE_RADAR)) {

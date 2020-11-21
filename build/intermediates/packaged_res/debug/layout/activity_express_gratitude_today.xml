@@ -114,6 +114,8 @@
 
 
             <EditText
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
                 android:id="@+id/express_your_gratitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

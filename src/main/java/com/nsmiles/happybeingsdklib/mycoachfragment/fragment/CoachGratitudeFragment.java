@@ -137,12 +137,14 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         expiry_date=commonUtils.getExpiryDate(activity);
         coach_date_tv.setText(datedd);
         coach_month_tv.setText(monthString);
-        validtill.setText("valid till <"+expiry_date+">");
+        validtill.setText("valid till "+expiry_date);
 
 
         if(payment_status.equalsIgnoreCase("PAID")){
 
             validtill.setVisibility(View.VISIBLE);
+            getpremium.setText("Premium Access");
+            getpremium.setEnabled(false);
         }else{
             validtill.setVisibility(View.GONE);
         }
@@ -191,54 +193,6 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         return view;
     }
 
-
-
-////    private void showLayoutfirst() {
-////
-////        dd_mm_layout.postDelayed(new Runnable() {
-////            public void run() {
-////                dd_mm_layout.setVisibility(View.VISIBLE);
-////                dd_mm_layout.startAnimation(animationFadeIn);
-////                ll_tv_4.setAnimation(null);
-////                personal_text_layout.setVisibility(View.VISIBLE);
-////                personal_text_layout.startAnimation(animationFadeIn);
-////                showLayoutthird();
-////            }
-////        }, 2500);
-////
-////
-////
-////    }
-//
-//    private void showLayoutthird() {
-//
-//        past_audio_recycle_view.postDelayed(new Runnable() {
-//            public void run() {
-//                past_audio_recycle_view.setVisibility(View.VISIBLE);
-//                past_audio_recycle_view.startAnimation(animationFadeIn);
-//                personal_text_layout.setAnimation(null);
-//           //     dd_mm_layout.setAnimation(null);
-//                showLayoutfourth();
-//            }
-//        }, 2500);
-//
-//
-//    }
-//
-//    private void showLayoutfourth() {
-//
-//        descriptionOfCoach.postDelayed(new Runnable() {
-//            public void run() {
-//                descriptionOfCoach.setVisibility(View.VISIBLE);
-//                descriptionOfCoach.startAnimation(animationFadeIn);
-//                past_audio_recycle_view.setAnimation(null);
-//
-//
-//            }
-//        }, 2500);
-//
-//        settings.edit().putBoolean(AppConstants.FIRSTTIME_ANIMATION, false).commit();
-//    }
 
     private void trimSingleName() {
         String[] arr = name.split("\\s");
@@ -290,28 +244,7 @@ public class CoachGratitudeFragment extends Fragment implements CoachView, View.
         super.onResume();
         coachImplementation.hideProgress();
         setDateTexts();
-/*        if (dataManager.get(AppConstants.ROLE, "").equalsIgnoreCase(AppConstants.PROFILE_LOOKING_JOB)) {
 
-
-            if(dataManager.get(AppConstants.CAREER_START, "").length()>0){
-                coachImplementation.defaultCoachData();
-                //coachImplementation.getMindGymData();
-                coachImplementation.loadOfflineCoachData();
-                coachImplementation.pushCoachData();
-                scroll_view.setVisibility(View.GONE);
-                coach_layout.setVisibility(View.VISIBLE);
-            }
-            else {
-                scroll_view.setVisibility(View.VISIBLE);
-                coach_layout.setVisibility(View.GONE);
-            }
-
-
-
-        } else {
-            Log.i("CoachFragment", "In else loop of profile");
-
-        }*/
 
         coachImplementation.getPaymentstatus();
 

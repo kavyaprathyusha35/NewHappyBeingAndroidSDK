@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 
 import com.nsmiles.happybeingsdklib.Models.CorporateWellbeing.TableDatum;
@@ -47,11 +49,11 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
     public List<TableDatum> tableDatumList;
     TextView familytitle2,q15t1,q15t2,q15t3,q15t4,q15t5,q15d1,q15d2,q15d3,q15d4,q15d5,q152t1,q152t2,q152t3,q152t4,q152t5,q152d1,q152d2,q152d3,q152d4,q152d5;
     LinearLayout familylin1,familylin2;
-    private TextView physicaloptions1,emotiontrigger,category_tv, range_tv,message_tv ,exp_range_tv,sub_content_tv,self_plan,things_workon,recommend_tips, first_step, reward_point, workOn,self_care,family1title;
+    private TextView physicaloptions1,emotiontrigger,category_tv, range_tv,message_tv ,exp_range_tv,sub_content_tv,self_plan,things_workon,recommend_tips, first_step, workOn,self_care,family1title;
     private LinearLayout strengthsLayout, goalsLayout,selected1_layout,selected2_layout,selected21_layout,selected3_layout,selected4_layout,selected4_1layout,selected5layout,selected6layout,selected7layout,selected8layout;
     private RoundedImageView result_img;
     private String selectheader1="",selectheader2="",selectheader21="",selectheader3="",selectheader4="",selectheader41="",selectheader5="",selectheader6="",selectheader7="",selectheader8="",strengthsheadder="",goalheader="";
-
+    CommonUtils commonUtils;
     private String description="",str_physicalselected="",str_emotiontrigger="",str_recommend_tips="", message="" , exp_range="",faimlytitle1="",faimlytitle2="",faimlydescription1="", sub_content="",work_on="", firstStepString = "", rewardPointString = "", workOnString = "",str_selfcare="";
     private List<String> strengths = new ArrayList<>();
     private List<String> goals = new ArrayList<>();
@@ -70,16 +72,18 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
     private String rangeString = "";
     private CommonPresenter.ReportInterface examPressureReportPresenter;
     private DataManager dataManager;
-    private boolean isPaid=true;
+    private boolean isPaid=false;
 
     public CorporateWellbeingReportAdapter(Activity activity, DataManager dataManager, List<TableDatum> tableDatumList, boolean isPaid, CommonPresenter.ReportInterface examPressureReportPresenter) {
         Log.i("WellbingCategory","in on wellbeing report adapter");
         this.activity = activity;
         this.dataManager = dataManager;
         this.tableDatumList = tableDatumList;
-    //    this.isPaid = isPaid;
+        this.isPaid = isPaid;
         this.examPressureReportPresenter = examPressureReportPresenter;
-     //   checkForPaymentStatus();
+        commonUtils=new CommonUtils();
+        checkForPaymentStatus();
+
 
     }
 
@@ -238,8 +242,9 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
         exp_range_tv = (TextView) convertView.findViewById(R.id.exp_range_tv);
         sub_content_tv = (TextView) convertView.findViewById(R.id.sub_content_tv);
         first_step = convertView.findViewById(R.id.first_step);
-        reward_point = convertView.findViewById(R.id.reward_point);
+
         strengthsLayout = convertView.findViewById(R.id.strengths_layout);
+
         goalsLayout = convertView.findViewById(R.id.goals_layout);
         selected1_layout = convertView.findViewById(R.id.selected1_layout);
         selected2_layout = convertView.findViewById(R.id.selected2_layout);
@@ -288,8 +293,9 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
 
         if (isPaid) {
             first_step.setVisibility(View.VISIBLE);
-            reward_point.setVisibility(View.VISIBLE);
+
             strengthsLayout.setVisibility(View.VISIBLE);
+
             goalsLayout.setVisibility(View.VISIBLE);
             workOn.setVisibility(View.VISIBLE);
             selected1_layout.setVisibility(View.VISIBLE);
@@ -336,7 +342,7 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
 
         } else {
             first_step.setVisibility(View.GONE);
-            reward_point.setVisibility(View.GONE);
+
             strengthsLayout.setVisibility(View.GONE);
             goalsLayout.setVisibility(View.GONE);
             workOn.setVisibility(View.GONE);
@@ -535,6 +541,8 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
                 if (strengths.size() > 0) {
                     strengthsLayout.addView(strengthHeading);
                 }
+
+
             }
 
         }else {
@@ -1015,8 +1023,9 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
             checkAssessmentPaymentStatus(new WellBeingCategoryImplementation.WellBeingCallBack() {
                 @Override
                 public void onPaymentCompleted() {
+
                     first_step.setVisibility(View.VISIBLE);
-                    reward_point.setVisibility(View.VISIBLE);
+
                     strengthsLayout.setVisibility(View.VISIBLE);
                     goalsLayout.setVisibility(View.VISIBLE);
                     workOn.setVisibility(View.VISIBLE);
@@ -1068,7 +1077,7 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
                 @Override
                 public void onPaymentNotCompleted() {
                     first_step.setVisibility(View.GONE);
-                    reward_point.setVisibility(View.GONE);
+
                     strengthsLayout.setVisibility(View.GONE);
                     goalsLayout.setVisibility(View.GONE);
                     workOn.setVisibility(View.GONE);
@@ -1120,7 +1129,7 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
         }
         else {
             first_step.setVisibility(View.GONE);
-            reward_point.setVisibility(View.GONE);
+
             strengthsLayout.setVisibility(View.GONE);
             goalsLayout.setVisibility(View.GONE);
             workOn.setVisibility(View.GONE);
@@ -1174,12 +1183,12 @@ public class CorporateWellbeingReportAdapter extends BaseExpandableListAdapter {
 
 
         PackageInfo packageInfo = new PackageInfo();
-        packageInfo.setEmail(dataManager.get(AppConstants.SDK_EMAIL, ""));
+        packageInfo.setEmail(commonUtils.getUserEmail(activity));
         packageInfo.setPackageName(AppConstants.CORPORATE_WELLBEING);
         packageInfo.setAssessment_name(AppConstants.CORPORATE_WELLBEING);
 
 
-        new ApiProvider.PaymentPackageExpiryDetails(packageInfo, AppConstants.BEARER + dataManager.get(AppConstants.HB_USER_TOKEN, ""),
+        new ApiProvider.PaymentPackageExpiryDetails(packageInfo,  commonUtils.getTokenId(activity),
                 1, null, null, new API_Response_Listener<Integer>() {
             @Override
             public void onComplete(Integer data, long request_code, String failure_code) {

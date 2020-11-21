@@ -44,19 +44,6 @@
         android:layout_marginRight="@dimen/dimen_16dp"
         android:layout_marginBottom="2dp" />
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/reward_point"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/dimen_18dp"
-        android:textColor="@color/black"
-        android:text=""
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="@dimen/dimen_16dp"
-        android:layout_marginRight="@dimen/dimen_16dp"
-        android:layout_marginBottom="5dp" />
-
 
     <TextView
         android:visibility="gone"
@@ -88,12 +75,14 @@
             android:textSize="@dimen/dimen_18dp"
             android:textColor="@color/white"
             android:text="ACKNOWLEDGE YOUR STRENGTHS"
-
             android:padding="8dp"
             android:textStyle="bold"
-            android:background="@color/button_color"/>
+            android:background="@color/app_color"
+          />
 
     </LinearLayout>
+
+
 
 
     <TextView

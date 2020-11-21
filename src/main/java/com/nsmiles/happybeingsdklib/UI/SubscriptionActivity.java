@@ -41,7 +41,7 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
     private String one_months_amount, lifetime_months_amount, one_year_amount;
     private String amount;
     SdkPreferenceManager sdkPreferenceManager;
-    String key = "gtKFFx", txnid = "1223", productinfo = "HappyBeing", salt = "eCwWELxi",
+    String key = "UBzYP4", txnid = "1223", productinfo = "HappyBeing", salt = "w4ziPuC3",
             sUrl = "https://staging.vidalhealth.com:8443/patient/consultations/pay-success",
             fUrl = "https://staging.vidalhealth.com:8443/patient/consultations/pay-failure";
     private String serverCalculatedHash;
@@ -189,7 +189,7 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onSuccess(PaymentPackagesInfo paymentPackagesInfo) {
                 for(int i = 0; i < paymentPackagesInfo.getResult().getSuccess().size(); i++) {
-                    String lifeTimeAmount, oneMonthAmount, oneyearAmount;
+                    String lifeTimeAmount, oneMonthAmount, oneyearAmount,onedaypermonth,onemonthperyear;
                     if (paymentPackagesInfo.getResult().getSuccess().get(i).getPackagename().equals("AndroidMonthly")) {
                         oneMonthAmount =  paymentPackagesInfo.getResult().getSuccess().get(i).getAmount();
                         oneMonthsAmount.setText(oneMonthAmount);
@@ -200,6 +200,14 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
                         lifeTimeAmount = paymentPackagesInfo.getResult().getSuccess().get(i).getAmount();
                         life_time_amount.setText(lifeTimeAmount);
                         life_time_amount1.setText(lifeTimeAmount);
+                    }else if (paymentPackagesInfo.getResult().getSuccess().get(i).getPackagename().equals("AndroidPerDay")) {
+                        onedaypermonth = paymentPackagesInfo.getResult().getSuccess().get(i).getAmount();
+                        day_one_month_text.setText(onedaypermonth+" / day");
+
+                    }else if (paymentPackagesInfo.getResult().getSuccess().get(i).getPackagename().equals("AndroidPerMonth")) {
+                        onemonthperyear = paymentPackagesInfo.getResult().getSuccess().get(i).getAmount();
+                        year_one_month_text.setText(onemonthperyear+ " / mo");
+
                     }
                 }
             }
@@ -309,16 +317,16 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
         PaymentParam.Builder builder = new
                 PaymentParam.Builder();
         builder.setAmount("300")                          // Payment amount
-                .setTxnId("12919")                                             // Transaction ID
+                .setTxnId("1223")                                             // Transaction ID
                 .setPhone("6363132597")                                           // User Phone number
-                .setProductName("Happy Being")                   // Product Name or description
+                .setProductName("HappyBeing")                   // Product Name or description
                 .setFirstName(sdkPreferenceManager.get(AppConstants.SDK_NAME, ""))                              // User First name
                 .setEmail(sdkPreferenceManager.get(AppConstants.SDK_EMAIL, ""))                                            // User Email ID
                 .setsUrl(sUrl)                    // Success URL (surl)
                 .setfUrl(fUrl)                     //Failure URL (furl)
-                .setIsDebug(true)                              // Integration environment - true (Debug)/ false(Production)
+                .setIsDebug(false)                              // Integration environment - true (Debug)/ false(Production)
                 .setKey(key)
-                .setMerchantId("854959");                        // Merchant key
+                .setMerchantId("150789");                        // Merchant key
         PaymentParam paymentParam;
         paymentParam = builder.build();
         paymentParam.setMerchantHash(serverCalculatedHash);

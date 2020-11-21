@@ -1,204 +1,300 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
-INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
+INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
 	package
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:2:5-43
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:3:5-43
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:2:5-51
 	android:versionCode
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-65:12
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:1-129:12
 		INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:3:5-67
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:3:22-64
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:4:5-79
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:4:22-76
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:5:5-80
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:6:5-80
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:5:22-77
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:6:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:6:5-81
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:7:22-78
 uses-permission#android.permission.CAMERA
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:7:5-65
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:8:5-65
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:7:22-62
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:8:22-62
 uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:8:5-80
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:9:5-80
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:8:22-77
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:9:22-77
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:9:5-71
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:10:5-71
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:9:22-68
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:10:22-68
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:11:5-68
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:11:22-65
 application
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:11:5-64:19
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:13:5-128:19
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:13:9-40
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:15:9-40
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:12:9-59
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:14:9-59
+service#com.nsmiles.happybeingsdklib.network.NetworkSchedulerService
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:17:9-20:72
+	android:exported
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:19:13-36
+	android:permission
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:20:13-69
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:18:13-60
+receiver#com.nsmiles.happybeingsdklib.broadcast.NetworkChangeReceiver
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:22:9-26:20
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:22:19-66
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:23:13-25:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:24:17-79
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:24:25-76
+receiver#com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAudio
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:27:9-33:20
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:29:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:28:13-59
+intent-filter#action:name:com.project.ActionSetter
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:30:13-32:29
+action#com.project.ActionSetter
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:31:17-67
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:31:25-64
+receiver#com.nsmiles.happybeingsdklib.broadcast.AlarmForMindGymAffirmations
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:34:9-40:20
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:36:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:35:13-66
+receiver#com.nsmiles.happybeingsdklib.broadcastnotifications.ShowMindGymAudioNotification
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:42:9-48:20
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:44:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:43:13-80
+receiver#com.nsmiles.happybeingsdklib.broadcastnotifications.ShowMindGymAffirmationsNotification
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:49:9-51:41
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:51:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:50:13-87
+receiver#com.nsmiles.happybeingsdklib.broadcast.AlarmForHappyMoment
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:52:9-54:41
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:54:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:53:13-58
+receiver#com.nsmiles.happybeingsdklib.broadcastnotifications.ShowHappyMomentNotification
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:55:9-57:41
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:57:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:56:13-79
+receiver#com.nsmiles.happybeingsdklib.broadcast.DBSync
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:58:9-54
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:58:19-51
+receiver#com.nsmiles.happybeingsdklib.broadcast.AlarmForRelaxOne
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:59:9-66:20
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:62:13-38
+	android:exported
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:61:13-36
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:60:13-55
+receiver#com.nsmiles.happybeingsdklib.broadcastnotifications.ShowRelaxNotification
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:67:9-73:20
+	android:process
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:69:13-38
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:68:13-73
 activity#com.nsmiles.happybeingsdklib.UI.HomeScreenActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:14:9-16:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:75:9-77:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:15:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:76:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:16:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:77:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:14:19-56
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:75:19-56
 activity#com.nsmiles.happybeingsdklib.UI.IntroSliderActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:17:9-19:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:78:9-80:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:18:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:79:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:19:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:80:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:17:19-57
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:78:19-57
 activity#com.nsmiles.happybeingsdklib.UI.HappyBeingLaunchScreen
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:20:9-22:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:81:9-83:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:21:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:82:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:22:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:83:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:20:19-60
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:81:19-60
 activity#com.nsmiles.happybeingsdklib.UI.WebViewActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:23:9-25:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:84:9-86:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:24:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:85:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:25:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:86:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:23:19-53
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:84:19-53
 activity#com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeOthers
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:26:9-28:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:87:9-89:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:27:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:88:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:28:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:89:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:26:19-70
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:87:19-70
 activity#com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeSelfLove
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:29:9-31:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:90:9-92:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:30:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:91:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:31:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:92:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:29:19-72
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:90:19-72
 activity#com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeToday
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:32:9-34:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:93:9-95:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:33:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:94:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:34:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:95:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:32:19-69
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:93:19-69
 activity#com.nsmiles.happybeingsdklib.UI.gratitude.HappyMomentView
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:35:9-37:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:96:9-98:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:36:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:97:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:37:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:98:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:35:19-63
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:96:19-63
 activity#com.nsmiles.happybeingsdklib.MindGym.VentOutJournal
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:38:9-40:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:99:9-101:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:39:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:100:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:40:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:101:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:38:19-57
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:99:19-57
 activity#com.nsmiles.happybeingsdklib.MindGym.PlayRelaxAudioActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:41:9-43:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:102:9-104:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:42:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:103:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:43:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:104:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:41:19-65
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:102:19-65
 activity#com.nsmiles.happybeingsdklib.MindGym.RelaxAudiosActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:44:9-46:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:105:9-107:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:45:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:106:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:46:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:107:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:44:19-62
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:105:19-62
 activity#com.nsmiles.happybeingsdklib.Reports.pregnancywellbeing.SingleWellBeingReportActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:47:9-49:47
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:108:9-110:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:48:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:109:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:49:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:110:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:47:19-91
-activity#com.nsmiles.happybeingsdklib.UI.payment.SubscriptionActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:50:9-52:47
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:108:19-91
+activity#com.nsmiles.happybeingsdklib.UI.SubscriptionActivity
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:111:9-113:47
 	android:screenOrientation
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:51:13-49
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:112:13-49
 	android:theme
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:52:13-44
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:113:13-44
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:50:19-66
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:111:19-58
 activity#com.nsmiles.happybeingsdklib.MindGymFav.RelaxFavouritesActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:53:9-72
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:114:9-72
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:53:19-69
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:114:19-69
 activity#com.nsmiles.happybeingsdklib.MindGym.RecommendFoodActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:54:9-67
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:115:9-67
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:54:19-64
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:115:19-64
 activity#com.nsmiles.happybeingsdklib.NatureCalm.NatureCalmActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:55:9-67
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:116:9-67
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:55:19-64
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:116:19-64
 activity#com.nsmiles.happybeingsdklib.MindGym.VentoutRecording
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:56:9-62
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:117:9-62
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:56:19-59
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:117:19-59
 activity#com.nsmiles.happybeingsdklib.wellbeingassessment.activity.WellBeingAssessmentActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:57:9-94
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:118:9-94
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:57:19-91
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:118:19-91
 activity#com.nsmiles.happybeingsdklib.Affimations.AffirmationScreen
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:58:9-67
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:119:9-67
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:58:19-64
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:119:19-64
 activity#com.nsmiles.happybeingsdklib.playaudio.fragment.PlayAudioActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:59:9-74
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:120:9-74
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:59:19-71
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:120:19-71
 activity#com.nsmiles.happybeingsdklib.wellbeingassessment.activity.AssessmentDetailsActivity
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:60:9-92
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:121:9-92
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:60:19-89
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:121:19-89
+activity#com.nsmiles.happybeingsdklib.UI.SettingsLayout
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:122:9-55
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:122:19-52
+activity#com.nsmiles.happybeingsdklib.MindGym.ImageScreen
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:123:9-57
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:123:19-54
+activity#com.nsmiles.happybeingsdklib.UI.MyCoachDescription
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:124:9-59
+	android:name
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:124:19-56
 service#com.nsmiles.happybeingsdklib.Services.DownloadService
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:62:9-61
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:126:9-61
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:62:18-58
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:126:18-58
 service#com.nsmiles.happybeingsdklib.Services.CoachDownloadService
-ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:63:9-66
+ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:127:9-66
 	android:name
-		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:63:18-63
+		ADDED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml:127:18-63
 uses-sdk
 INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/himanshu/Downloads/nsmiles-happybeing_sdk_example_app-741cba03ae08/HappyBeingSDKLib/src/main/AndroidManifest.xml

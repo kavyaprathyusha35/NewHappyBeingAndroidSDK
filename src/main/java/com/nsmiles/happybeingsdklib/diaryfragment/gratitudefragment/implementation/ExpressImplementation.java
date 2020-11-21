@@ -12,9 +12,11 @@ import android.widget.ImageView;
 import com.nsmiles.happybeingsdklib.MindGym.VentOutJournal;
 import com.nsmiles.happybeingsdklib.R;
 import com.nsmiles.happybeingsdklib.UI.HomeScreenActivity;
+import com.nsmiles.happybeingsdklib.UI.SubscriptionActivity;
 import com.nsmiles.happybeingsdklib.UI.gratitude.ExpressGratitudeSelfLove;
 import com.nsmiles.happybeingsdklib.Utils.AppConstants;
 import com.nsmiles.happybeingsdklib.Utils.CommonUtils;
+import com.nsmiles.happybeingsdklib.dagger.data.PreferenceManager;
 import com.nsmiles.happybeingsdklib.diaryfragment.gratitudefragment.adapter.GratitudeListAdapter;
 import com.nsmiles.happybeingsdklib.diaryfragment.gratitudefragment.fragment.GratitudeJournalListFragment;
 import com.nsmiles.happybeingsdklib.diaryfragment.gratitudefragment.presenter.ExpressPresenter;
@@ -50,6 +52,8 @@ public class ExpressImplementation implements ExpressPresenter {
     private DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS Z", Locale.getDefault());
     private final int REQUEST_JOURNAL = 55555;
     private FragmentManager fragmentManager;
+    String payment_status;
+    PreferenceManager preferenceManager;
 
     public ExpressImplementation(Activity activity, FragmentManager fragmentManager, ExpressView expressView, RecyclerView recyclerView) {
         this.fragmentManager = fragmentManager;
@@ -58,6 +62,8 @@ public class ExpressImplementation implements ExpressPresenter {
         this.recyclerView = recyclerView;
         commonUtils = new CommonUtils();
         START_DATE = df.format(Calendar.getInstance().getTime());
+        preferenceManager=new PreferenceManager(activity);
+        payment_status=preferenceManager.get(AppConstants.PAYMENT_STATUS,"");
     }
 
 
@@ -94,11 +100,24 @@ public class ExpressImplementation implements ExpressPresenter {
                 public void actionExpressOnClickListener(List<String> getGratitudeList, int position) {
 
                     if (getGratitudeList.get(position).equalsIgnoreCase(AppConstants.GRATITUDE_JOURNAL)) {
-                        HomeScreenActivity.viewJournalClicked = true;
-                        Fragment fragment = new GratitudeJournalListFragment();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.new_screen_fragment_layout, fragment, fragment.getClass().getSimpleName());
-                        fragmentTransaction.commit();
+
+                        if(payment_status.equalsIgnoreCase("EXPIRED")){
+
+                            activity.startActivity(new Intent(activity, SubscriptionActivity.class));
+                            activity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+
+
+                        }else{
+                            HomeScreenActivity.viewJournalClicked = true;
+                            Fragment fragment = new GratitudeJournalListFragment();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.new_screen_fragment_layout, fragment, fragment.getClass().getSimpleName());
+                            fragmentTransaction.commit();
+                        }
+
+
+
+
                     } else if (getGratitudeList.get(position).equalsIgnoreCase(AppConstants.ABUDANCE_JOURNAL)) {
 
 
