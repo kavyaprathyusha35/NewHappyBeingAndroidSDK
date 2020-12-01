@@ -14,6 +14,9 @@ public class UserProfile implements Serializable
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("companyName")
+    @Expose
+    private String companyName;
     @SerializedName("mobileNo")
     @Expose
     private String mobileNo;
@@ -52,5 +55,13 @@ public class UserProfile implements Serializable
 
     public void setRegisterorloggedin(String registerorloggedin) {
         this.registerorloggedin = registerorloggedin;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

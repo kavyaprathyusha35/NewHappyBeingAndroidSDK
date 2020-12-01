@@ -32,7 +32,7 @@ public class AuthResult implements Serializable
     @SerializedName("userStatus")
     @Expose
     private String userStatus;
-    @SerializedName("companyName")
+    @SerializedName("company_name")
     @Expose
     private String companyName;
     private final static long serialVersionUID = 5692130182473972258L;
