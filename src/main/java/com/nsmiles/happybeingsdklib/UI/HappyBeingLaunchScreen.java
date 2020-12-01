@@ -489,5 +489,4 @@ public class HappyBeingLaunchScreen extends AppCompatActivity {
         }
         mDataManager.save(AppConstants.IS_FIRST_TIME, false);
     }
-
 }

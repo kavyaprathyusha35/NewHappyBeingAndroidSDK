@@ -53,6 +53,7 @@ public class ApiProvider {
                         sdkPreferenceManager.save(AppConstants.SDK_PROFILE_ID, authSuccessModel.body().getResult().getUserProfileId());
                         sdkPreferenceManager.save(AppConstants.SDK_CUSTOMER_ID, authSuccessModel.body().getResult().getCustomerId());
                         sdkPreferenceManager.save(AppConstants.NEW_OR_OLD, authSuccessModel.body().getResult().getUserStatus());
+                        sdkPreferenceManager.save(AppConstants.COMPANY_NAME, authSuccessModel.body().getResult().getCompanyName());
                         String expiry_date = CommonUtils.getDateFormat(authSuccessModel.body().getResult().getExpiresAt());
                         sdkPreferenceManager.save(AppConstants.SDK_EXPIRY_AT, expiry_date);
                         sdkPreferenceManager.save(AppConstants.SDK_LOGIN_STATUS, authSuccessModel.body().getSuccess());

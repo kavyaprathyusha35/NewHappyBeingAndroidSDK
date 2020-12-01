@@ -69,6 +69,7 @@ public class AppConstants {
     public static final String ITEM_SKU_LIFETIME = "life_time";
     public static final String ITEM_SKU_ONE_MONTH = "one_month";
     public static final String NEW_OR_OLD = "new_or_old";
+    public static final String COMPANY_NAME = "company_name";
     public static String BEARER = "Bearer";
     public static final String GENERAL_CATEGORY_GROUP = "general_category_group";
     public static final String IMAGE_URL = "https://www.nsmiles.com/";

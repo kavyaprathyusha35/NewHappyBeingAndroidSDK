@@ -293,8 +293,8 @@ public class SubscriptionActivity extends AppCompatActivity implements View.OnCl
 
     private void payUMoneySetUp() {
 
-        String hashSequence = key + txnid + amount + productinfo + sdkPreferenceManager.get(AppConstants.SDK_NAME, "") + sdkPreferenceManager.get(AppConstants.SDK_EMAIL, "") + salt;
-        serverCalculatedHash= hashCal("SHA-512", hashSequence);
+        String hashSequence = key +"|"+ txnid + "|"+ amount + "|"+ productinfo + "|"+ sdkPreferenceManager.get(AppConstants.SDK_NAME, "") + "|"+ sdkPreferenceManager.get(AppConstants.SDK_EMAIL, "") + "|"+ salt;
+        serverCalculatedHash = hashCal("SHA-512", hashSequence);
     }
 
     public static String hashCal(String type, String hashString) {

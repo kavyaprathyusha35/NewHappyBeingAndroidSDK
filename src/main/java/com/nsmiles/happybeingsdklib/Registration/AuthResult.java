@@ -32,6 +32,9 @@ public class AuthResult implements Serializable
     @SerializedName("userStatus")
     @Expose
     private String userStatus;
+    @SerializedName("companyName")
+    @Expose
+    private String companyName;
     private final static long serialVersionUID = 5692130182473972258L;
 
     public String getName() {
@@ -96,5 +99,13 @@ public class AuthResult implements Serializable
 
     public void setUserStatus(String userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

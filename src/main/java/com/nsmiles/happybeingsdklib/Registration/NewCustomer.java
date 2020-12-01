@@ -20,6 +20,9 @@ public class NewCustomer implements Serializable {
     @SerializedName("userProfile")
     @Expose
     private UserProfile userProfile;
+    @SerializedName("companyName")
+    @Expose
+    private String companyName;
     private final static long serialVersionUID = -1309668875352192502L;
 
     public String getName() {
@@ -54,5 +57,12 @@ public class NewCustomer implements Serializable {
         this.userProfile = userProfile;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 }
 

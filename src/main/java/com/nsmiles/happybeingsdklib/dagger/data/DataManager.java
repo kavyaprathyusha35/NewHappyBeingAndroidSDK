@@ -62,20 +62,6 @@ public class DataManager {
         happyUtils.alert(activity,title,message,button_name);
     }
 
-    /*Debug Log*/
-    public void debugLog(String tag, String log){
-        happyUtils.debugLog(tag, log);
-    }
-
-    /*Error Log*/
-    public void errorLog(String tag, String log){
-        happyUtils.errorLog(tag, log);
-    }
-
-    /*Error Log With Throwable*/
-    public void errorLog(String tag, String log, Throwable t){
-        happyUtils.errorLog(tag, log, t);
-    }
 
     /*Information Log*/
      public void infoLog(String tag, String log){
